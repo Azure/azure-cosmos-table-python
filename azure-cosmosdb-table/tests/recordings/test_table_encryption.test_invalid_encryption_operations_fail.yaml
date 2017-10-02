@@ -1,0 +1,46 @@
+interactions:
+- request:
+    body: !!python/unicode '{"sex": "jRLJaYb8ofyaJMeC83sJ1w==", "birthday@odata.type":
+      "Edm.DateTime", "evenratio": 3.0, "binary": "YmluYXJ5", "ratio": 3.1, "large@odata.type":
+      "Edm.Int64", "Birthday@odata.type": "Edm.DateTime", "Birthday": "1973-10-04T00:00:00Z",
+      "clsid": "c9da6455-213d-42c9-9a79-3e9149a57833", "RowKey": "rkfdd194e", "_ClientEncryptionMetadata2@odata.type":
+      "Edm.Binary", "name@odata.type": "Edm.Binary", "birthday": "1970-10-04T00:00:00Z",
+      "binary@odata.type": "Edm.Binary", "optional": null, "_ClientEncryptionMetadata1":
+      "{\"WrappedContentKey\": {\"KeyId\": \"key1\", \"EncryptedKey\": \"IysuASXD/tfdOcTnLaTgbn3Magks4UHSv/hfm4Za5SydGtNWpCuyvw==\",
+      \"Algorithm\": \"A256KW\"}, \"EncryptionAgent\": {\"Protocol\": \"1.0\", \"EncryptionAlgorithm\":
+      \"AES_CBC_256\"}, \"ContentEncryptionIV\": \"IYUtWakQoGUrKF1+cfU1Lg==\", \"KeyWrappingMetadata\":
+      {\"EncryptionLibrary\": \"Python 0.36.0\"}}", "_ClientEncryptionMetadata2":
+      "DRuqZGMH1U7JZnSJ9hXbhg==", "sex@odata.type": "Edm.Binary", "age@odata.type":
+      "Edm.Int64", "name": "hA8Jf/ESuGH72Sw96M1YfQ==", "clsid@odata.type": "Edm.Guid",
+      "married": true, "large": "933311100", "PartitionKey": "pkfdd194e", "other":
+      20, "age": "39", "deceased": false}'
+    headers:
+      Accept: [application/json;odata=minimalmetadata]
+      Connection: [keep-alive]
+      Content-Length: ['1186']
+      Content-Type: [application/json]
+      DataServiceVersion: [3.0;NetFx]
+      MaxDataServiceVersion: ['3.0']
+      Prefer: [return-no-content]
+      User-Agent: [Azure-Storage/0.36.0 (Python CPython 2.7.10; Darwin 16.7.0)]
+      x-ms-client-request-id: [19608a57-a295-11e7-ac3d-b8e8564491f6]
+      x-ms-date: ['Tue, 26 Sep 2017 08:31:31 GMT']
+      x-ms-version: ['2017-04-17']
+    method: POST
+    uri: https://storagename.table.core.windows.net/uttablefdd194e
+  response:
+    body: {string: !!python/unicode ''}
+    headers:
+      cache-control: [no-cache]
+      content-length: ['0']
+      dataserviceid: ['https://storagename.table.core.windows.net/uttablefdd194e(PartitionKey=''pkfdd194e'',RowKey=''rkfdd194e'')']
+      date: ['Tue, 26 Sep 2017 08:31:33 GMT']
+      etag: [W/"datetime'2017-09-26T08%3A31%3A33.1559324Z'"]
+      location: ['https://storagename.table.core.windows.net/uttablefdd194e(PartitionKey=''pkfdd194e'',RowKey=''rkfdd194e'')']
+      preference-applied: [return-no-content]
+      server: [Windows-Azure-Table/1.0 Microsoft-HTTPAPI/2.0]
+      x-content-type-options: [nosniff]
+      x-ms-request-id: [06571238-0002-0007-11a1-36fe58000000]
+      x-ms-version: ['2017-04-17']
+    status: {code: 204, message: No Content}
+version: 1

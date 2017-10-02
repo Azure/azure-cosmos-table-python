@@ -1,0 +1,70 @@
+interactions:
+- request:
+    body: !!python/unicode '{"binary": "YmluYXJ5", "age@odata.type": "Edm.Int64",
+      "PartitionKey": "pkabcb1791", "ratio": 3.1, "large@odata.type": "Edm.Int64",
+      "age": "39", "married": true, "Birthday@odata.type": "Edm.DateTime", "sex":
+      "male", "large": "933311100", "birthday@odata.type": "Edm.DateTime", "birthday":
+      "1970-10-04T00:00:00Z", "evenratio": 3.0, "RowKey": "rkabcb1791", "clsid": "c9da6455-213d-42c9-9a79-3e9149a57833",
+      "binary@odata.type": "Edm.Binary", "Birthday": "1973-10-04T00:00:00Z", "other":
+      20, "optional": null, "clsid@odata.type": "Edm.Guid", "deceased": false}'
+    headers:
+      Accept: [application/json;odata=minimalmetadata]
+      Connection: [keep-alive]
+      Content-Length: ['555']
+      Content-Type: [application/json]
+      DataServiceVersion: [3.0;NetFx]
+      MaxDataServiceVersion: ['3.0']
+      Prefer: [return-no-content]
+      User-Agent: [Azure-Storage/0.36.0 (Python CPython 2.7.10; Darwin 16.7.0)]
+      x-ms-client-request-id: [9d1d4c8c-a295-11e7-8020-b8e8564491f6]
+      x-ms-date: ['Tue, 26 Sep 2017 08:35:12 GMT']
+      x-ms-version: ['2017-04-17']
+    method: POST
+    uri: https://storagename.table.core.windows.net/uttableabcb1791
+  response:
+    body: {string: !!python/unicode ''}
+    headers:
+      cache-control: [no-cache]
+      content-length: ['0']
+      dataserviceid: ['https://storagename.table.core.windows.net/uttableabcb1791(PartitionKey=''pkabcb1791'',RowKey=''rkabcb1791'')']
+      date: ['Tue, 26 Sep 2017 08:35:12 GMT']
+      etag: [W/"datetime'2017-09-26T08%3A35%3A13.0406507Z'"]
+      location: ['https://storagename.table.core.windows.net/uttableabcb1791(PartitionKey=''pkabcb1791'',RowKey=''rkabcb1791'')']
+      preference-applied: [return-no-content]
+      server: [Windows-Azure-Table/1.0 Microsoft-HTTPAPI/2.0]
+      x-content-type-options: [nosniff]
+      x-ms-request-id: [e83e0409-0002-002e-06a2-36c02c000000]
+      x-ms-version: ['2017-04-17']
+    status: {code: 204, message: No Content}
+- request:
+    body: !!python/unicode '{"age": "abc", "birthday": "1991-10-04T00:00:00Z", "sex":
+      "female", "birthday@odata.type": "Edm.DateTime", "PartitionKey": "pkabcb1791",
+      "RowKey": "rkabcb1791", "sign": "aquarius"}'
+    headers:
+      Accept: [application/json;odata=minimalmetadata]
+      Connection: [keep-alive]
+      Content-Length: ['180']
+      Content-Type: [application/json]
+      DataServiceVersion: [3.0;NetFx]
+      If-Match: [W/"datetime'2012-06-15T22%3A51%3A44.9662825Z'"]
+      MaxDataServiceVersion: ['3.0']
+      User-Agent: [Azure-Storage/0.36.0 (Python CPython 2.7.10; Darwin 16.7.0)]
+      x-ms-client-request-id: [9d5d70b3-a295-11e7-8f6a-b8e8564491f6]
+      x-ms-date: ['Tue, 26 Sep 2017 08:35:13 GMT']
+      x-ms-version: ['2017-04-17']
+    method: PUT
+    uri: https://storagename.table.core.windows.net/uttableabcb1791(PartitionKey='pkabcb1791',RowKey='rkabcb1791')
+  response:
+    body: {string: !!python/unicode '{"odata.error":{"code":"UpdateConditionNotSatisfied","message":{"lang":"en-US","value":"The
+        update condition specified in the request was not satisfied.\nRequestId:e83e0411-0002-002e-0ca2-36c02c000000\nTime:2017-09-26T08:35:13.1556588Z"}}}'}
+    headers:
+      cache-control: [no-cache]
+      content-type: [application/json;odata=minimalmetadata;streaming=true;charset=utf-8]
+      date: ['Tue, 26 Sep 2017 08:35:12 GMT']
+      server: [Windows-Azure-Table/1.0 Microsoft-HTTPAPI/2.0]
+      transfer-encoding: [chunked]
+      x-content-type-options: [nosniff]
+      x-ms-request-id: [e83e0411-0002-002e-0ca2-36c02c000000]
+      x-ms-version: ['2017-04-17']
+    status: {code: 412, message: Precondition Failed}
+version: 1

@@ -1,0 +1,59 @@
+interactions:
+- request:
+    body: !!python/unicode '{"PartitionKey": "pkf941967", "RowKey": "rkf941967"}'
+    headers:
+      Accept: [application/json;odata=minimalmetadata]
+      Connection: [keep-alive]
+      Content-Length: ['52']
+      Content-Type: [application/json]
+      DataServiceVersion: [3.0;NetFx]
+      MaxDataServiceVersion: ['3.0']
+      Prefer: [return-no-content]
+      User-Agent: [Azure-Storage/0.36.0 (Python CPython 2.7.10; Darwin 16.7.0)]
+      x-ms-client-request-id: [173cdfba-a295-11e7-a8f5-b8e8564491f6]
+      x-ms-date: ['Tue, 26 Sep 2017 08:31:28 GMT']
+      x-ms-version: ['2017-04-17']
+    method: POST
+    uri: https://storagename.table.core.windows.net/uttablef941967
+  response:
+    body: {string: !!python/unicode ''}
+    headers:
+      cache-control: [no-cache]
+      content-length: ['0']
+      dataserviceid: ['https://storagename.table.core.windows.net/uttablef941967(PartitionKey=''pkf941967'',RowKey=''rkf941967'')']
+      date: ['Tue, 26 Sep 2017 08:31:27 GMT']
+      etag: [W/"datetime'2017-09-26T08%3A31%3A28.0513372Z'"]
+      location: ['https://storagename.table.core.windows.net/uttablef941967(PartitionKey=''pkf941967'',RowKey=''rkf941967'')']
+      preference-applied: [return-no-content]
+      server: [Windows-Azure-Table/1.0 Microsoft-HTTPAPI/2.0]
+      x-content-type-options: [nosniff]
+      x-ms-request-id: [3423d551-0002-000c-5aa1-360533000000]
+      x-ms-version: ['2017-04-17']
+    status: {code: 204, message: No Content}
+- request:
+    body: null
+    headers:
+      Accept: [application/json;odata=minimalmetadata]
+      Connection: [keep-alive]
+      DataServiceVersion: [3.0;NetFx]
+      MaxDataServiceVersion: ['3.0']
+      User-Agent: [Azure-Storage/0.36.0 (Python CPython 2.7.10; Darwin 16.7.0)]
+      x-ms-client-request-id: [177dbc38-a295-11e7-892b-b8e8564491f6]
+      x-ms-date: ['Tue, 26 Sep 2017 08:31:28 GMT']
+      x-ms-version: ['2017-04-17']
+    method: GET
+    uri: https://storagename.table.core.windows.net/uttablef941967(PartitionKey='pkf941967',RowKey='rkf941967')
+  response:
+    body: {string: !!python/unicode '{"odata.metadata":"https://storagename.table.core.windows.net/$metadata#uttablef941967/@Element","odata.etag":"W/\"datetime''2017-09-26T08%3A31%3A28.0513372Z''\"","PartitionKey":"pkf941967","RowKey":"rkf941967","Timestamp":"2017-09-26T08:31:28.0513372Z"}'}
+    headers:
+      cache-control: [no-cache]
+      content-type: [application/json;odata=minimalmetadata;streaming=true;charset=utf-8]
+      date: ['Tue, 26 Sep 2017 08:31:27 GMT']
+      etag: [W/"datetime'2017-09-26T08%3A31%3A28.0513372Z'"]
+      server: [Windows-Azure-Table/1.0 Microsoft-HTTPAPI/2.0]
+      transfer-encoding: [chunked]
+      x-content-type-options: [nosniff]
+      x-ms-request-id: [3423d55d-0002-000c-64a1-360533000000]
+      x-ms-version: ['2017-04-17']
+    status: {code: 200, message: OK}
+version: 1

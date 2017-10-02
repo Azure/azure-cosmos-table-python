@@ -1,0 +1,29 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept: [application/json;odata=minimalmetadata]
+      Connection: [keep-alive]
+      Content-Length: ['0']
+      DataServiceVersion: [3.0;NetFx]
+      MaxDataServiceVersion: ['3.0']
+      User-Agent: [Azure-Storage/0.36.0 (Python CPython 2.7.10; Darwin 16.7.0)]
+      x-ms-client-request-id: [efb06002-a294-11e7-a240-b8e8564491f6]
+      x-ms-date: ['Tue, 26 Sep 2017 08:30:21 GMT']
+      x-ms-version: ['2017-04-17']
+    method: DELETE
+    uri: https://storagename.table.core.windows.net/Tables('table31901545')
+  response:
+    body: {string: !!python/unicode '{"odata.error":{"code":"ResourceNotFound","message":{"lang":"en-US","value":"The
+        specified resource does not exist.\nRequestId:d83a73a3-0002-0042-11a1-362bbb000000\nTime:2017-09-26T08:30:21.3359503Z"}}}'}
+    headers:
+      cache-control: [no-cache]
+      content-type: [application/json;odata=minimalmetadata;streaming=true;charset=utf-8]
+      date: ['Tue, 26 Sep 2017 08:30:20 GMT']
+      server: [Windows-Azure-Table/1.0 Microsoft-HTTPAPI/2.0]
+      transfer-encoding: [chunked]
+      x-content-type-options: [nosniff]
+      x-ms-request-id: [d83a73a3-0002-0042-11a1-362bbb000000]
+      x-ms-version: ['2017-04-17']
+    status: {code: 404, message: Not Found}
+version: 1

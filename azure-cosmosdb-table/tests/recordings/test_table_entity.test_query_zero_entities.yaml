@@ -1,0 +1,93 @@
+interactions:
+- request:
+    body: !!python/unicode '{"TableName": "querytable7732118a"}'
+    headers:
+      Accept: [application/json;odata=minimalmetadata]
+      Connection: [keep-alive]
+      Content-Length: ['35']
+      Content-Type: [application/json]
+      DataServiceVersion: [3.0;NetFx]
+      MaxDataServiceVersion: ['3.0']
+      Prefer: [return-no-content]
+      User-Agent: [Azure-Storage/0.36.0 (Python CPython 2.7.10; Darwin 16.7.0)]
+      x-ms-client-request-id: [9605e2c5-a295-11e7-bdfd-b8e8564491f6]
+      x-ms-date: ['Tue, 26 Sep 2017 08:35:00 GMT']
+      x-ms-version: ['2017-04-17']
+    method: POST
+    uri: https://storagename.table.core.windows.net/Tables
+  response:
+    body: {string: !!python/unicode ''}
+    headers:
+      cache-control: [no-cache]
+      content-length: ['0']
+      dataserviceid: ['https://storagename.table.core.windows.net/Tables(''querytable7732118a'')']
+      date: ['Tue, 26 Sep 2017 08:34:59 GMT']
+      location: ['https://storagename.table.core.windows.net/Tables(''querytable7732118a'')']
+      preference-applied: [return-no-content]
+      server: [Windows-Azure-Table/1.0 Microsoft-HTTPAPI/2.0]
+      x-content-type-options: [nosniff]
+      x-ms-request-id: [36512350-0002-0001-36a2-36cde7000000]
+      x-ms-version: ['2017-04-17']
+    status: {code: 204, message: No Content}
+- request:
+    body: !!python/unicode '--batch_96476500-a295-11e7-a86b-b8e8564491f6
+
+      Content-Type: multipart/mixed; boundary=changeset_964766b8-a295-11e7-863b-b8e8564491f6
+
+
+      --changeset_964766b8-a295-11e7-863b-b8e8564491f6--
+
+      --batch_96476500-a295-11e7-a86b-b8e8564491f6--'
+    headers:
+      Connection: [keep-alive]
+      Content-Length: ['230']
+      Content-Type: [!!python/unicode 'multipart/mixed; boundary=batch_96476500-a295-11e7-a86b-b8e8564491f6']
+      DataServiceVersion: [3.0;NetFx]
+      MaxDataServiceVersion: ['3.0']
+      User-Agent: [Azure-Storage/0.36.0 (Python CPython 2.7.10; Darwin 16.7.0)]
+      x-ms-client-request-id: [9647690f-a295-11e7-90a5-b8e8564491f6]
+      x-ms-date: ['Tue, 26 Sep 2017 08:35:01 GMT']
+      x-ms-version: ['2017-04-17']
+    method: POST
+    uri: https://storagename.table.core.windows.net/$batch
+  response:
+    body: {string: !!python/unicode "--batchresponse_a01f8991-cdd0-4df9-bd5d-7cc3fabc62b8\r\
+        \nContent-Type: multipart/mixed; boundary=changesetresponse_eae906a0-136e-4f14-a62a-e590a091e79e\r\
+        \n\r\n--changesetresponse_eae906a0-136e-4f14-a62a-e590a091e79e--\r\n--batchresponse_a01f8991-cdd0-4df9-bd5d-7cc3fabc62b8--\r\
+        \n"}
+    headers:
+      cache-control: [no-cache]
+      content-type: [multipart/mixed; boundary=batchresponse_a01f8991-cdd0-4df9-bd5d-7cc3fabc62b8]
+      date: ['Tue, 26 Sep 2017 08:34:59 GMT']
+      server: [Windows-Azure-Table/1.0 Microsoft-HTTPAPI/2.0]
+      transfer-encoding: [chunked]
+      x-content-type-options: [nosniff]
+      x-ms-request-id: [3651235a-0002-0001-3ea2-36cde7000000]
+      x-ms-version: ['2017-04-17']
+    status: {code: 202, message: Accepted}
+- request:
+    body: null
+    headers:
+      Accept: [application/json;odata=minimalmetadata]
+      Connection: [keep-alive]
+      DataServiceVersion: [3.0;NetFx]
+      MaxDataServiceVersion: ['3.0']
+      User-Agent: [Azure-Storage/0.36.0 (Python CPython 2.7.10; Darwin 16.7.0)]
+      x-ms-client-request-id: [965759a6-a295-11e7-8ef8-b8e8564491f6]
+      x-ms-date: ['Tue, 26 Sep 2017 08:35:01 GMT']
+      x-ms-version: ['2017-04-17']
+    method: GET
+    uri: https://storagename.table.core.windows.net/querytable7732118a()
+  response:
+    body: {string: !!python/unicode '{"odata.metadata":"https://storagename.table.core.windows.net/$metadata#querytable7732118a","value":[]}'}
+    headers:
+      cache-control: [no-cache]
+      content-type: [application/json;odata=minimalmetadata;streaming=true;charset=utf-8]
+      date: ['Tue, 26 Sep 2017 08:35:00 GMT']
+      server: [Windows-Azure-Table/1.0 Microsoft-HTTPAPI/2.0]
+      transfer-encoding: [chunked]
+      x-content-type-options: [nosniff]
+      x-ms-request-id: [36512360-0002-0001-44a2-36cde7000000]
+      x-ms-version: ['2017-04-17']
+    status: {code: 200, message: OK}
+version: 1
