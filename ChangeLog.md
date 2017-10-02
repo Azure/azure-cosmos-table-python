@@ -2,9 +2,7 @@
 
 > See [BreakingChanges](BreakingChanges.md) for a detailed list of API breaks.
 
-**Note: This changelog is deprecated starting with version XX.XX.XX, please refer to the ChangeLog.md in each package for future change logs.** 
-
-## Version XX.XX.XX:
+## Version 0.36.0:
     
 ### All:
 - Added logging to the library, the name of the logger is 'azure.storage'. User must add handlers to the logger to output logs.
@@ -13,7 +11,7 @@
     - azure-storage-blob
     - azure-storage-file
     - azure-storage-queue
-    - azure-storage-table
+    - azure-cosmosdb-table (namespace changed from azure-storage to azure-cosmosdb for tables SDK)
 - The package `azure-storage` is now deprecated.
 - The classes that were directly under azure.storage, not under azure.storage.*(blob, file, queue, table), are now under azure.storage.common.
     - Example: azure.storage.retry becomes azure.storage.common.retry
