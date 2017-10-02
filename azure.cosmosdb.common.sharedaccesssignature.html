@@ -1,0 +1,222 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>azure.cosmosdb.common.sharedaccesssignature module &#8212; Azure CosmosDB SDK for Python 0.36.0 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.36.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-azure.cosmosdb.common.sharedaccesssignature">
+<span id="azure-cosmosdb-common-sharedaccesssignature-module"></span><h1>azure.cosmosdb.common.sharedaccesssignature module<a class="headerlink" href="#module-azure.cosmosdb.common.sharedaccesssignature" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="azure.cosmosdb.common.sharedaccesssignature.SharedAccessSignature">
+<em class="property">class </em><code class="descclassname">azure.cosmosdb.common.sharedaccesssignature.</code><code class="descname">SharedAccessSignature</code><span class="sig-paren">(</span><em>account_name</em>, <em>account_key</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/azure/cosmosdb/common/sharedaccesssignature.html#SharedAccessSignature"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#azure.cosmosdb.common.sharedaccesssignature.SharedAccessSignature" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Provides a factory for creating table access
+signature tokens with a common account name and account key.  Users can either 
+use the factory or can construct the appropriate service and use the 
+generate_*_shared_access_signature method directly.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>account_name</strong> (<em>str</em>) – The storage account name used to generate the shared access signatures.</li>
+<li><strong>account_key</strong> (<em>str</em>) – The access key to genenerate the shares access signatures.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="azure.cosmosdb.common.sharedaccesssignature.SharedAccessSignature.generate_account">
+<code class="descname">generate_account</code><span class="sig-paren">(</span><em>services</em>, <em>resource_types</em>, <em>permission</em>, <em>expiry</em>, <em>start=None</em>, <em>ip=None</em>, <em>protocol=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/azure/cosmosdb/common/sharedaccesssignature.html#SharedAccessSignature.generate_account"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#azure.cosmosdb.common.sharedaccesssignature.SharedAccessSignature.generate_account" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates a shared access signature for the account.
+Use the returned signature with the sas_token parameter of the service 
+or to create a new account object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>services</strong> (<a class="reference internal" href="azure.cosmosdb.common.models.html#azure.cosmosdb.common.models.Services" title="azure.cosmosdb.common.models.Services"><em>Services</em></a>) – Specifies the services accessible with the account SAS. You can 
+combine values to provide access to more than one service.</li>
+<li><strong>resource_types</strong> (<a class="reference internal" href="azure.cosmosdb.common.models.html#azure.cosmosdb.common.models.ResourceTypes" title="azure.cosmosdb.common.models.ResourceTypes"><em>ResourceTypes</em></a>) – Specifies the resource types that are accessible with the account 
+SAS. You can combine values to provide access to more than one 
+resource type.</li>
+<li><strong>permission</strong> (<a class="reference internal" href="azure.cosmosdb.common.models.html#azure.cosmosdb.common.models.AccountPermissions" title="azure.cosmosdb.common.models.AccountPermissions"><em>AccountPermissions</em></a>) – The permissions associated with the shared access signature. The 
+user is restricted to operations allowed by the permissions. 
+Required unless an id is given referencing a stored access policy 
+which contains this field. This field must be omitted if it has been 
+specified in an associated stored access policy. You can combine 
+values to provide more than one permission.</li>
+<li><strong>expiry</strong> (<em>datetime</em><em> or </em><em>str</em>) – The time at which the shared access signature becomes invalid. 
+Required unless an id is given referencing a stored access policy 
+which contains this field. This field must be omitted if it has 
+been specified in an associated stored access policy. Azure will always 
+convert values to UTC. If a date is passed in without timezone info, it 
+is assumed to be UTC.</li>
+<li><strong>start</strong> (<em>datetime</em><em> or </em><em>str</em>) – The time at which the shared access signature becomes valid. If 
+omitted, start time for this call is assumed to be the time when the 
+storage service receives the request. Azure will always convert values 
+to UTC. If a date is passed in without timezone info, it is assumed to 
+be UTC.</li>
+<li><strong>ip</strong> (<em>str</em>) – Specifies an IP address or a range of IP addresses from which to accept requests.
+If the IP address from which the request originates does not match the IP address
+or address range specified on the SAS token, the request is not authenticated.
+For example, specifying sip=168.1.5.65 or sip=168.1.5.60-168.1.5.70 on the SAS
+restricts the request to those IP addresses.</li>
+<li><strong>protocol</strong> (<em>str</em>) – Specifies the protocol permitted for a request made. The default value
+is https,http. See <code class="xref py py-class docutils literal"><span class="pre">Protocol</span></code> for possible values.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="azure.cosmosdb.common.sharedaccesssignature.SharedAccessSignature.generate_table">
+<code class="descname">generate_table</code><span class="sig-paren">(</span><em>table_name</em>, <em>permission=None</em>, <em>expiry=None</em>, <em>start=None</em>, <em>id=None</em>, <em>ip=None</em>, <em>protocol=None</em>, <em>start_pk=None</em>, <em>start_rk=None</em>, <em>end_pk=None</em>, <em>end_rk=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/azure/cosmosdb/common/sharedaccesssignature.html#SharedAccessSignature.generate_table"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#azure.cosmosdb.common.sharedaccesssignature.SharedAccessSignature.generate_table" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates a shared access signature for the table.
+Use the returned signature with the sas_token parameter of TableService.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>table_name</strong> (<em>str</em>) – Name of table.</li>
+<li><strong>permission</strong> (<a class="reference internal" href="azure.cosmosdb.table.models.html#azure.cosmosdb.table.models.TablePermissions" title="azure.cosmosdb.table.models.TablePermissions"><em>TablePermissions</em></a>) – The permissions associated with the shared access signature. The 
+user is restricted to operations allowed by the permissions. 
+Required unless an id is given referencing a stored access policy 
+which contains this field. This field must be omitted if it has been 
+specified in an associated stored access policy.</li>
+<li><strong>expiry</strong> (<em>datetime</em><em> or </em><em>str</em>) – The time at which the shared access signature becomes invalid. 
+Required unless an id is given referencing a stored access policy 
+which contains this field. This field must be omitted if it has 
+been specified in an associated stored access policy. Azure will always 
+convert values to UTC. If a date is passed in without timezone info, it 
+is assumed to be UTC.</li>
+<li><strong>start</strong> (<em>datetime</em><em> or </em><em>str</em>) – The time at which the shared access signature becomes valid. If 
+omitted, start time for this call is assumed to be the time when the 
+storage service receives the request. Azure will always convert values 
+to UTC. If a date is passed in without timezone info, it is assumed to 
+be UTC.</li>
+<li><strong>id</strong> (<em>str</em>) – A unique value up to 64 characters in length that correlates to a 
+stored access policy. To create a stored access policy, use 
+set_table_service_properties.</li>
+<li><strong>ip</strong> (<em>str</em>) – Specifies an IP address or a range of IP addresses from which to accept requests.
+If the IP address from which the request originates does not match the IP address
+or address range specified on the SAS token, the request is not authenticated.
+For example, specifying sip=168.1.5.65 or sip=168.1.5.60-168.1.5.70 on the SAS
+restricts the request to those IP addresses.</li>
+<li><strong>protocol</strong> (<em>str</em>) – Specifies the protocol permitted for a request made. The default value
+is https,http. See <code class="xref py py-class docutils literal"><span class="pre">Protocol</span></code> for possible values.</li>
+<li><strong>start_pk</strong> (<em>str</em>) – The minimum partition key accessible with this shared access 
+signature. startpk must accompany startrk. Key values are inclusive. 
+If omitted, there is no lower bound on the table entities that can 
+be accessed.</li>
+<li><strong>start_rk</strong> (<em>str</em>) – The minimum row key accessible with this shared access signature. 
+startpk must accompany startrk. Key values are inclusive. If 
+omitted, there is no lower bound on the table entities that can be 
+accessed.</li>
+<li><strong>end_pk</strong> (<em>str</em>) – The maximum partition key accessible with this shared access 
+signature. endpk must accompany endrk. Key values are inclusive. If 
+omitted, there is no upper bound on the table entities that can be 
+accessed.</li>
+<li><strong>end_rk</strong> (<em>str</em>) – The maximum row key accessible with this shared access signature. 
+endpk must accompany endrk. Key values are inclusive. If omitted, 
+there is no upper bound on the table entities that can be accessed.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/azure.cosmosdb.common.sharedaccesssignature.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Microsoft.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="_sources/azure.cosmosdb.common.sharedaccesssignature.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

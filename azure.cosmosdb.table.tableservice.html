@@ -1,0 +1,861 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>azure.cosmosdb.table.tableservice module &#8212; Azure CosmosDB SDK for Python 0.36.0 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.36.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-azure.cosmosdb.table.tableservice">
+<span id="azure-cosmosdb-table-tableservice-module"></span><h1>azure.cosmosdb.table.tableservice module<a class="headerlink" href="#module-azure.cosmosdb.table.tableservice" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="azure.cosmosdb.table.tableservice.TableService">
+<em class="property">class </em><code class="descclassname">azure.cosmosdb.table.tableservice.</code><code class="descname">TableService</code><span class="sig-paren">(</span><em>account_name=None</em>, <em>account_key=None</em>, <em>sas_token=None</em>, <em>is_emulated=False</em>, <em>protocol='https'</em>, <em>endpoint_suffix='core.windows.net'</em>, <em>request_session=None</em>, <em>connection_string=None</em>, <em>socket_timeout=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/azure/cosmosdb/table/tableservice.html#TableService"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#azure.cosmosdb.table.tableservice.TableService" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="azure.cosmosdb.common.storageclient.html#azure.cosmosdb.common.storageclient.StorageClient" title="azure.cosmosdb.common.storageclient.StorageClient"><code class="xref py py-class docutils literal"><span class="pre">azure.cosmosdb.common.storageclient.StorageClient</span></code></a></p>
+<p>This is the main class managing Azure Table resources.</p>
+<p>The Azure Table service offers structured storage in the form of tables. Tables 
+store data as collections of entities. Entities are similar to rows. An entity 
+has a primary key and a set of properties. A property is a name, typed-value pair, 
+similar to a column. The Table service does not enforce any schema for tables, 
+so two entities in the same table may have different sets of properties. Developers 
+may choose to enforce a schema on the client side. A table may contain any number 
+of entities.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first simple">
+<li><strong>key_encryption_key</strong> (<em>object</em>) – The key-encryption-key optionally provided by the user. If provided, will be used to
+encrypt/decrypt in supported methods.
+For methods requiring decryption, either the key_encryption_key OR the resolver must be provided.
+If both are provided, the resolver will take precedence.
+Must implement the following methods for APIs requiring encryption:
+wrap_key(key)–wraps the specified key (bytes) using an algorithm of the user’s choice. Returns the encrypted key as bytes.
+get_key_wrap_algorithm()–returns the algorithm used to wrap the specified symmetric key.
+get_kid()–returns a string key id for this key-encryption-key.
+Must implement the following methods for APIs requiring decryption:
+unwrap_key(key, algorithm)–returns the unwrapped form of the specified symmetric key using the string-specified algorithm.
+get_kid()–returns a string key id for this key-encryption-key.</li>
+<li><strong>key_resolver_function</strong><strong>(</strong><strong>kid</strong><strong>)</strong> (<em>function</em>) – A function to resolve keys optionally provided by the user. If provided, will be used to decrypt in supported methods.
+For methods requiring decryption, either the key_encryption_key OR
+the resolver must be provided. If both are provided, the resolver will take precedence.
+It uses the kid string to return a key-encryption-key implementing the interface defined above.</li>
+<li><strong>row_key</strong><strong>, </strong><strong>property_name</strong><strong>) </strong><strong>encryption_resolver_functions</strong> (<em>function</em><em>(</em><em>partition_key</em><em>,</em>) – A function that takes in an entity’s partition key, row key, and property name and returns 
+a boolean that indicates whether that property should be encrypted.</li>
+<li><strong>require_encryption</strong> (<em>bool</em>) – A flag that may be set to ensure that all messages successfully uploaded to the queue and all those downloaded and
+successfully read from the queue are/were encrypted while on the server. If this flag is set, all required 
+parameters for encryption/decryption must be provided. See the above comments on the key_encryption_key and resolver.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>account_name</strong> (<em>str</em>) – The storage account name. This is used to authenticate requests 
+signed with an account key and to construct the storage endpoint. It 
+is required unless a connection string is given.</li>
+<li><strong>account_key</strong> (<em>str</em>) – The storage account key. This is used for shared key authentication.</li>
+<li><strong>sas_token</strong> (<em>str</em>) – A shared access signature token to use to authenticate requests 
+instead of the account key. If account key and sas token are both 
+specified, account key will be used to sign.</li>
+<li><strong>is_emulated</strong> (<em>bool</em>) – Whether to use the emulator. Defaults to False. If specified, will 
+override all other parameters besides connection string and request 
+session.</li>
+<li><strong>protocol</strong> (<em>str</em>) – The protocol to use for requests. Defaults to https.</li>
+<li><strong>endpoint_suffix</strong> (<em>str</em>) – The host base component of the url, minus the account name. Defaults 
+to Azure (core.windows.net). Override this to use the China cloud 
+(core.chinacloudapi.cn).</li>
+<li><strong>request_session</strong> (<em>requests.Session</em>) – The session object to use for http requests.</li>
+<li><strong>connection_string</strong> (<em>str</em>) – If specified, this will override all other parameters besides 
+request session. See
+<a class="reference external" href="http://azure.microsoft.com/en-us/documentation/articles/storage-configure-connection-string/">http://azure.microsoft.com/en-us/documentation/articles/storage-configure-connection-string/</a>
+for the connection string format.</li>
+<li><strong>socket_timeout</strong> (<em>int</em>) – If specified, this will override the default socket timeout. The timeout specified is in seconds.
+See DEFAULT_SOCKET_TIMEOUT in _constants.py for the default value.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="azure.cosmosdb.table.tableservice.TableService.batch">
+<code class="descname">batch</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwds</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/azure/cosmosdb/table/tableservice.html#TableService.batch"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#azure.cosmosdb.table.tableservice.TableService.batch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a batch object which can be used as a context manager. Commits the batch on exit.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>table_name</strong> (<em>str</em>) – The name of the table to commit the batch to.</li>
+<li><strong>timeout</strong> (<em>int</em>) – The server timeout, expressed in seconds.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="azure.cosmosdb.table.tableservice.TableService.commit_batch">
+<code class="descname">commit_batch</code><span class="sig-paren">(</span><em>table_name</em>, <em>batch</em>, <em>timeout=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/azure/cosmosdb/table/tableservice.html#TableService.commit_batch"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#azure.cosmosdb.table.tableservice.TableService.commit_batch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Commits a <code class="xref py py-class docutils literal"><span class="pre">TableBatch</span></code> request.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>table_name</strong> (<em>str</em>) – The name of the table to commit the batch to.</li>
+<li><strong>batch</strong> (<a class="reference internal" href="azure.cosmosdb.table.tablebatch.html#azure.cosmosdb.table.tablebatch.TableBatch" title="azure.cosmosdb.table.tablebatch.TableBatch"><em>TableBatch</em></a>) – The batch to commit.</li>
+<li><strong>timeout</strong> (<em>int</em>) – The server timeout, expressed in seconds.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">A list of the batch responses corresponding to the requests in the batch.
+The items could either be an etag, in case of success, or an error object in case of failure.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">list(<code class="xref py py-class docutils literal"><span class="pre">AzureBatchOperationError</span></code>, str)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="azure.cosmosdb.table.tableservice.TableService.create_table">
+<code class="descname">create_table</code><span class="sig-paren">(</span><em>table_name</em>, <em>fail_on_exist=False</em>, <em>timeout=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/azure/cosmosdb/table/tableservice.html#TableService.create_table"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#azure.cosmosdb.table.tableservice.TableService.create_table" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new table in the storage account.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>table_name</strong> (<em>str</em>) – The name of the table to create. The table name may contain only
+alphanumeric characters and cannot begin with a numeric character.
+It is case-insensitive and must be from 3 to 63 characters long.</li>
+<li><strong>fail_on_exist</strong> (<em>bool</em>) – Specifies whether to throw an exception if the table already exists.</li>
+<li><strong>timeout</strong> (<em>int</em>) – The server timeout, expressed in seconds.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">A boolean indicating whether the table was created. If fail_on_exist 
+was set to True, this will throw instead of returning false.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">bool</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="azure.cosmosdb.table.tableservice.TableService.delete_entity">
+<code class="descname">delete_entity</code><span class="sig-paren">(</span><em>table_name</em>, <em>partition_key</em>, <em>row_key</em>, <em>if_match='*'</em>, <em>timeout=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/azure/cosmosdb/table/tableservice.html#TableService.delete_entity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#azure.cosmosdb.table.tableservice.TableService.delete_entity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deletes an existing entity in a table. Throws if the entity does not exist.</p>
+<p>When an entity is successfully deleted, the entity is immediately marked 
+for deletion and is no longer accessible to clients. The entity is later 
+removed from the Table service during garbage collection.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>table_name</strong> (<em>str</em>) – The name of the table containing the entity to delete.</li>
+<li><strong>partition_key</strong> (<em>str</em>) – The PartitionKey of the entity.</li>
+<li><strong>row_key</strong> (<em>str</em>) – The RowKey of the entity.</li>
+<li><strong>if_match</strong> (<em>str</em>) – The client may specify the ETag for the entity on the 
+request in order to compare to the ETag maintained by the service 
+for the purpose of optimistic concurrency. The delete operation 
+will be performed only if the ETag sent by the client matches the 
+value maintained by the server, indicating that the entity has 
+not been modified since it was retrieved by the client. To force 
+an unconditional delete, set If-Match to the wildcard character (*).</li>
+<li><strong>timeout</strong> (<em>int</em>) – The server timeout, expressed in seconds.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="azure.cosmosdb.table.tableservice.TableService.delete_table">
+<code class="descname">delete_table</code><span class="sig-paren">(</span><em>table_name</em>, <em>fail_not_exist=False</em>, <em>timeout=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/azure/cosmosdb/table/tableservice.html#TableService.delete_table"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#azure.cosmosdb.table.tableservice.TableService.delete_table" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deletes the specified table and any data it contains.</p>
+<p>When a table is successfully deleted, it is immediately marked for deletion 
+and is no longer accessible to clients. The table is later removed from 
+the Table service during garbage collection.</p>
+<p>Note that deleting a table is likely to take at least 40 seconds to complete. 
+If an operation is attempted against the table while it was being deleted, 
+an <code class="xref py py-class docutils literal"><span class="pre">AzureConflictHttpError</span></code> will be thrown.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>table_name</strong> (<em>str</em>) – The name of the table to delete.</li>
+<li><strong>fail_not_exist</strong> (<em>bool</em>) – Specifies whether to throw an exception if the table doesn’t exist.</li>
+<li><strong>timeout</strong> (<em>int</em>) – The server timeout, expressed in seconds.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">A boolean indicating whether the table was deleted. If fail_not_exist 
+was set to True, this will throw instead of returning false.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">bool</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="azure.cosmosdb.table.tableservice.TableService.exists">
+<code class="descname">exists</code><span class="sig-paren">(</span><em>table_name</em>, <em>timeout=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/azure/cosmosdb/table/tableservice.html#TableService.exists"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#azure.cosmosdb.table.tableservice.TableService.exists" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a boolean indicating whether the table exists.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>table_name</strong> (<em>str</em>) – The name of table to check for existence.</li>
+<li><strong>timeout</strong> (<em>int</em>) – The server timeout, expressed in seconds.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">A boolean indicating whether the table exists.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">bool</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="azure.cosmosdb.table.tableservice.TableService.generate_account_shared_access_signature">
+<code class="descname">generate_account_shared_access_signature</code><span class="sig-paren">(</span><em>resource_types</em>, <em>permission</em>, <em>expiry</em>, <em>start=None</em>, <em>ip=None</em>, <em>protocol=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/azure/cosmosdb/table/tableservice.html#TableService.generate_account_shared_access_signature"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#azure.cosmosdb.table.tableservice.TableService.generate_account_shared_access_signature" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates a shared access signature for the table service.
+Use the returned signature with the sas_token parameter of TableService.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>resource_types</strong> (<a class="reference internal" href="azure.cosmosdb.common.models.html#azure.cosmosdb.common.models.ResourceTypes" title="azure.cosmosdb.common.models.ResourceTypes"><em>ResourceTypes</em></a>) – Specifies the resource types that are accessible with the account SAS.</li>
+<li><strong>permission</strong> (<a class="reference internal" href="azure.cosmosdb.common.models.html#azure.cosmosdb.common.models.AccountPermissions" title="azure.cosmosdb.common.models.AccountPermissions"><em>AccountPermissions</em></a>) – The permissions associated with the shared access signature. The 
+user is restricted to operations allowed by the permissions. 
+Required unless an id is given referencing a stored access policy 
+which contains this field. This field must be omitted if it has been 
+specified in an associated stored access policy.</li>
+<li><strong>expiry</strong> (<em>datetime</em><em> or </em><em>str</em>) – The time at which the shared access signature becomes invalid. 
+Required unless an id is given referencing a stored access policy 
+which contains this field. This field must be omitted if it has 
+been specified in an associated stored access policy. Azure will always 
+convert values to UTC. If a date is passed in without timezone info, it 
+is assumed to be UTC.</li>
+<li><strong>start</strong> (<em>datetime</em><em> or </em><em>str</em>) – The time at which the shared access signature becomes valid. If 
+omitted, start time for this call is assumed to be the time when the 
+storage service receives the request. Azure will always convert values 
+to UTC. If a date is passed in without timezone info, it is assumed to 
+be UTC.</li>
+<li><strong>ip</strong> (<em>str</em>) – Specifies an IP address or a range of IP addresses from which to accept requests.
+If the IP address from which the request originates does not match the IP address
+or address range specified on the SAS token, the request is not authenticated.
+For example, specifying sip=168.1.5.65 or sip=168.1.5.60-168.1.5.70 on the SAS
+restricts the request to those IP addresses.</li>
+<li><strong>protocol</strong> (<em>str</em>) – Specifies the protocol permitted for a request made. The default value
+is https,http. See <code class="xref py py-class docutils literal"><span class="pre">Protocol</span></code> for possible values.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">A Shared Access Signature (sas) token.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">str</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="azure.cosmosdb.table.tableservice.TableService.generate_table_shared_access_signature">
+<code class="descname">generate_table_shared_access_signature</code><span class="sig-paren">(</span><em>table_name</em>, <em>permission=None</em>, <em>expiry=None</em>, <em>start=None</em>, <em>id=None</em>, <em>ip=None</em>, <em>protocol=None</em>, <em>start_pk=None</em>, <em>start_rk=None</em>, <em>end_pk=None</em>, <em>end_rk=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/azure/cosmosdb/table/tableservice.html#TableService.generate_table_shared_access_signature"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#azure.cosmosdb.table.tableservice.TableService.generate_table_shared_access_signature" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates a shared access signature for the table.
+Use the returned signature with the sas_token parameter of TableService.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>table_name</strong> (<em>str</em>) – The name of the table to create a SAS token for.</li>
+<li><strong>permission</strong> (<a class="reference internal" href="azure.cosmosdb.table.models.html#azure.cosmosdb.table.models.TablePermissions" title="azure.cosmosdb.table.models.TablePermissions"><em>TablePermissions</em></a>) – The permissions associated with the shared access signature. The 
+user is restricted to operations allowed by the permissions. 
+Required unless an id is given referencing a stored access policy 
+which contains this field. This field must be omitted if it has been 
+specified in an associated stored access policy.</li>
+<li><strong>expiry</strong> (<em>datetime</em><em> or </em><em>str</em>) – The time at which the shared access signature becomes invalid. 
+Required unless an id is given referencing a stored access policy 
+which contains this field. This field must be omitted if it has 
+been specified in an associated stored access policy. Azure will always 
+convert values to UTC. If a date is passed in without timezone info, it 
+is assumed to be UTC.</li>
+<li><strong>start</strong> (<em>datetime</em><em> or </em><em>str</em>) – The time at which the shared access signature becomes valid. If 
+omitted, start time for this call is assumed to be the time when the 
+storage service receives the request. Azure will always convert values 
+to UTC. If a date is passed in without timezone info, it is assumed to 
+be UTC.</li>
+<li><strong>id</strong> (<em>str</em>) – A unique value up to 64 characters in length that correlates to a 
+stored access policy. To create a stored access policy, use <a class="reference internal" href="#azure.cosmosdb.table.tableservice.TableService.set_table_acl" title="azure.cosmosdb.table.tableservice.TableService.set_table_acl"><code class="xref py py-func docutils literal"><span class="pre">set_table_acl()</span></code></a>.</li>
+<li><strong>ip</strong> (<em>str</em>) – Specifies an IP address or a range of IP addresses from which to accept requests.
+If the IP address from which the request originates does not match the IP address
+or address range specified on the SAS token, the request is not authenticated.
+For example, specifying sip=‘168.1.5.65’ or sip=‘168.1.5.60-168.1.5.70’ on the SAS
+restricts the request to those IP addresses.</li>
+<li><strong>protocol</strong> (<em>str</em>) – Specifies the protocol permitted for a request made. The default value
+is https,http. See <code class="xref py py-class docutils literal"><span class="pre">Protocol</span></code> for possible values.</li>
+<li><strong>start_pk</strong> (<em>str</em>) – The minimum partition key accessible with this shared access 
+signature. startpk must accompany startrk. Key values are inclusive. 
+If omitted, there is no lower bound on the table entities that can 
+be accessed.</li>
+<li><strong>start_rk</strong> (<em>str</em>) – The minimum row key accessible with this shared access signature. 
+startpk must accompany startrk. Key values are inclusive. If 
+omitted, there is no lower bound on the table entities that can be 
+accessed.</li>
+<li><strong>end_pk</strong> (<em>str</em>) – The maximum partition key accessible with this shared access 
+signature. endpk must accompany endrk. Key values are inclusive. If 
+omitted, there is no upper bound on the table entities that can be 
+accessed.</li>
+<li><strong>end_rk</strong> (<em>str</em>) – The maximum row key accessible with this shared access signature. 
+endpk must accompany endrk. Key values are inclusive. If omitted, 
+there is no upper bound on the table entities that can be accessed.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">A Shared Access Signature (sas) token.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">str</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="azure.cosmosdb.table.tableservice.TableService.get_entity">
+<code class="descname">get_entity</code><span class="sig-paren">(</span><em>table_name</em>, <em>partition_key</em>, <em>row_key</em>, <em>select=None</em>, <em>accept='application/json;odata=minimalmetadata'</em>, <em>property_resolver=None</em>, <em>timeout=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/azure/cosmosdb/table/tableservice.html#TableService.get_entity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#azure.cosmosdb.table.tableservice.TableService.get_entity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get an entity from the specified table. Throws if the entity does not exist.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>table_name</strong> (<em>str</em>) – The name of the table to get the entity from.</li>
+<li><strong>partition_key</strong> (<em>str</em>) – The PartitionKey of the entity.</li>
+<li><strong>row_key</strong> (<em>str</em>) – The RowKey of the entity.</li>
+<li><strong>select</strong> (<em>str</em>) – Returns only the desired properties of an entity from the set.</li>
+<li><strong>accept</strong> (<em>str</em>) – Specifies the accepted content type of the response payload. See 
+<code class="xref py py-class docutils literal"><span class="pre">TablePayloadFormat</span></code> for possible 
+values.</li>
+<li><strong>property_resolver</strong> (<em>func</em><em>(</em><em>pk</em><em>, </em><em>rk</em><em>, </em><em>prop_name</em><em>, </em><em>prop_value</em><em>, </em><em>service_edm_type</em><em>)</em>) – A function which given the partition key, row key, property name, 
+property value, and the property EdmType if returned by the service, 
+returns the EdmType of the property. Generally used if accept is set 
+to JSON_NO_METADATA.</li>
+<li><strong>timeout</strong> (<em>int</em>) – The server timeout, expressed in seconds.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The retrieved entity.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><code class="xref py py-class docutils literal"><span class="pre">Entity</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="azure.cosmosdb.table.tableservice.TableService.get_table_acl">
+<code class="descname">get_table_acl</code><span class="sig-paren">(</span><em>table_name</em>, <em>timeout=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/azure/cosmosdb/table/tableservice.html#TableService.get_table_acl"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#azure.cosmosdb.table.tableservice.TableService.get_table_acl" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns details about any stored access policies specified on the
+table that may be used with Shared Access Signatures.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>table_name</strong> (<em>str</em>) – The name of an existing table.</li>
+<li><strong>timeout</strong> (<em>int</em>) – The server timeout, expressed in seconds.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">A dictionary of access policies associated with the table.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">dict(str, <code class="xref py py-class docutils literal"><span class="pre">AccessPolicy</span></code>)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="azure.cosmosdb.table.tableservice.TableService.get_table_service_properties">
+<code class="descname">get_table_service_properties</code><span class="sig-paren">(</span><em>timeout=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/azure/cosmosdb/table/tableservice.html#TableService.get_table_service_properties"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#azure.cosmosdb.table.tableservice.TableService.get_table_service_properties" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the properties of a storage account’s Table service, including
+logging, analytics and CORS rules.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>timeout</strong> (<em>int</em>) – The server timeout, expressed in seconds.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The table service properties.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">ServiceProperties</span></code></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="azure.cosmosdb.table.tableservice.TableService.get_table_service_stats">
+<code class="descname">get_table_service_stats</code><span class="sig-paren">(</span><em>timeout=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/azure/cosmosdb/table/tableservice.html#TableService.get_table_service_stats"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#azure.cosmosdb.table.tableservice.TableService.get_table_service_stats" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieves statistics related to replication for the Table service. It is 
+only available when read-access geo-redundant replication is enabled for 
+the storage account.</p>
+<p>With geo-redundant replication, Azure Storage maintains your data durable 
+in two locations. In both locations, Azure Storage constantly maintains 
+multiple healthy replicas of your data. The location where you read, 
+create, update, or delete data is the primary storage account location. 
+The primary location exists in the region you choose at the time you 
+create an account via the Azure Management Azure classic portal, for 
+example, North Central US. The location to which your data is replicated 
+is the secondary location. The secondary location is automatically 
+determined based on the location of the primary; it is in a second data 
+center that resides in the same region as the primary location. Read-only 
+access is available from the secondary location, if read-access geo-redundant 
+replication is enabled for your storage account.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>timeout</strong> (<em>int</em>) – The timeout parameter is expressed in seconds.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The table service stats.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">ServiceStats</span></code></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="azure.cosmosdb.table.tableservice.TableService.insert_entity">
+<code class="descname">insert_entity</code><span class="sig-paren">(</span><em>table_name</em>, <em>entity</em>, <em>timeout=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/azure/cosmosdb/table/tableservice.html#TableService.insert_entity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#azure.cosmosdb.table.tableservice.TableService.insert_entity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inserts a new entity into the table. Throws if an entity with the same 
+PartitionKey and RowKey already exists.</p>
+<p>When inserting an entity into a table, you must specify values for the 
+PartitionKey and RowKey system properties. Together, these properties 
+form the primary key and must be unique within the table. Both the 
+PartitionKey and RowKey values must be string values; each key value may 
+be up to 64 KB in size. If you are using an integer value for the key 
+value, you should convert the integer to a fixed-width string, because 
+they are canonically sorted. For example, you should convert the value 
+1 to 0000001 to ensure proper sorting.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>table_name</strong> (<em>str</em>) – The name of the table to insert the entity into.</li>
+<li><strong>entity</strong> (dict or <code class="xref py py-class docutils literal"><span class="pre">Entity</span></code>) – The entity to insert. Could be a dict or an entity object. 
+Must contain a PartitionKey and a RowKey.</li>
+<li><strong>timeout</strong> (<em>int</em>) – The server timeout, expressed in seconds.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The etag of the inserted entity.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">str</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="azure.cosmosdb.table.tableservice.TableService.insert_or_merge_entity">
+<code class="descname">insert_or_merge_entity</code><span class="sig-paren">(</span><em>table_name</em>, <em>entity</em>, <em>timeout=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/azure/cosmosdb/table/tableservice.html#TableService.insert_or_merge_entity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#azure.cosmosdb.table.tableservice.TableService.insert_or_merge_entity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Merges an existing entity or inserts a new entity if it does not exist
+in the table.</p>
+<p>If insert_or_merge_entity is used to merge an entity, any properties from 
+the previous entity will be retained if the request does not define or 
+include them.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>table_name</strong> (<em>str</em>) – The name of the table in which to insert or merge the entity.</li>
+<li><strong>entity</strong> (dict or <code class="xref py py-class docutils literal"><span class="pre">Entity</span></code>) – The entity to insert or merge. Could be a dict or an entity object. 
+Must contain a PartitionKey and a RowKey.</li>
+<li><strong>timeout</strong> (<em>int</em>) – The server timeout, expressed in seconds.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The etag of the entity.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">str</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="azure.cosmosdb.table.tableservice.TableService.insert_or_replace_entity">
+<code class="descname">insert_or_replace_entity</code><span class="sig-paren">(</span><em>table_name</em>, <em>entity</em>, <em>timeout=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/azure/cosmosdb/table/tableservice.html#TableService.insert_or_replace_entity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#azure.cosmosdb.table.tableservice.TableService.insert_or_replace_entity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Replaces an existing entity or inserts a new entity if it does not
+exist in the table. Because this operation can insert or update an
+entity, it is also known as an “upsert” operation.</p>
+<p>If insert_or_replace_entity is used to replace an entity, any properties 
+from the previous entity will be removed if the new entity does not define 
+them.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>table_name</strong> (<em>str</em>) – The name of the table in which to insert or replace the entity.</li>
+<li><strong>entity</strong> (dict or <code class="xref py py-class docutils literal"><span class="pre">Entity</span></code>) – The entity to insert or replace. Could be a dict or an entity object. 
+Must contain a PartitionKey and a RowKey.</li>
+<li><strong>timeout</strong> (<em>int</em>) – The server timeout, expressed in seconds.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The etag of the entity.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">str</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="azure.cosmosdb.table.tableservice.TableService.list_tables">
+<code class="descname">list_tables</code><span class="sig-paren">(</span><em>num_results=None</em>, <em>marker=None</em>, <em>timeout=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/azure/cosmosdb/table/tableservice.html#TableService.list_tables"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#azure.cosmosdb.table.tableservice.TableService.list_tables" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a generator to list the tables. The generator will lazily follow 
+the continuation tokens returned by the service and stop when all tables 
+have been returned or num_results is reached.</p>
+<p>If num_results is specified and the account has more than that number of 
+tables, the generator will have a populated next_marker field once it 
+finishes. This marker can be used to create a new generator if more 
+results are desired.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>num_results</strong> (<em>int</em>) – The maximum number of tables to return.</li>
+<li><strong>marker</strong> (<em>obj</em>) – An opaque continuation object. This value can be retrieved from the 
+next_marker field of a previous generator object if num_results was 
+specified and that generator has finished enumerating results. If 
+specified, this generator will begin returning results from the point 
+where the previous generator stopped.</li>
+<li><strong>timeout</strong> (<em>int</em>) – The server timeout, expressed in seconds. This function may make multiple 
+calls to the service in which case the timeout value specified will be 
+applied to each individual call.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">A generator which produces <code class="xref py py-class docutils literal"><span class="pre">Table</span></code> objects.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><code class="xref py py-class docutils literal"><span class="pre">ListGenerator</span></code>:</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="azure.cosmosdb.table.tableservice.TableService.merge_entity">
+<code class="descname">merge_entity</code><span class="sig-paren">(</span><em>table_name</em>, <em>entity</em>, <em>if_match='*'</em>, <em>timeout=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/azure/cosmosdb/table/tableservice.html#TableService.merge_entity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#azure.cosmosdb.table.tableservice.TableService.merge_entity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates an existing entity by merging the entity’s properties. Throws 
+if the entity does not exist.</p>
+<p>This operation does not replace the existing entity as the update_entity
+operation does. A property cannot be removed with merge_entity.</p>
+<p>Any properties with null values are ignored. All other properties will be 
+updated or added.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>table_name</strong> (<em>str</em>) – The name of the table containing the entity to merge.</li>
+<li><strong>entity</strong> (dict or <code class="xref py py-class docutils literal"><span class="pre">Entity</span></code>) – The entity to merge. Could be a dict or an entity object. 
+Must contain a PartitionKey and a RowKey.</li>
+<li><strong>if_match</strong> (<em>str</em>) – The client may specify the ETag for the entity on the 
+request in order to compare to the ETag maintained by the service 
+for the purpose of optimistic concurrency. The merge operation 
+will be performed only if the ETag sent by the client matches the 
+value maintained by the server, indicating that the entity has 
+not been modified since it was retrieved by the client. To force 
+an unconditional merge, set If-Match to the wildcard character (*).</li>
+<li><strong>timeout</strong> (<em>int</em>) – The server timeout, expressed in seconds.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The etag of the entity.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">str</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="azure.cosmosdb.table.tableservice.TableService.query_entities">
+<code class="descname">query_entities</code><span class="sig-paren">(</span><em>table_name</em>, <em>filter=None</em>, <em>select=None</em>, <em>num_results=None</em>, <em>marker=None</em>, <em>accept='application/json;odata=minimalmetadata'</em>, <em>property_resolver=None</em>, <em>timeout=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/azure/cosmosdb/table/tableservice.html#TableService.query_entities"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#azure.cosmosdb.table.tableservice.TableService.query_entities" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a generator to list the entities in the table specified. The 
+generator will lazily follow the continuation tokens returned by the 
+service and stop when all entities have been returned or num_results is
+reached.</p>
+<p>If num_results is specified and the account has more than that number of
+entities, the generator will have a populated next_marker field once it 
+finishes. This marker can be used to create a new generator if more 
+results are desired.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>table_name</strong> (<em>str</em>) – The name of the table to query.</li>
+<li><strong>filter</strong> (<em>str</em>) – Returns only entities that satisfy the specified filter. Note that 
+no more than 15 discrete comparisons are permitted within a $filter 
+string. See <a class="reference external" href="http://msdn.microsoft.com/en-us/library/windowsazure/dd894031.aspx">http://msdn.microsoft.com/en-us/library/windowsazure/dd894031.aspx</a> 
+for more information on constructing filters.</li>
+<li><strong>select</strong> (<em>str</em>) – Returns only the desired properties of an entity from the set.</li>
+<li><strong>num_results</strong> (<em>int</em>) – The maximum number of entities to return.</li>
+<li><strong>marker</strong> (<em>obj</em>) – An opaque continuation object. This value can be retrieved from the 
+next_marker field of a previous generator object if max_results was 
+specified and that generator has finished enumerating results. If 
+specified, this generator will begin returning results from the point 
+where the previous generator stopped.</li>
+<li><strong>accept</strong> (<em>str</em>) – Specifies the accepted content type of the response payload. See 
+<code class="xref py py-class docutils literal"><span class="pre">TablePayloadFormat</span></code> for possible 
+values.</li>
+<li><strong>property_resolver</strong> (<em>func</em><em>(</em><em>pk</em><em>, </em><em>rk</em><em>, </em><em>prop_name</em><em>, </em><em>prop_value</em><em>, </em><em>service_edm_type</em><em>)</em>) – A function which given the partition key, row key, property name, 
+property value, and the property EdmType if returned by the service, 
+returns the EdmType of the property. Generally used if accept is set 
+to JSON_NO_METADATA.</li>
+<li><strong>timeout</strong> (<em>int</em>) – The server timeout, expressed in seconds. This function may make multiple 
+calls to the service in which case the timeout value specified will be 
+applied to each individual call.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">A generator which produces <code class="xref py py-class docutils literal"><span class="pre">Entity</span></code> objects.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><code class="xref py py-class docutils literal"><span class="pre">ListGenerator</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="azure.cosmosdb.table.tableservice.TableService.set_table_acl">
+<code class="descname">set_table_acl</code><span class="sig-paren">(</span><em>table_name</em>, <em>signed_identifiers=None</em>, <em>timeout=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/azure/cosmosdb/table/tableservice.html#TableService.set_table_acl"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#azure.cosmosdb.table.tableservice.TableService.set_table_acl" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets stored access policies for the table that may be used with Shared 
+Access Signatures.</p>
+<p>When you set permissions for a table, the existing permissions are replaced. 
+To update the table’s permissions, call <a class="reference internal" href="#azure.cosmosdb.table.tableservice.TableService.get_table_acl" title="azure.cosmosdb.table.tableservice.TableService.get_table_acl"><code class="xref py py-func docutils literal"><span class="pre">get_table_acl()</span></code></a> to fetch 
+all access policies associated with the table, modify the access policy 
+that you wish to change, and then call this function with the complete 
+set of data to perform the update.</p>
+<p>When you establish a stored access policy on a table, it may take up to 
+30 seconds to take effect. During this interval, a shared access signature 
+that is associated with the stored access policy will throw an 
+<code class="xref py py-class docutils literal"><span class="pre">AzureHttpError</span></code> until the access policy becomes active.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>table_name</strong> (<em>str</em>) – The name of an existing table.</li>
+<li><strong>signed_identifiers</strong> (dict(str, <code class="xref py py-class docutils literal"><span class="pre">AccessPolicy</span></code>)) – A dictionary of access policies to associate with the table. The 
+dictionary may contain up to 5 elements. An empty dictionary 
+will clear the access policies set on the service.</li>
+<li><strong>timeout</strong> (<em>int</em>) – The server timeout, expressed in seconds.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="azure.cosmosdb.table.tableservice.TableService.set_table_service_properties">
+<code class="descname">set_table_service_properties</code><span class="sig-paren">(</span><em>logging=None</em>, <em>hour_metrics=None</em>, <em>minute_metrics=None</em>, <em>cors=None</em>, <em>timeout=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/azure/cosmosdb/table/tableservice.html#TableService.set_table_service_properties"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#azure.cosmosdb.table.tableservice.TableService.set_table_service_properties" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the properties of a storage account’s Table service, including
+Azure Storage Analytics. If an element (ex Logging) is left as None, the 
+existing settings on the service for that functionality are preserved. 
+For more information on Azure Storage Analytics, see 
+<a class="reference external" href="https://msdn.microsoft.com/en-us/library/azure/hh343270.aspx">https://msdn.microsoft.com/en-us/library/azure/hh343270.aspx</a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>logging</strong> (<a class="reference internal" href="azure.cosmosdb.common.models.html#azure.cosmosdb.common.models.Logging" title="azure.cosmosdb.common.models.Logging"><em>Logging</em></a>) – The logging settings provide request logs.</li>
+<li><strong>hour_metrics</strong> (<a class="reference internal" href="azure.cosmosdb.common.models.html#azure.cosmosdb.common.models.Metrics" title="azure.cosmosdb.common.models.Metrics"><em>Metrics</em></a>) – The hour metrics settings provide a summary of request 
+statistics grouped by API in hourly aggregates for tables.</li>
+<li><strong>minute_metrics</strong> (<a class="reference internal" href="azure.cosmosdb.common.models.html#azure.cosmosdb.common.models.Metrics" title="azure.cosmosdb.common.models.Metrics"><em>Metrics</em></a>) – The minute metrics settings provide request statistics 
+for each minute for tables.</li>
+<li><strong>cors</strong> (list(<code class="xref py py-class docutils literal"><span class="pre">CorsRule</span></code>)) – You can include up to five CorsRule elements in the 
+list. If an empty list is specified, all CORS rules will be deleted, 
+and CORS will be disabled for the service. For detailed information 
+about CORS rules and evaluation logic, see 
+<a class="reference external" href="https://msdn.microsoft.com/en-us/library/azure/dn535601.aspx">https://msdn.microsoft.com/en-us/library/azure/dn535601.aspx</a>.</li>
+<li><strong>timeout</strong> (<em>int</em>) – The server timeout, expressed in seconds.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="azure.cosmosdb.table.tableservice.TableService.update_entity">
+<code class="descname">update_entity</code><span class="sig-paren">(</span><em>table_name</em>, <em>entity</em>, <em>if_match='*'</em>, <em>timeout=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/azure/cosmosdb/table/tableservice.html#TableService.update_entity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#azure.cosmosdb.table.tableservice.TableService.update_entity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates an existing entity in a table. Throws if the entity does not exist. 
+The update_entity operation replaces the entire entity and can be used to 
+remove properties.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>table_name</strong> (<em>str</em>) – The name of the table containing the entity to update.</li>
+<li><strong>entity</strong> (dict or <code class="xref py py-class docutils literal"><span class="pre">Entity</span></code>) – The entity to update. Could be a dict or an entity object. 
+Must contain a PartitionKey and a RowKey.</li>
+<li><strong>if_match</strong> (<em>str</em>) – The client may specify the ETag for the entity on the 
+request in order to compare to the ETag maintained by the service 
+for the purpose of optimistic concurrency. The update operation 
+will be performed only if the ETag sent by the client matches the 
+value maintained by the server, indicating that the entity has 
+not been modified since it was retrieved by the client. To force 
+an unconditional update, set If-Match to the wildcard character (*).</li>
+<li><strong>timeout</strong> (<em>int</em>) – The server timeout, expressed in seconds.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The etag of the entity.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">str</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/azure.cosmosdb.table.tableservice.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Microsoft.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="_sources/azure.cosmosdb.table.tableservice.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
