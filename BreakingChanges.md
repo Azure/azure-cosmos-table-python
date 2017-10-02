@@ -2,9 +2,15 @@
 
 > See the [Change Log](ChangeLog.md) for a summary of storage library changes.
 
-**Note: This changelog is deprecated starting with version XX.XX.XX, please refer to the ChangeLog.md in each package for future change logs.** 
+## Version 0.36.0:
 
-## Version XX.XX.XX:
+### All:
+- The Tables SDK has been split from azure-storage namespace and moved to the azure-cosmosdb namespace
+- It can be referenced as 'azure-cosmosdb-table'
+- Namespace package azure-cosmosdb-nspkg added to the cosmosdb namespace
+
+
+## Version 0.35.0:
 
 ### All:
 - The library has been split into 4 different packages:
