@@ -35,7 +35,7 @@ except ImportError:
 
 setup(
     name='azure-cosmosdb-nspkg',
-    version='0.37.0',
+    version='2.0.0',
     description='Microsoft Azure CosmosDB Namespace Package [Internal]',
     long_description=open('README.rst', 'r').read(),
     license='Apache License 2.0',
