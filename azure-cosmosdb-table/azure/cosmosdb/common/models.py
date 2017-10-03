@@ -348,10 +348,10 @@ class GeoReplication(object):
         The status of the secondary location. Possible values are:
             live: Indicates that the secondary location is active and operational.
             bootstrap: Indicates initial synchronization from the primary location 
-                to the secondary location is in progress. This typically occurs 
-                when replication is first enabled.
+            to the secondary location is in progress. This typically occurs 
+            when replication is first enabled.
             unavailable: Indicates that the secondary location is temporarily 
-                unavailable.
+            unavailable.
     :ivar date last_sync_time:
         A GMT date value, to the second. All primary writes preceding this value 
         are guaranteed to be available for read operations at the secondary. 

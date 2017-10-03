@@ -1,33 +1,21 @@
-Azure Storage SDK for Python.
-=============================
+Azure CosmosDB SDK for Python.
+==============================
 
 Installation:
 -------------
-Please refer to the Github page for the installation instructions: https://github.com/Azure/azure-storage-python
+Please refer to the Github page for the installation instructions: https://github.com/Azure/azure-cosmosdb-python
 
 If you are looking for Azure Service Bus or the Azure management libraries, 
 please visit https://github.com/Azure/azure-sdk-for-python
    
 Documentation:
 --------------
-* `Table Getting Started Doc <https://azure.microsoft.com/en-us/documentation/articles/storage-python-how-to-use-table-storage/>`__ -- (:doc:`API <ref/azure.storage.table>`)
+* `Table Getting Started Doc <https://azure.microsoft.com/en-us/documentation/articles/storage-python-how-to-use-table-storage/>`__ -- (:doc:`API <./azure.cosmosdb.table>`)
 * :ref:`Reference Documentation - All Services<modindex>`
 
 
 Features:
 ---------
-
--  Blob
-
-   -  Create/Read/Update/Delete Containers
-   -  Create/Read/Update/Delete Blobs
-   -  Advanced Blob Operations
-
--  Queue
-
-   -  Create/Delete Queues
-   -  Insert/Peek Queue Messages
-   -  Advanced Queue Operations
 
 -  Table
 
@@ -35,14 +23,6 @@ Features:
    -  Create/Read/Update/Delete Entities
    -  Batch operations
    -  Advanced Table Operations
-
--  Files
-
-   -  Create/Update/Delete Shares
-   -  Create/Update/Delete Directories
-   -  Create/Read/Update/Delete Files
-   -  Advanced File Operations
-
 
 System Requirements:
 --------------------
@@ -98,4 +78,4 @@ Indices and tables
   :glob:
 
   upgrade
-  ref/*
+  ./*

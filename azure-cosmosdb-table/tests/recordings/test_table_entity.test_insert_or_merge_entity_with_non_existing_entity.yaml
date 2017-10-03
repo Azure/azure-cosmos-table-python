@@ -1,8 +1,8 @@
 interactions:
 - request:
-    body: !!python/unicode '{"age": "abc", "birthday": "1991-10-04T00:00:00Z", "sex":
-      "female", "birthday@odata.type": "Edm.DateTime", "PartitionKey": "pk7671d3c",
-      "RowKey": "rk7671d3c", "sign": "aquarius"}'
+    body: '{"PartitionKey": "pk7671d3c", "RowKey": "rk7671d3c", "age": "abc", "sex":
+      "female", "sign": "aquarius", "birthday": "1991-10-04T00:00:00Z", "birthday@odata.type":
+      "Edm.DateTime"}'
     headers:
       Accept: [application/json;odata=minimalmetadata]
       Connection: [keep-alive]
@@ -10,22 +10,22 @@ interactions:
       Content-Type: [application/json]
       DataServiceVersion: [3.0;NetFx]
       MaxDataServiceVersion: ['3.0']
-      User-Agent: [Azure-Storage/0.36.0 (Python CPython 2.7.10; Darwin 16.7.0)]
-      x-ms-client-request-id: [7d6c56d9-a295-11e7-8855-b8e8564491f6]
-      x-ms-date: ['Tue, 26 Sep 2017 08:34:19 GMT']
+      User-Agent: [Azure-CosmosDB/0.37.0 (Python CPython 3.6.0; Windows 10)]
+      x-ms-client-request-id: [e521ec00-a86c-11e7-95ab-a08cfdf04b77]
+      x-ms-date: ['Tue, 03 Oct 2017 18:58:51 GMT']
       x-ms-version: ['2017-04-17']
     method: MERGE
     uri: https://storagename.table.core.windows.net/uttable7671d3c(PartitionKey='pk7671d3c',RowKey='rk7671d3c')
   response:
-    body: {string: !!python/unicode ''}
+    body: {string: ''}
     headers:
-      cache-control: [no-cache]
-      content-length: ['0']
-      date: ['Tue, 26 Sep 2017 08:34:19 GMT']
-      etag: [W/"datetime'2017-09-26T08%3A34%3A19.4240622Z'"]
-      server: [Windows-Azure-Table/1.0 Microsoft-HTTPAPI/2.0]
-      x-content-type-options: [nosniff]
-      x-ms-request-id: [9e8dece4-0002-0049-79a2-36d0d0000000]
+      Cache-Control: [no-cache]
+      Content-Length: ['0']
+      Date: ['Tue, 03 Oct 2017 18:58:50 GMT']
+      ETag: [W/"datetime'2017-10-03T18%3A58%3A51.5682751Z'"]
+      Server: [Windows-Azure-Table/1.0 Microsoft-HTTPAPI/2.0]
+      X-Content-Type-Options: [nosniff]
+      x-ms-request-id: [90c4f7e3-0002-0047-3c79-3c7c11000000]
       x-ms-version: ['2017-04-17']
     status: {code: 204, message: No Content}
 - request:
@@ -35,23 +35,23 @@ interactions:
       Connection: [keep-alive]
       DataServiceVersion: [3.0;NetFx]
       MaxDataServiceVersion: ['3.0']
-      User-Agent: [Azure-Storage/0.36.0 (Python CPython 2.7.10; Darwin 16.7.0)]
-      x-ms-client-request-id: [7dac068f-a295-11e7-8c28-b8e8564491f6]
-      x-ms-date: ['Tue, 26 Sep 2017 08:34:20 GMT']
+      User-Agent: [Azure-CosmosDB/0.37.0 (Python CPython 3.6.0; Windows 10)]
+      x-ms-client-request-id: [e5599aca-a86c-11e7-b195-a08cfdf04b77]
+      x-ms-date: ['Tue, 03 Oct 2017 18:58:51 GMT']
       x-ms-version: ['2017-04-17']
     method: GET
     uri: https://storagename.table.core.windows.net/uttable7671d3c(PartitionKey='pk7671d3c',RowKey='rk7671d3c')
   response:
-    body: {string: !!python/unicode '{"odata.metadata":"https://storagename.table.core.windows.net/$metadata#uttable7671d3c/@Element","odata.etag":"W/\"datetime''2017-09-26T08%3A34%3A19.4240622Z''\"","PartitionKey":"pk7671d3c","RowKey":"rk7671d3c","Timestamp":"2017-09-26T08:34:19.4240622Z","age":"abc","birthday@odata.type":"Edm.DateTime","birthday":"1991-10-04T00:00:00Z","sex":"female","sign":"aquarius"}'}
+    body: {string: '{"odata.metadata":"https://storagename.table.core.windows.net/$metadata#uttable7671d3c/@Element","odata.etag":"W/\"datetime''2017-10-03T18%3A58%3A51.5682751Z''\"","PartitionKey":"pk7671d3c","RowKey":"rk7671d3c","Timestamp":"2017-10-03T18:58:51.5682751Z","age":"abc","birthday@odata.type":"Edm.DateTime","birthday":"1991-10-04T00:00:00Z","sex":"female","sign":"aquarius"}'}
     headers:
-      cache-control: [no-cache]
-      content-type: [application/json;odata=minimalmetadata;streaming=true;charset=utf-8]
-      date: ['Tue, 26 Sep 2017 08:34:19 GMT']
-      etag: [W/"datetime'2017-09-26T08%3A34%3A19.4240622Z'"]
-      server: [Windows-Azure-Table/1.0 Microsoft-HTTPAPI/2.0]
-      transfer-encoding: [chunked]
-      x-content-type-options: [nosniff]
-      x-ms-request-id: [9e8deceb-0002-0049-7ea2-36d0d0000000]
+      Cache-Control: [no-cache]
+      Content-Type: [application/json;odata=minimalmetadata;streaming=true;charset=utf-8]
+      Date: ['Tue, 03 Oct 2017 18:58:51 GMT']
+      ETag: [W/"datetime'2017-10-03T18%3A58%3A51.5682751Z'"]
+      Server: [Windows-Azure-Table/1.0 Microsoft-HTTPAPI/2.0]
+      Transfer-Encoding: [chunked]
+      X-Content-Type-Options: [nosniff]
+      x-ms-request-id: [90c4f7e7-0002-0047-3e79-3c7c11000000]
       x-ms-version: ['2017-04-17']
     status: {code: 200, message: OK}
 version: 1

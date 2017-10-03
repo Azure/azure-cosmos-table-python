@@ -1,19 +1,19 @@
 interactions:
 - request:
-    body: !!python/unicode '{"sex": "fsVnXNdcyT4dY4+giLYn7w==", "birthday@odata.type":
-      "Edm.DateTime", "evenratio": 3.0, "binary": "YmluYXJ5", "ratio": 3.1, "large@odata.type":
-      "Edm.Int64", "Birthday@odata.type": "Edm.DateTime", "Birthday": "1973-10-04T00:00:00Z",
-      "clsid": "c9da6455-213d-42c9-9a79-3e9149a57833", "RowKey": "entity1", "_ClientEncryptionMetadata2@odata.type":
-      "Edm.Binary", "name@odata.type": "Edm.Binary", "birthday": "1970-10-04T00:00:00Z",
-      "binary@odata.type": "Edm.Binary", "optional": null, "_ClientEncryptionMetadata1":
-      "{\"WrappedContentKey\": {\"KeyId\": \"key1\", \"EncryptedKey\": \"4MBDWFy2bnP+GW1KJC66Uy2PAlbWYplPj81/T/3nyL7XoJZqomVAzA==\",
+    body: '{"PartitionKey": "pkf00194b", "RowKey": "entity1", "age": "39", "age@odata.type":
+      "Edm.Int64", "sex": "/dtHYF22ZuiQVKgZD5Hsqg==", "sex@odata.type": "Edm.Binary",
+      "name": "RvvCDRWBqEAZYuHhkXUNfg==", "name@odata.type": "Edm.Binary", "married":
+      true, "deceased": false, "optional": null, "evenratio": 3.0, "ratio": 3.1, "large":
+      "933311100", "large@odata.type": "Edm.Int64", "Birthday": "1973-10-04T00:00:00Z",
+      "Birthday@odata.type": "Edm.DateTime", "birthday": "1970-10-04T00:00:00Z", "birthday@odata.type":
+      "Edm.DateTime", "binary": "YmluYXJ5", "binary@odata.type": "Edm.Binary", "other":
+      20, "clsid": "c9da6455-213d-42c9-9a79-3e9149a57833", "clsid@odata.type": "Edm.Guid",
+      "_ClientEncryptionMetadata2": "gHnp6YTlQdc+d7Sr3ocKzQ==", "_ClientEncryptionMetadata2@odata.type":
+      "Edm.Binary", "_ClientEncryptionMetadata1": "{\"WrappedContentKey\": {\"KeyId\":
+      \"key1\", \"EncryptedKey\": \"bGvrm0A9wh3wgVbsblv6M86tRaJuYNLqFYwek5FuYZl56GifbyoMhw==\",
       \"Algorithm\": \"A256KW\"}, \"EncryptionAgent\": {\"Protocol\": \"1.0\", \"EncryptionAlgorithm\":
-      \"AES_CBC_256\"}, \"ContentEncryptionIV\": \"y8iprndWsF2ihHpt7OuRDQ==\", \"KeyWrappingMetadata\":
-      {\"EncryptionLibrary\": \"Python 0.36.0\"}}", "_ClientEncryptionMetadata2":
-      "3aeSb3PEORiQQuLRvuzWaw==", "sex@odata.type": "Edm.Binary", "age@odata.type":
-      "Edm.Int64", "name": "ACCLBWsDFvAjgGDhBO7nWg==", "clsid@odata.type": "Edm.Guid",
-      "married": true, "large": "933311100", "PartitionKey": "pkf00194b", "other":
-      20, "age": "39", "deceased": false}'
+      \"AES_CBC_256\"}, \"ContentEncryptionIV\": \"EvzpxYB5SaRxbP63HdoEzQ==\", \"KeyWrappingMetadata\":
+      {\"EncryptionLibrary\": \"Python 0.37.0\"}}"}'
     headers:
       Accept: [application/json;odata=minimalmetadata]
       Connection: [keep-alive]
@@ -22,42 +22,42 @@ interactions:
       DataServiceVersion: [3.0;NetFx]
       MaxDataServiceVersion: ['3.0']
       Prefer: [return-no-content]
-      User-Agent: [Azure-Storage/0.36.0 (Python CPython 2.7.10; Darwin 16.7.0)]
-      x-ms-client-request-id: [23aad82e-a295-11e7-b64e-b8e8564491f6]
-      x-ms-date: ['Tue, 26 Sep 2017 08:31:49 GMT']
+      User-Agent: [Azure-CosmosDB/0.37.0 (Python CPython 3.6.0; Windows 10)]
+      x-ms-client-request-id: [8e12f152-a86c-11e7-b27a-a08cfdf04b77]
+      x-ms-date: ['Tue, 03 Oct 2017 18:56:25 GMT']
       x-ms-version: ['2017-04-17']
     method: POST
     uri: https://storagename.table.core.windows.net/uttablef00194b
   response:
-    body: {string: !!python/unicode ''}
+    body: {string: ''}
     headers:
-      cache-control: [no-cache]
-      content-length: ['0']
-      dataserviceid: ['https://storagename.table.core.windows.net/uttablef00194b(PartitionKey=''pkf00194b'',RowKey=''entity1'')']
-      date: ['Tue, 26 Sep 2017 08:31:48 GMT']
-      etag: [W/"datetime'2017-09-26T08%3A31%3A48.9947135Z'"]
-      location: ['https://storagename.table.core.windows.net/uttablef00194b(PartitionKey=''pkf00194b'',RowKey=''entity1'')']
-      preference-applied: [return-no-content]
-      server: [Windows-Azure-Table/1.0 Microsoft-HTTPAPI/2.0]
-      x-content-type-options: [nosniff]
-      x-ms-request-id: [3650f65b-0002-0001-6aa1-36cde7000000]
+      Cache-Control: [no-cache]
+      Content-Length: ['0']
+      DataServiceId: ['https://storagename.table.core.windows.net/uttablef00194b(PartitionKey=''pkf00194b'',RowKey=''entity1'')']
+      Date: ['Tue, 03 Oct 2017 18:56:24 GMT']
+      ETag: [W/"datetime'2017-10-03T18%3A56%3A25.6384468Z'"]
+      Location: ['https://storagename.table.core.windows.net/uttablef00194b(PartitionKey=''pkf00194b'',RowKey=''entity1'')']
+      Preference-Applied: [return-no-content]
+      Server: [Windows-Azure-Table/1.0 Microsoft-HTTPAPI/2.0]
+      X-Content-Type-Options: [nosniff]
+      x-ms-request-id: [80918f61-0002-003d-1a79-3c165c000000]
       x-ms-version: ['2017-04-17']
     status: {code: 204, message: No Content}
 - request:
-    body: !!python/unicode '{"sex": "pWGKKEDyfL7DkIDERfrTOg==", "birthday@odata.type":
-      "Edm.DateTime", "evenratio": 3.0, "binary": "YmluYXJ5", "ratio": 3.1, "large@odata.type":
-      "Edm.Int64", "Birthday@odata.type": "Edm.DateTime", "Birthday": "1973-10-04T00:00:00Z",
-      "clsid": "c9da6455-213d-42c9-9a79-3e9149a57833", "RowKey": "entity2", "_ClientEncryptionMetadata2@odata.type":
-      "Edm.Binary", "name@odata.type": "Edm.Binary", "birthday": "1970-10-04T00:00:00Z",
-      "binary@odata.type": "Edm.Binary", "optional": null, "_ClientEncryptionMetadata1":
-      "{\"WrappedContentKey\": {\"KeyId\": \"key1\", \"EncryptedKey\": \"XLtcoXQO6w/F5B6qNOeZR+isBw3hiDUZexGboTeuP39gfCxMPkdrQg==\",
+    body: '{"PartitionKey": "pkf00194b", "RowKey": "entity2", "age": "39", "age@odata.type":
+      "Edm.Int64", "sex": "FQzGSnDH+REbX3b9iZD6sg==", "sex@odata.type": "Edm.Binary",
+      "name": "l7YRbwR8fEOQyD/bUaMlhg==", "name@odata.type": "Edm.Binary", "married":
+      true, "deceased": false, "optional": null, "evenratio": 3.0, "ratio": 3.1, "large":
+      "933311100", "large@odata.type": "Edm.Int64", "Birthday": "1973-10-04T00:00:00Z",
+      "Birthday@odata.type": "Edm.DateTime", "birthday": "1970-10-04T00:00:00Z", "birthday@odata.type":
+      "Edm.DateTime", "binary": "YmluYXJ5", "binary@odata.type": "Edm.Binary", "other":
+      20, "clsid": "c9da6455-213d-42c9-9a79-3e9149a57833", "clsid@odata.type": "Edm.Guid",
+      "_ClientEncryptionMetadata2": "q4JrmiScpp99V9bqnghjJw==", "_ClientEncryptionMetadata2@odata.type":
+      "Edm.Binary", "_ClientEncryptionMetadata1": "{\"WrappedContentKey\": {\"KeyId\":
+      \"key1\", \"EncryptedKey\": \"vlC5nUw9GuJlJY3FqAvBBtNpRfC4C+Kk8zgSzuVyOmSK7WztOWwzfw==\",
       \"Algorithm\": \"A256KW\"}, \"EncryptionAgent\": {\"Protocol\": \"1.0\", \"EncryptionAlgorithm\":
-      \"AES_CBC_256\"}, \"ContentEncryptionIV\": \"dJFkJr/tHjf0z0LkQXD5XA==\", \"KeyWrappingMetadata\":
-      {\"EncryptionLibrary\": \"Python 0.36.0\"}}", "_ClientEncryptionMetadata2":
-      "/h6eZ3yTwcuRxKF39csgkQ==", "sex@odata.type": "Edm.Binary", "age@odata.type":
-      "Edm.Int64", "name": "JEQGUG4x3QHdK1OZkGoESQ==", "clsid@odata.type": "Edm.Guid",
-      "married": true, "large": "933311100", "PartitionKey": "pkf00194b", "other":
-      20, "age": "39", "deceased": false}'
+      \"AES_CBC_256\"}, \"ContentEncryptionIV\": \"xY8BKHJoshNo7Rw5hz2alw==\", \"KeyWrappingMetadata\":
+      {\"EncryptionLibrary\": \"Python 0.37.0\"}}"}'
     headers:
       Accept: [application/json;odata=minimalmetadata]
       Connection: [keep-alive]
@@ -66,25 +66,25 @@ interactions:
       DataServiceVersion: [3.0;NetFx]
       MaxDataServiceVersion: ['3.0']
       Prefer: [return-no-content]
-      User-Agent: [Azure-Storage/0.36.0 (Python CPython 2.7.10; Darwin 16.7.0)]
-      x-ms-client-request-id: [23ec010a-a295-11e7-b3ad-b8e8564491f6]
-      x-ms-date: ['Tue, 26 Sep 2017 08:31:49 GMT']
+      User-Agent: [Azure-CosmosDB/0.37.0 (Python CPython 3.6.0; Windows 10)]
+      x-ms-client-request-id: [8e4f06e8-a86c-11e7-a3a2-a08cfdf04b77]
+      x-ms-date: ['Tue, 03 Oct 2017 18:56:25 GMT']
       x-ms-version: ['2017-04-17']
     method: POST
     uri: https://storagename.table.core.windows.net/uttablef00194b
   response:
-    body: {string: !!python/unicode ''}
+    body: {string: ''}
     headers:
-      cache-control: [no-cache]
-      content-length: ['0']
-      dataserviceid: ['https://storagename.table.core.windows.net/uttablef00194b(PartitionKey=''pkf00194b'',RowKey=''entity2'')']
-      date: ['Tue, 26 Sep 2017 08:31:48 GMT']
-      etag: [W/"datetime'2017-09-26T08%3A31%3A49.1107176Z'"]
-      location: ['https://storagename.table.core.windows.net/uttablef00194b(PartitionKey=''pkf00194b'',RowKey=''entity2'')']
-      preference-applied: [return-no-content]
-      server: [Windows-Azure-Table/1.0 Microsoft-HTTPAPI/2.0]
-      x-content-type-options: [nosniff]
-      x-ms-request-id: [3650f668-0002-0001-75a1-36cde7000000]
+      Cache-Control: [no-cache]
+      Content-Length: ['0']
+      DataServiceId: ['https://storagename.table.core.windows.net/uttablef00194b(PartitionKey=''pkf00194b'',RowKey=''entity2'')']
+      Date: ['Tue, 03 Oct 2017 18:56:24 GMT']
+      ETag: [W/"datetime'2017-10-03T18%3A56%3A25.7485511Z'"]
+      Location: ['https://storagename.table.core.windows.net/uttablef00194b(PartitionKey=''pkf00194b'',RowKey=''entity2'')']
+      Preference-Applied: [return-no-content]
+      Server: [Windows-Azure-Table/1.0 Microsoft-HTTPAPI/2.0]
+      X-Content-Type-Options: [nosniff]
+      x-ms-request-id: [80918f6a-0002-003d-2179-3c165c000000]
       x-ms-version: ['2017-04-17']
     status: {code: 204, message: No Content}
 - request:
@@ -94,45 +94,44 @@ interactions:
       Connection: [keep-alive]
       DataServiceVersion: [3.0;NetFx]
       MaxDataServiceVersion: ['3.0']
-      User-Agent: [Azure-Storage/0.36.0 (Python CPython 2.7.10; Darwin 16.7.0)]
-      x-ms-client-request-id: [23fd60bd-a295-11e7-8ff8-b8e8564491f6]
-      x-ms-date: ['Tue, 26 Sep 2017 08:31:49 GMT']
+      User-Agent: [Azure-CosmosDB/0.37.0 (Python CPython 3.6.0; Windows 10)]
+      x-ms-client-request-id: [8e5f9db8-a86c-11e7-8171-a08cfdf04b77]
+      x-ms-date: ['Tue, 03 Oct 2017 18:56:25 GMT']
       x-ms-version: ['2017-04-17']
     method: GET
     uri: https://storagename.table.core.windows.net/uttablef00194b(PartitionKey='pkf00194b',RowKey='entity1')
   response:
-    body: {string: !!python/unicode '{"odata.metadata":"https://storagename.table.core.windows.net/$metadata#uttablef00194b/@Element","odata.etag":"W/\"datetime''2017-09-26T08%3A31%3A48.9947135Z''\"","PartitionKey":"pkf00194b","RowKey":"entity1","Timestamp":"2017-09-26T08:31:48.9947135Z","sex@odata.type":"Edm.Binary","sex":"fsVnXNdcyT4dY4+giLYn7w==","evenratio":3.0,"binary@odata.type":"Edm.Binary","binary":"YmluYXJ5","ratio":3.1,"Birthday@odata.type":"Edm.DateTime","Birthday":"1973-10-04T00:00:00Z","clsid@odata.type":"Edm.Guid","clsid":"c9da6455-213d-42c9-9a79-3e9149a57833","birthday@odata.type":"Edm.DateTime","birthday":"1970-10-04T00:00:00Z","_ClientEncryptionMetadata1":"{\"WrappedContentKey\":
-        {\"KeyId\": \"key1\", \"EncryptedKey\": \"4MBDWFy2bnP+GW1KJC66Uy2PAlbWYplPj81/T/3nyL7XoJZqomVAzA==\",
+    body: {string: '{"odata.metadata":"https://storagename.table.core.windows.net/$metadata#uttablef00194b/@Element","odata.etag":"W/\"datetime''2017-10-03T18%3A56%3A25.6384468Z''\"","PartitionKey":"pkf00194b","RowKey":"entity1","Timestamp":"2017-10-03T18:56:25.6384468Z","age@odata.type":"Edm.Int64","age":"39","sex@odata.type":"Edm.Binary","sex":"/dtHYF22ZuiQVKgZD5Hsqg==","name@odata.type":"Edm.Binary","name":"RvvCDRWBqEAZYuHhkXUNfg==","married":true,"deceased":false,"evenratio":3.0,"ratio":3.1,"large@odata.type":"Edm.Int64","large":"933311100","Birthday@odata.type":"Edm.DateTime","Birthday":"1973-10-04T00:00:00Z","birthday@odata.type":"Edm.DateTime","birthday":"1970-10-04T00:00:00Z","binary@odata.type":"Edm.Binary","binary":"YmluYXJ5","other":20,"clsid@odata.type":"Edm.Guid","clsid":"c9da6455-213d-42c9-9a79-3e9149a57833","_ClientEncryptionMetadata2@odata.type":"Edm.Binary","_ClientEncryptionMetadata2":"gHnp6YTlQdc+d7Sr3ocKzQ==","_ClientEncryptionMetadata1":"{\"WrappedContentKey\":
+        {\"KeyId\": \"key1\", \"EncryptedKey\": \"bGvrm0A9wh3wgVbsblv6M86tRaJuYNLqFYwek5FuYZl56GifbyoMhw==\",
         \"Algorithm\": \"A256KW\"}, \"EncryptionAgent\": {\"Protocol\": \"1.0\", \"EncryptionAlgorithm\":
-        \"AES_CBC_256\"}, \"ContentEncryptionIV\": \"y8iprndWsF2ihHpt7OuRDQ==\", \"KeyWrappingMetadata\":
-        {\"EncryptionLibrary\": \"Python 0.36.0\"}}","_ClientEncryptionMetadata2@odata.type":"Edm.Binary","_ClientEncryptionMetadata2":"3aeSb3PEORiQQuLRvuzWaw==","name@odata.type":"Edm.Binary","name":"ACCLBWsDFvAjgGDhBO7nWg==","married":true,"large@odata.type":"Edm.Int64","large":"933311100","other":20,"age@odata.type":"Edm.Int64","age":"39","deceased":false}'}
+        \"AES_CBC_256\"}, \"ContentEncryptionIV\": \"EvzpxYB5SaRxbP63HdoEzQ==\", \"KeyWrappingMetadata\":
+        {\"EncryptionLibrary\": \"Python 0.37.0\"}}"}'}
     headers:
-      cache-control: [no-cache]
-      content-type: [application/json;odata=minimalmetadata;streaming=true;charset=utf-8]
-      date: ['Tue, 26 Sep 2017 08:31:48 GMT']
-      etag: [W/"datetime'2017-09-26T08%3A31%3A48.9947135Z'"]
-      server: [Windows-Azure-Table/1.0 Microsoft-HTTPAPI/2.0]
-      transfer-encoding: [chunked]
-      x-content-type-options: [nosniff]
-      x-ms-request-id: [3650f66f-0002-0001-7ca1-36cde7000000]
+      Cache-Control: [no-cache]
+      Content-Type: [application/json;odata=minimalmetadata;streaming=true;charset=utf-8]
+      Date: ['Tue, 03 Oct 2017 18:56:25 GMT']
+      ETag: [W/"datetime'2017-10-03T18%3A56%3A25.6384468Z'"]
+      Server: [Windows-Azure-Table/1.0 Microsoft-HTTPAPI/2.0]
+      Transfer-Encoding: [chunked]
+      X-Content-Type-Options: [nosniff]
+      x-ms-request-id: [80918f71-0002-003d-2879-3c165c000000]
       x-ms-version: ['2017-04-17']
     status: {code: 200, message: OK}
 - request:
-    body: !!python/unicode '{"sex": "fsVnXNdcyT4dY4+giLYn7w==", "birthday@odata.type":
-      "Edm.DateTime", "evenratio": 3.0, "Timestamp@odata.type": "Edm.DateTime", "binary":
-      "YmluYXJ5", "ratio": 3.1, "Timestamp": "2017-09-26T08:31:48Z", "large@odata.type":
-      "Edm.Int64", "Birthday@odata.type": "Edm.DateTime", "etag": "W/\"datetime''2017-09-26T08%3A31%3A48.9947135Z''\"",
-      "clsid": "c9da6455-213d-42c9-9a79-3e9149a57833", "RowKey": "entity2", "_ClientEncryptionMetadata2@odata.type":
-      "Edm.Binary", "name@odata.type": "Edm.Binary", "birthday": "1970-10-04T00:00:00Z",
-      "binary@odata.type": "Edm.Binary", "_ClientEncryptionMetadata1": "{\"WrappedContentKey\":
-      {\"KeyId\": \"key1\", \"EncryptedKey\": \"4MBDWFy2bnP+GW1KJC66Uy2PAlbWYplPj81/T/3nyL7XoJZqomVAzA==\",
+    body: '{"PartitionKey": "pkf00194b", "RowKey": "entity2", "Timestamp": "2017-10-03T18:56:25Z",
+      "Timestamp@odata.type": "Edm.DateTime", "age": "39", "age@odata.type": "Edm.Int64",
+      "sex": "/dtHYF22ZuiQVKgZD5Hsqg==", "sex@odata.type": "Edm.Binary", "name": "RvvCDRWBqEAZYuHhkXUNfg==",
+      "name@odata.type": "Edm.Binary", "married": true, "deceased": false, "evenratio":
+      3.0, "ratio": 3.1, "large": "933311100", "large@odata.type": "Edm.Int64", "Birthday":
+      "1973-10-04T00:00:00Z", "Birthday@odata.type": "Edm.DateTime", "birthday": "1970-10-04T00:00:00Z",
+      "birthday@odata.type": "Edm.DateTime", "binary": "YmluYXJ5", "binary@odata.type":
+      "Edm.Binary", "other": 20, "clsid": "c9da6455-213d-42c9-9a79-3e9149a57833",
+      "clsid@odata.type": "Edm.Guid", "_ClientEncryptionMetadata2": "gHnp6YTlQdc+d7Sr3ocKzQ==",
+      "_ClientEncryptionMetadata2@odata.type": "Edm.Binary", "_ClientEncryptionMetadata1":
+      "{\"WrappedContentKey\": {\"KeyId\": \"key1\", \"EncryptedKey\": \"bGvrm0A9wh3wgVbsblv6M86tRaJuYNLqFYwek5FuYZl56GifbyoMhw==\",
       \"Algorithm\": \"A256KW\"}, \"EncryptionAgent\": {\"Protocol\": \"1.0\", \"EncryptionAlgorithm\":
-      \"AES_CBC_256\"}, \"ContentEncryptionIV\": \"y8iprndWsF2ihHpt7OuRDQ==\", \"KeyWrappingMetadata\":
-      {\"EncryptionLibrary\": \"Python 0.36.0\"}}", "_ClientEncryptionMetadata2":
-      "3aeSb3PEORiQQuLRvuzWaw==", "sex@odata.type": "Edm.Binary", "age@odata.type":
-      "Edm.Int64", "name": "ACCLBWsDFvAjgGDhBO7nWg==", "clsid@odata.type": "Edm.Guid",
-      "age": "39", "married": true, "large": "933311100", "PartitionKey": "pkf00194b",
-      "Birthday": "1973-10-04T00:00:00Z", "other": 20, "deceased": false}'
+      \"AES_CBC_256\"}, \"ContentEncryptionIV\": \"EvzpxYB5SaRxbP63HdoEzQ==\", \"KeyWrappingMetadata\":
+      {\"EncryptionLibrary\": \"Python 0.37.0\"}}", "etag": "W/\"datetime''2017-10-03T18%3A56%3A25.6384468Z''\""}'
     headers:
       Accept: [application/json;odata=minimalmetadata]
       Connection: [keep-alive]
@@ -141,22 +140,22 @@ interactions:
       DataServiceVersion: [3.0;NetFx]
       If-Match: ['*']
       MaxDataServiceVersion: ['3.0']
-      User-Agent: [Azure-Storage/0.36.0 (Python CPython 2.7.10; Darwin 16.7.0)]
-      x-ms-client-request-id: [240e6b0a-a295-11e7-b907-b8e8564491f6]
-      x-ms-date: ['Tue, 26 Sep 2017 08:31:49 GMT']
+      User-Agent: [Azure-CosmosDB/0.37.0 (Python CPython 3.6.0; Windows 10)]
+      x-ms-client-request-id: [8e717a38-a86c-11e7-99a8-a08cfdf04b77]
+      x-ms-date: ['Tue, 03 Oct 2017 18:56:25 GMT']
       x-ms-version: ['2017-04-17']
     method: PUT
     uri: https://storagename.table.core.windows.net/uttablef00194b(PartitionKey='pkf00194b',RowKey='entity2')
   response:
-    body: {string: !!python/unicode ''}
+    body: {string: ''}
     headers:
-      cache-control: [no-cache]
-      content-length: ['0']
-      date: ['Tue, 26 Sep 2017 08:31:49 GMT']
-      etag: [W/"datetime'2017-09-26T08%3A31%3A49.1903535Z'"]
-      server: [Windows-Azure-Table/1.0 Microsoft-HTTPAPI/2.0]
-      x-content-type-options: [nosniff]
-      x-ms-request-id: [3650f677-0002-0001-04a1-36cde7000000]
+      Cache-Control: [no-cache]
+      Content-Length: ['0']
+      Date: ['Tue, 03 Oct 2017 18:56:25 GMT']
+      ETag: [W/"datetime'2017-10-03T18%3A56%3A25.8776582Z'"]
+      Server: [Windows-Azure-Table/1.0 Microsoft-HTTPAPI/2.0]
+      X-Content-Type-Options: [nosniff]
+      x-ms-request-id: [80918f76-0002-003d-2d79-3c165c000000]
       x-ms-version: ['2017-04-17']
     status: {code: 204, message: No Content}
 - request:
@@ -166,27 +165,27 @@ interactions:
       Connection: [keep-alive]
       DataServiceVersion: [3.0;NetFx]
       MaxDataServiceVersion: ['3.0']
-      User-Agent: [Azure-Storage/0.36.0 (Python CPython 2.7.10; Darwin 16.7.0)]
-      x-ms-client-request-id: [2420444c-a295-11e7-b02d-b8e8564491f6]
-      x-ms-date: ['Tue, 26 Sep 2017 08:31:49 GMT']
+      User-Agent: [Azure-CosmosDB/0.37.0 (Python CPython 3.6.0; Windows 10)]
+      x-ms-client-request-id: [8e82cef0-a86c-11e7-8e3f-a08cfdf04b77]
+      x-ms-date: ['Tue, 03 Oct 2017 18:56:25 GMT']
       x-ms-version: ['2017-04-17']
     method: GET
     uri: https://storagename.table.core.windows.net/uttablef00194b(PartitionKey='pkf00194b',RowKey='entity2')
   response:
-    body: {string: !!python/unicode '{"odata.metadata":"https://storagename.table.core.windows.net/$metadata#uttablef00194b/@Element","odata.etag":"W/\"datetime''2017-09-26T08%3A31%3A49.1903535Z''\"","PartitionKey":"pkf00194b","RowKey":"entity2","Timestamp":"2017-09-26T08:31:49.1903535Z","Birthday@odata.type":"Edm.DateTime","Birthday":"1973-10-04T00:00:00Z","_ClientEncryptionMetadata1":"{\"WrappedContentKey\":
-        {\"KeyId\": \"key1\", \"EncryptedKey\": \"4MBDWFy2bnP+GW1KJC66Uy2PAlbWYplPj81/T/3nyL7XoJZqomVAzA==\",
+    body: {string: '{"odata.metadata":"https://storagename.table.core.windows.net/$metadata#uttablef00194b/@Element","odata.etag":"W/\"datetime''2017-10-03T18%3A56%3A25.8776582Z''\"","PartitionKey":"pkf00194b","RowKey":"entity2","Timestamp":"2017-10-03T18:56:25.8776582Z","Birthday@odata.type":"Edm.DateTime","Birthday":"1973-10-04T00:00:00Z","_ClientEncryptionMetadata1":"{\"WrappedContentKey\":
+        {\"KeyId\": \"key1\", \"EncryptedKey\": \"bGvrm0A9wh3wgVbsblv6M86tRaJuYNLqFYwek5FuYZl56GifbyoMhw==\",
         \"Algorithm\": \"A256KW\"}, \"EncryptionAgent\": {\"Protocol\": \"1.0\", \"EncryptionAlgorithm\":
-        \"AES_CBC_256\"}, \"ContentEncryptionIV\": \"y8iprndWsF2ihHpt7OuRDQ==\", \"KeyWrappingMetadata\":
-        {\"EncryptionLibrary\": \"Python 0.36.0\"}}","_ClientEncryptionMetadata2@odata.type":"Edm.Binary","_ClientEncryptionMetadata2":"3aeSb3PEORiQQuLRvuzWaw==","age@odata.type":"Edm.Int64","age":"39","binary@odata.type":"Edm.Binary","binary":"YmluYXJ5","birthday@odata.type":"Edm.DateTime","birthday":"1970-10-04T00:00:00Z","clsid@odata.type":"Edm.Guid","clsid":"c9da6455-213d-42c9-9a79-3e9149a57833","deceased":false,"etag":"W/\"datetime''2017-09-26T08%3A31%3A48.9947135Z''\"","evenratio":3.0,"large@odata.type":"Edm.Int64","large":"933311100","married":true,"name@odata.type":"Edm.Binary","name":"ACCLBWsDFvAjgGDhBO7nWg==","other":20,"ratio":3.1,"sex@odata.type":"Edm.Binary","sex":"fsVnXNdcyT4dY4+giLYn7w=="}'}
+        \"AES_CBC_256\"}, \"ContentEncryptionIV\": \"EvzpxYB5SaRxbP63HdoEzQ==\", \"KeyWrappingMetadata\":
+        {\"EncryptionLibrary\": \"Python 0.37.0\"}}","_ClientEncryptionMetadata2@odata.type":"Edm.Binary","_ClientEncryptionMetadata2":"gHnp6YTlQdc+d7Sr3ocKzQ==","age@odata.type":"Edm.Int64","age":"39","binary@odata.type":"Edm.Binary","binary":"YmluYXJ5","birthday@odata.type":"Edm.DateTime","birthday":"1970-10-04T00:00:00Z","clsid@odata.type":"Edm.Guid","clsid":"c9da6455-213d-42c9-9a79-3e9149a57833","deceased":false,"etag":"W/\"datetime''2017-10-03T18%3A56%3A25.6384468Z''\"","evenratio":3.0,"large@odata.type":"Edm.Int64","large":"933311100","married":true,"name@odata.type":"Edm.Binary","name":"RvvCDRWBqEAZYuHhkXUNfg==","other":20,"ratio":3.1,"sex@odata.type":"Edm.Binary","sex":"/dtHYF22ZuiQVKgZD5Hsqg=="}'}
     headers:
-      cache-control: [no-cache]
-      content-type: [application/json;odata=minimalmetadata;streaming=true;charset=utf-8]
-      date: ['Tue, 26 Sep 2017 08:31:49 GMT']
-      etag: [W/"datetime'2017-09-26T08%3A31%3A49.1903535Z'"]
-      server: [Windows-Azure-Table/1.0 Microsoft-HTTPAPI/2.0]
-      transfer-encoding: [chunked]
-      x-content-type-options: [nosniff]
-      x-ms-request-id: [3650f67d-0002-0001-0aa1-36cde7000000]
+      Cache-Control: [no-cache]
+      Content-Type: [application/json;odata=minimalmetadata;streaming=true;charset=utf-8]
+      Date: ['Tue, 03 Oct 2017 18:56:25 GMT']
+      ETag: [W/"datetime'2017-10-03T18%3A56%3A25.8776582Z'"]
+      Server: [Windows-Azure-Table/1.0 Microsoft-HTTPAPI/2.0]
+      Transfer-Encoding: [chunked]
+      X-Content-Type-Options: [nosniff]
+      x-ms-request-id: [80918f7c-0002-003d-3279-3c165c000000]
       x-ms-version: ['2017-04-17']
     status: {code: 200, message: OK}
 version: 1

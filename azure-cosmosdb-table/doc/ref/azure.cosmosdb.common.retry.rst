@@ -1,7 +1,7 @@
-azure.storage.table.tablebatch module
+azure\.cosmosdb\.common\.retry module
 =====================================
 
-.. automodule:: azure.storage.table.tablebatch
+.. automodule:: azure.cosmosdb.common.retry
     :members:
     :undoc-members:
     :show-inheritance:

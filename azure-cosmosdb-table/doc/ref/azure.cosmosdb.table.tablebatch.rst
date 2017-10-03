@@ -1,7 +1,7 @@
-azure.storage.common.storageclient module
+azure\.cosmosdb\.table\.tablebatch module
 =========================================
 
-.. automodule:: azure.storage.common.storageclient
+.. automodule:: azure.cosmosdb.table.tablebatch
     :members:
     :undoc-members:
     :show-inheritance:

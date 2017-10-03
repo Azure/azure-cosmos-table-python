@@ -5,16 +5,18 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>6c4a3e11-9be6-437a-837c-887b2fa19525</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>
-    </StartupFile>
+    <StartupFile>build_packages.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
     <Name>azure-cosmosdb-python</Name>
     <RootNamespace>azure-cosmosdb-python</RootNamespace>
-    <InterpreterId>{53cb0330-049f-4de9-87d8-7a2b536751f9}</InterpreterId>
-    <InterpreterVersion>3.5</InterpreterVersion>
+    <InterpreterId>{9a7a9026-48c1-4688-9d5d-e5699d47d074}</InterpreterId>
+    <InterpreterVersion>2.7</InterpreterVersion>
+    <LaunchProvider>Standard Python launcher</LaunchProvider>
+    <CommandLineArguments>all</CommandLineArguments>
+    <EnableNativeCodeDebugging>False</EnableNativeCodeDebugging>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -138,138 +140,21 @@
     <Content Include="azure-cosmosdb-table\azure\cosmosdb\tests\recordings\test_table_entity.test_update_entity_with_if_doesnt_match.yaml" />
     <Content Include="azure-cosmosdb-table\azure\cosmosdb\tests\recordings\test_table_entity.test_update_entity_with_if_matches.yaml" />
     <Content Include="azure-cosmosdb-table\azure\cosmosdb\tests\run-storage.bat" />
-    <Content Include="azure-cosmosdb-table\doc\BuildDocs.bat" />
-    <Content Include="azure-cosmosdb-table\doc\index.rst" />
-    <Content Include="azure-cosmosdb-table\doc\InstallDocDependencies.bat" />
-    <Content Include="azure-cosmosdb-table\doc\make.bat" />
-    <Content Include="azure-cosmosdb-table\doc\Makefile" />
-    <Content Include="azure-cosmosdb-table\doc\ref\azure.storage.common.cloudstorageaccount.rst" />
-    <Content Include="azure-cosmosdb-table\doc\ref\azure.storage.common.models.rst" />
-    <Content Include="azure-cosmosdb-table\doc\ref\azure.storage.common.rst" />
-    <Content Include="azure-cosmosdb-table\doc\ref\azure.storage.common.sharedaccesssignature.rst" />
-    <Content Include="azure-cosmosdb-table\doc\ref\azure.storage.common.storageclient.rst" />
-    <Content Include="azure-cosmosdb-table\doc\ref\azure.storage.table.models.rst" />
-    <Content Include="azure-cosmosdb-table\doc\ref\azure.storage.table.rst" />
-    <Content Include="azure-cosmosdb-table\doc\ref\azure.storage.table.tablebatch.rst" />
-    <Content Include="azure-cosmosdb-table\doc\ref\azure.storage.table.tableservice.rst" />
-    <Content Include="azure-cosmosdb-table\doc\ref\modules.rst" />
-    <Content Include="azure-cosmosdb-table\doc\requirements.txt" />
-    <Content Include="azure-cosmosdb-table\doc\upgrade.rst" />
     <Content Include="azure-cosmosdb-nspkg\MANIFEST.in" />
     <Content Include="azure-cosmosdb-nspkg\README.rst" />
     <Content Include="azure-cosmosdb-nspkg\setup.cfg" />
     <Content Include="azure-cosmosdb-table\BreakingChanges.md" />
     <Content Include="azure-cosmosdb-table\ChangeLog.md" />
+    <Content Include="azure-cosmosdb-table\doc\BuildDocs.bat" />
+    <Content Include="azure-cosmosdb-table\doc\InstallDocDependencies.bat" />
+    <Content Include="azure-cosmosdb-table\doc\make.bat" />
+    <Content Include="azure-cosmosdb-table\doc\Makefile" />
+    <Content Include="azure-cosmosdb-table\doc\ref\index.rst" />
+    <Content Include="azure-cosmosdb-table\doc\requirements.txt" />
+    <Content Include="azure-cosmosdb-table\doc\upgrade.rst" />
     <Content Include="azure-cosmosdb-table\MANIFEST.in" />
     <Content Include="azure-cosmosdb-table\README.rst" />
     <Content Include="azure-cosmosdb-table\setup.cfg" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table.test_create_table.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table.test_create_table_fail_on_exist.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table.test_create_table_with_already_existing_table.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table.test_create_table_with_already_existing_table_fail_on_exist.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table.test_delete_table_with_existing_table.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table.test_delete_table_with_existing_table_fail_not_exist.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table.test_delete_table_with_non_existing_table.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table.test_delete_table_with_non_existing_table_fail_not_exist.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table.test_get_table_acl.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table.test_list_tables.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table.test_list_tables_with_marker.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table.test_list_tables_with_num_results.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table.test_locale.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table.test_set_table_acl.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table.test_set_table_acl_too_many_ids.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table.test_set_table_acl_with_empty_signed_identifier.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table.test_set_table_acl_with_empty_signed_identifiers.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table.test_set_table_acl_with_signed_identifiers.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table.test_table_exists.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table.test_table_not_exists.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table.test_unicode_create_table_unicode_name.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table_batch.test_batch_all_operations_together.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table_batch.test_batch_all_operations_together_context_manager.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table_batch.test_batch_delete.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table_batch.test_batch_different_partition_operations_fail.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table_batch.test_batch_insert.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table_batch.test_batch_inserts.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table_batch.test_batch_insert_merge.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table_batch.test_batch_insert_replace.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table_batch.test_batch_merge.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table_batch.test_batch_reuse.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table_batch.test_batch_same_row_operations_fail.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table_batch.test_batch_too_many_ops.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table_batch.test_batch_update.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table_batch.test_batch_update_if_doesnt_match.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table_batch.test_batch_update_if_match.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table_encryption.test_batch_entity_inserts_context_manager.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table_encryption.test_get_encrypted_dict.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table_encryption.test_get_encrypted_entity.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table_encryption.test_get_encrypted_entity_encryption_resolver.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table_encryption.test_get_encrypted_entity_key_resolver.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table_encryption.test_get_encrypted_entity_properties_and_resolver.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table_encryption.test_get_encrypt_multiple_properties.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table_encryption.test_get_entity_invalid_value_kek_unwrap.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table_encryption.test_get_entity_missing_attribute_kek_unwrap.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table_encryption.test_get_entity_nonmatching_kid.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table_encryption.test_get_entity_no_decryption.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table_encryption.test_get_payload_formats.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table_encryption.test_get_strict_mode_no_key.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table_encryption.test_get_strict_mode_unencrypted_entity.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table_encryption.test_invalid_encryption_operations_fail.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table_encryption.test_invalid_encryption_operations_fail_batch.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table_encryption.test_property_resolver_decrypt_conflict.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table_encryption.test_query_entities_all_properties.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table_encryption.test_query_entities_mixed_mode.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table_encryption.test_query_entities_projection.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table_encryption.test_replace_entity.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table_encryption.test_strict_mode_policy_no_encrypted_properties.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table_encryption.test_table_ops_ignore_encryption.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table_encryption.test_validate_encryption.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table_encryption.test_validate_swapping_properties_fails.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table_entity.test_binary_property_value.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table_entity.test_delete_entity.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table_entity.test_delete_entity_not_existing.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table_entity.test_delete_entity_with_if_doesnt_match.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table_entity.test_delete_entity_with_if_matches.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table_entity.test_empty_and_spaces_property_value.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table_entity.test_get_entity.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table_entity.test_get_entity_full_metadata.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table_entity.test_get_entity_if_match.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table_entity.test_get_entity_not_existing.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table_entity.test_get_entity_no_metadata.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table_entity.test_get_entity_with_property_resolver.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table_entity.test_get_entity_with_property_resolver_invalid.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table_entity.test_get_entity_with_property_resolver_not_supported.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table_entity.test_get_entity_with_select.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table_entity.test_get_entity_with_special_doubles.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table_entity.test_insert_entity_class_instance.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table_entity.test_insert_entity_conflict.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table_entity.test_insert_entity_dictionary.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table_entity.test_insert_entity_empty_string_pk.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table_entity.test_insert_entity_empty_string_rk.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table_entity.test_insert_or_merge_entity_with_existing_entity.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table_entity.test_insert_or_merge_entity_with_non_existing_entity.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table_entity.test_insert_or_replace_entity_with_existing_entity.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table_entity.test_insert_or_replace_entity_with_non_existing_entity.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table_entity.test_merge_entity.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table_entity.test_merge_entity_not_existing.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table_entity.test_merge_entity_with_if_doesnt_match.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table_entity.test_merge_entity_with_if_matches.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table_entity.test_none_property_value.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table_entity.test_query_entities.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table_entity.test_query_entities_full_metadata.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table_entity.test_query_entities_large.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table_entity.test_query_entities_no_metadata.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table_entity.test_query_entities_with_filter.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table_entity.test_query_entities_with_property_resolver.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table_entity.test_query_entities_with_select.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table_entity.test_query_entities_with_top.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table_entity.test_query_entities_with_top_and_next.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table_entity.test_query_zero_entities.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table_entity.test_timezone.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table_entity.test_unicode_property_name.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table_entity.test_unicode_property_value.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table_entity.test_update_entity.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table_entity.test_update_entity_with_if_doesnt_match.yaml" />
-    <Content Include="azure-cosmosdb-table\tests\recordings\test_table_entity.test_update_entity_with_if_matches.yaml" />
     <Content Include="azure-cosmosdb-table\tests\run-storage.bat" />
     <Content Include="BreakingChanges.md" />
     <Content Include="ChangeLog.md" />
@@ -284,8 +169,6 @@
     <Folder Include="azure-cosmosdb-table\azure\cosmosdb\tests\" />
     <Folder Include="azure-cosmosdb-table\azure\cosmosdb\tests\recordings\" />
     <Folder Include="azure-cosmosdb-table\azure\cosmosdb\tests\table\" />
-    <Folder Include="azure-cosmosdb-table\doc\" />
-    <Folder Include="azure-cosmosdb-table\doc\ref\" />
     <Folder Include="azure-cosmosdb-nspkg\" />
     <Folder Include="azure-cosmosdb-nspkg\azure\" />
     <Folder Include="azure-cosmosdb-nspkg\azure\cosmosdb\" />
@@ -293,6 +176,8 @@
     <Folder Include="azure-cosmosdb-table\azure\" />
     <Folder Include="azure-cosmosdb-table\azure\cosmosdb\" />
     <Folder Include="azure-cosmosdb-table\azure\cosmosdb\table\" />
+    <Folder Include="azure-cosmosdb-table\doc\" />
+    <Folder Include="azure-cosmosdb-table\doc\ref\" />
     <Folder Include="azure-cosmosdb-table\samples\" />
     <Folder Include="azure-cosmosdb-table\samples\advanced\" />
     <Folder Include="azure-cosmosdb-table\samples\table\" />
@@ -326,8 +211,6 @@
     <Compile Include="azure-cosmosdb-table\azure\cosmosdb\tests\table\__init__.py" />
     <Compile Include="azure-cosmosdb-table\azure\cosmosdb\tests\testcase.py" />
     <Compile Include="azure-cosmosdb-table\azure\cosmosdb\tests\__init__.py" />
-    <Compile Include="azure-cosmosdb-table\doc\conf.py" />
-    <Compile Include="azure-cosmosdb-table\doc\__init__.py" />
     <Compile Include="azure-cosmosdb-nspkg\azure\cosmosdb\__init__.py" />
     <Compile Include="azure-cosmosdb-nspkg\setup.py" />
     <Compile Include="azure-cosmosdb-table\azure\cosmosdb\table\models.py" />
@@ -342,6 +225,8 @@
     <Compile Include="azure-cosmosdb-table\azure\cosmosdb\__init__.py" />
     <Compile Include="azure-cosmosdb-table\azure\__init__.py" />
     <Compile Include="azure-cosmosdb-table\azure_bdist_wheel.py" />
+    <Compile Include="azure-cosmosdb-table\doc\conf.py" />
+    <Compile Include="azure-cosmosdb-table\doc\__init__.py" />
     <Compile Include="azure-cosmosdb-table\samples\advanced\authentication.py" />
     <Compile Include="azure-cosmosdb-table\samples\advanced\client.py" />
     <Compile Include="azure-cosmosdb-table\samples\advanced\__init__.py" />
@@ -354,6 +239,7 @@
     <Compile Include="azure-cosmosdb-table\samples\__init__.py" />
     <Compile Include="azure-cosmosdb-table\setup.py" />
     <Compile Include="azure-cosmosdb-table\tests\encryption_test_helper.py" />
+    <Compile Include="azure-cosmosdb-table\tests\settings_real.py" />
     <Compile Include="azure-cosmosdb-table\tests\settings_fake.py" />
     <Compile Include="azure-cosmosdb-table\tests\table\test_table.py" />
     <Compile Include="azure-cosmosdb-table\tests\table\test_table_batch.py" />
