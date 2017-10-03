@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>azure.cosmosdb.common.models module &#8212; Azure CosmosDB SDK for Python 0.36.0 documentation</title>
+    <title>azure.cosmosdb.common.models module &#8212; Azure CosmosDB SDK for Python 0.37.0 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0.36.0',
+        VERSION:     '0.37.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -23,6 +23,8 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="azure.cosmosdb.common.retry module" href="azure.cosmosdb.common.retry.html" />
+    <link rel="prev" title="azure.cosmosdb.common.cloudstorageaccount module" href="azure.cosmosdb.common.cloudstorageaccount.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -231,14 +233,11 @@ headers. Each header can be up to 256 characters.</li>
 <li><strong>status</strong> (<em>str</em>) – <dl class="docutils">
 <dt>The status of the secondary location. Possible values are:</dt>
 <dd>live: Indicates that the secondary location is active and operational.
-bootstrap: Indicates initial synchronization from the primary location<blockquote>
-<div>to the secondary location is in progress. This typically occurs 
-when replication is first enabled.</div></blockquote>
-<dl class="last docutils">
-<dt>unavailable: Indicates that the secondary location is temporarily </dt>
-<dd>unavailable.</dd>
-</dl>
-</dd>
+bootstrap: Indicates initial synchronization from the primary location 
+to the secondary location is in progress. This typically occurs 
+when replication is first enabled.
+unavailable: Indicates that the secondary location is temporarily 
+unavailable.</dd>
 </dl>
 </li>
 <li><strong>last_sync_time</strong> (<em>date</em>) – A GMT date value, to the second. All primary writes preceding this value 
@@ -569,6 +568,14 @@ geo-redundant replication is enabled for the storage account.</p>
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="azure.html">azure package</a><ul>
+  <li><a href="azure.cosmosdb.html">azure.cosmosdb package</a><ul>
+  <li><a href="azure.cosmosdb.common.html">azure.cosmosdb.common package</a><ul>
+      <li>Previous: <a href="azure.cosmosdb.common.cloudstorageaccount.html" title="previous chapter">azure.cosmosdb.common.cloudstorageaccount module</a></li>
+      <li>Next: <a href="azure.cosmosdb.common.retry.html" title="next chapter">azure.cosmosdb.common.retry module</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
   </ul></li>
 </ul>
 </div>
