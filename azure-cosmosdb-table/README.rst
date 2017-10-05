@@ -1,5 +1,5 @@
 Microsoft Azure CosmosDB Table SDK for Python
-======================================
+=============================================
 
 This project provides a client library in Python that makes it easy to
 consume Microsoft Azure CosmosDB Table services. For documentation please see
@@ -50,6 +50,7 @@ Option 1: Via PyPi
 ~~~~~~~~~~~~~~~~~~
 
 To install via the Python Package Index (PyPI), type:
+
 ::
 
     pip install azure-storage-table
@@ -120,7 +121,6 @@ Learn More
 
 .. _Python Developer Center: http://azure.microsoft.com/en-us/develop/python/
 .. _API Reference: https://azure-storage.readthedocs.io/en/latest/
-.. _here: https://github.com/Azure/azure-storage-python/archive/master.zip
 .. _create an account: https://account.windowsazure.com/signup
 .. _Developer Forums on MSDN: http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=windowsazuredata
 .. _Developer Forums on Stack Overflow: http://stackoverflow.com/questions/tagged/azure+windows-azure-storage

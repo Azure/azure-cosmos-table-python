@@ -1,5 +1,5 @@
 Microsoft Azure CosmosDB SDK for Python
-======================================
+=======================================
 
 This is the Microsoft Azure CosmosDB namespace package.
 
