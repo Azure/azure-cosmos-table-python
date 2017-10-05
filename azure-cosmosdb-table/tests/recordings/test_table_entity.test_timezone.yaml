@@ -1,0 +1,60 @@
+interactions:
+- request:
+    body: '{"PartitionKey": "pkcd510cdc", "RowKey": "rkcd510cdc", "date": "2003-09-27T12:52:43Z",
+      "date@odata.type": "Edm.DateTime"}'
+    headers:
+      Accept: [application/json;odata=minimalmetadata]
+      Connection: [keep-alive]
+      Content-Length: ['121']
+      Content-Type: [application/json]
+      DataServiceVersion: [3.0;NetFx]
+      MaxDataServiceVersion: ['3.0']
+      Prefer: [return-no-content]
+      User-Agent: [Azure-CosmosDB/0.37.0 (Python CPython 3.6.0; Windows 10)]
+      x-ms-client-request-id: [fe00b8c0-a86c-11e7-bcad-a08cfdf04b77]
+      x-ms-date: ['Tue, 03 Oct 2017 18:59:32 GMT']
+      x-ms-version: ['2017-04-17']
+    method: POST
+    uri: https://storagename.table.core.windows.net/uttablecd510cdc
+  response:
+    body: {string: ''}
+    headers:
+      Cache-Control: [no-cache]
+      Content-Length: ['0']
+      DataServiceId: ['https://storagename.table.core.windows.net/uttablecd510cdc(PartitionKey=''pkcd510cdc'',RowKey=''rkcd510cdc'')']
+      Date: ['Tue, 03 Oct 2017 18:59:32 GMT']
+      ETag: [W/"datetime'2017-10-03T18%3A59%3A33.5787783Z'"]
+      Location: ['https://storagename.table.core.windows.net/uttablecd510cdc(PartitionKey=''pkcd510cdc'',RowKey=''rkcd510cdc'')']
+      Preference-Applied: [return-no-content]
+      Server: [Windows-Azure-Table/1.0 Microsoft-HTTPAPI/2.0]
+      X-Content-Type-Options: [nosniff]
+      x-ms-request-id: [97945e27-0002-00fd-4a79-3c9c18000000]
+      x-ms-version: ['2017-04-17']
+    status: {code: 204, message: No Content}
+- request:
+    body: null
+    headers:
+      Accept: [application/json;odata=minimalmetadata]
+      Connection: [keep-alive]
+      DataServiceVersion: [3.0;NetFx]
+      MaxDataServiceVersion: ['3.0']
+      User-Agent: [Azure-CosmosDB/0.37.0 (Python CPython 3.6.0; Windows 10)]
+      x-ms-client-request-id: [fe3c1db4-a86c-11e7-826b-a08cfdf04b77]
+      x-ms-date: ['Tue, 03 Oct 2017 18:59:33 GMT']
+      x-ms-version: ['2017-04-17']
+    method: GET
+    uri: https://storagename.table.core.windows.net/uttablecd510cdc(PartitionKey='pkcd510cdc',RowKey='rkcd510cdc')
+  response:
+    body: {string: '{"odata.metadata":"https://storagename.table.core.windows.net/$metadata#uttablecd510cdc/@Element","odata.etag":"W/\"datetime''2017-10-03T18%3A59%3A33.5787783Z''\"","PartitionKey":"pkcd510cdc","RowKey":"rkcd510cdc","Timestamp":"2017-10-03T18:59:33.5787783Z","date@odata.type":"Edm.DateTime","date":"2003-09-27T12:52:43Z"}'}
+    headers:
+      Cache-Control: [no-cache]
+      Content-Type: [application/json;odata=minimalmetadata;streaming=true;charset=utf-8]
+      Date: ['Tue, 03 Oct 2017 18:59:32 GMT']
+      ETag: [W/"datetime'2017-10-03T18%3A59%3A33.5787783Z'"]
+      Server: [Windows-Azure-Table/1.0 Microsoft-HTTPAPI/2.0]
+      Transfer-Encoding: [chunked]
+      X-Content-Type-Options: [nosniff]
+      x-ms-request-id: [97945e2d-0002-00fd-4e79-3c9c18000000]
+      x-ms-version: ['2017-04-17']
+    status: {code: 200, message: OK}
+version: 1
