@@ -1,0 +1,439 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>azure.cosmosdb.common.storageclient &#8212; Azure CosmosDB SDK for Python 0.37.0 documentation</title>
+    <link rel="stylesheet" href="../../../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../../',
+        VERSION:     '0.37.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for azure.cosmosdb.common.storageclient</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -------------------------------------------------------------------------</span>
+<span class="c1"># Copyright (c) Microsoft.  All rights reserved.</span>
+<span class="c1">#</span>
+<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1"># you may not use this file except in compliance with the License.</span>
+<span class="c1"># You may obtain a copy of the License at</span>
+<span class="c1">#   http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+<span class="c1"># --------------------------------------------------------------------------</span>
+
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">from</span> <span class="nn">abc</span> <span class="k">import</span> <span class="n">ABCMeta</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">time</span> <span class="k">import</span> <span class="n">sleep</span>
+
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">from</span> <span class="nn">azure.common</span> <span class="k">import</span> <span class="p">(</span>
+    <span class="n">AzureException</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">azure.cosmosdb.common._constants</span> <span class="k">import</span> <span class="p">(</span>
+    <span class="n">DEFAULT_SOCKET_TIMEOUT</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">azure.cosmosdb.common._error</span> <span class="k">import</span> <span class="p">(</span>
+    <span class="n">_ERROR_DECRYPTION_FAILURE</span><span class="p">,</span>
+    <span class="n">_http_error_handler</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">azure.cosmosdb.common._http</span> <span class="k">import</span> <span class="n">HTTPError</span>
+<span class="kn">from</span> <span class="nn">azure.cosmosdb.common._http.httpclient</span> <span class="k">import</span> <span class="n">_HTTPClient</span>
+<span class="kn">from</span> <span class="nn">azure.cosmosdb.common._serialization</span> <span class="k">import</span> <span class="p">(</span>
+    <span class="n">_update_request</span><span class="p">,</span>
+    <span class="n">_add_date_header</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">azure.cosmosdb.common.models</span> <span class="k">import</span> <span class="p">(</span>
+    <span class="n">RetryContext</span><span class="p">,</span>
+    <span class="n">LocationMode</span><span class="p">,</span>
+    <span class="n">_OperationContext</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">azure.cosmosdb.common.retry</span> <span class="k">import</span> <span class="n">ExponentialRetry</span>
+
+
+<div class="viewcode-block" id="StorageClient"><a class="viewcode-back" href="../../../../azure.cosmosdb.common.storageclient.html#azure.cosmosdb.common.storageclient.StorageClient">[docs]</a><span class="k">class</span> <span class="nc">StorageClient</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    This is the base class for service objects. Service objects are used to do </span>
+<span class="sd">    all requests to Storage. This class cannot be instantiated directly.</span>
+
+<span class="sd">    :ivar str account_name:</span>
+<span class="sd">        The storage account name. This is used to authenticate requests </span>
+<span class="sd">        signed with an account key and to construct the storage endpoint. It </span>
+<span class="sd">        is required unless a connection string is given, or if a custom </span>
+<span class="sd">        domain is used with anonymous authentication.</span>
+<span class="sd">    :ivar str account_key:</span>
+<span class="sd">        The storage account key. This is used for shared key authentication. </span>
+<span class="sd">        If neither account key or sas token is specified, anonymous access </span>
+<span class="sd">        will be used.</span>
+<span class="sd">    :ivar str sas_token:</span>
+<span class="sd">        A shared access signature token to use to authenticate requests </span>
+<span class="sd">        instead of the account key. If account key and sas token are both </span>
+<span class="sd">        specified, account key will be used to sign. If neither are </span>
+<span class="sd">        specified, anonymous access will be used.</span>
+<span class="sd">    :ivar str primary_endpoint:</span>
+<span class="sd">        The endpoint to send storage requests to.</span>
+<span class="sd">    :ivar str secondary_endpoint:</span>
+<span class="sd">        The secondary endpoint to read storage data from. This will only be a </span>
+<span class="sd">        valid endpoint if the storage account used is RA-GRS and thus allows </span>
+<span class="sd">        reading from secondary.</span>
+<span class="sd">    :ivar function(context) retry:</span>
+<span class="sd">        A function which determines whether to retry. Takes as a parameter a </span>
+<span class="sd">        :class:`~azure.storage.common.models.RetryContext` object. Returns the number</span>
+<span class="sd">        of seconds to wait before retrying the request, or None to indicate not </span>
+<span class="sd">        to retry.</span>
+<span class="sd">    :ivar ~azure.storage.common.models.LocationMode location_mode:</span>
+<span class="sd">        The host location to use to make requests. Defaults to LocationMode.PRIMARY.</span>
+<span class="sd">        Note that this setting only applies to RA-GRS accounts as other account </span>
+<span class="sd">        types do not allow reading from secondary. If the location_mode is set to </span>
+<span class="sd">        LocationMode.SECONDARY, read requests will be sent to the secondary endpoint. </span>
+<span class="sd">        Write requests will continue to be sent to primary.</span>
+<span class="sd">    :ivar str protocol:</span>
+<span class="sd">        The protocol to use for requests. Defaults to https.</span>
+<span class="sd">    :ivar requests.Session request_session:</span>
+<span class="sd">        The session object to use for http requests.</span>
+<span class="sd">    :ivar function(request) request_callback:</span>
+<span class="sd">        A function called immediately before each request is sent. This function </span>
+<span class="sd">        takes as a parameter the request object and returns nothing. It may be </span>
+<span class="sd">        used to added custom headers or log request data.</span>
+<span class="sd">    :ivar function() response_callback:</span>
+<span class="sd">        A function called immediately after each response is received. This </span>
+<span class="sd">        function takes as a parameter the response object and returns nothing. </span>
+<span class="sd">        It may be used to log response data.</span>
+<span class="sd">    :ivar function() retry_callback:</span>
+<span class="sd">        A function called immediately after retry evaluation is performed. This </span>
+<span class="sd">        function takes as a parameter the retry context object and returns nothing. </span>
+<span class="sd">        It may be used to detect retries and log context information.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="n">__metaclass__</span> <span class="o">=</span> <span class="n">ABCMeta</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">connection_params</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        :param obj connection_params: The parameters to use to construct the client.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">account_name</span> <span class="o">=</span> <span class="n">connection_params</span><span class="o">.</span><span class="n">account_name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">account_key</span> <span class="o">=</span> <span class="n">connection_params</span><span class="o">.</span><span class="n">account_key</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sas_token</span> <span class="o">=</span> <span class="n">connection_params</span><span class="o">.</span><span class="n">sas_token</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">is_emulated</span> <span class="o">=</span> <span class="n">connection_params</span><span class="o">.</span><span class="n">is_emulated</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">primary_endpoint</span> <span class="o">=</span> <span class="n">connection_params</span><span class="o">.</span><span class="n">primary_endpoint</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">secondary_endpoint</span> <span class="o">=</span> <span class="n">connection_params</span><span class="o">.</span><span class="n">secondary_endpoint</span>
+
+        <span class="n">protocol</span> <span class="o">=</span> <span class="n">connection_params</span><span class="o">.</span><span class="n">protocol</span>
+        <span class="n">request_session</span> <span class="o">=</span> <span class="n">connection_params</span><span class="o">.</span><span class="n">request_session</span> <span class="ow">or</span> <span class="n">requests</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span>
+        <span class="n">socket_timeout</span> <span class="o">=</span> <span class="n">connection_params</span><span class="o">.</span><span class="n">socket_timeout</span> <span class="ow">or</span> <span class="n">DEFAULT_SOCKET_TIMEOUT</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_httpclient</span> <span class="o">=</span> <span class="n">_HTTPClient</span><span class="p">(</span>
+            <span class="n">protocol</span><span class="o">=</span><span class="n">protocol</span><span class="p">,</span>
+            <span class="n">session</span><span class="o">=</span><span class="n">request_session</span><span class="p">,</span>
+            <span class="n">timeout</span><span class="o">=</span><span class="n">socket_timeout</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">retry</span> <span class="o">=</span> <span class="n">ExponentialRetry</span><span class="p">()</span><span class="o">.</span><span class="n">retry</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">location_mode</span> <span class="o">=</span> <span class="n">LocationMode</span><span class="o">.</span><span class="n">PRIMARY</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">request_callback</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">response_callback</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">retry_callback</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">socket_timeout</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_httpclient</span><span class="o">.</span><span class="n">timeout</span>
+
+    <span class="nd">@socket_timeout</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">socket_timeout</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_httpclient</span><span class="o">.</span><span class="n">timeout</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">protocol</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_httpclient</span><span class="o">.</span><span class="n">protocol</span>
+
+    <span class="nd">@protocol</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">protocol</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_httpclient</span><span class="o">.</span><span class="n">protocol</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">request_session</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_httpclient</span><span class="o">.</span><span class="n">session</span>
+
+    <span class="nd">@request_session</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">request_session</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_httpclient</span><span class="o">.</span><span class="n">session</span> <span class="o">=</span> <span class="n">value</span>
+
+<div class="viewcode-block" id="StorageClient.set_proxy"><a class="viewcode-back" href="../../../../azure.cosmosdb.common.storageclient.html#azure.cosmosdb.common.storageclient.StorageClient.set_proxy">[docs]</a>    <span class="k">def</span> <span class="nf">set_proxy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="p">,</span> <span class="n">user</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Sets the proxy server host and port for the HTTP CONNECT Tunnelling.</span>
+
+<span class="sd">        :param str host: Address of the proxy. Ex: &#39;192.168.0.100&#39;</span>
+<span class="sd">        :param int port: Port of the proxy. Ex: 6000</span>
+<span class="sd">        :param str user: User for proxy authorization.</span>
+<span class="sd">        :param str password: Password for proxy authorization.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_httpclient</span><span class="o">.</span><span class="n">set_proxy</span><span class="p">(</span><span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="p">,</span> <span class="n">user</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span></div>
+
+    <span class="k">def</span> <span class="nf">_get_host_locations</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">primary</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">secondary</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="n">locations</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">if</span> <span class="n">primary</span><span class="p">:</span>
+            <span class="n">locations</span><span class="p">[</span><span class="n">LocationMode</span><span class="o">.</span><span class="n">PRIMARY</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">primary_endpoint</span>
+        <span class="k">if</span> <span class="n">secondary</span><span class="p">:</span>
+            <span class="n">locations</span><span class="p">[</span><span class="n">LocationMode</span><span class="o">.</span><span class="n">SECONDARY</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">secondary_endpoint</span>
+        <span class="k">return</span> <span class="n">locations</span>
+
+    <span class="k">def</span> <span class="nf">_apply_host</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">operation_context</span><span class="p">,</span> <span class="n">retry_context</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">operation_context</span><span class="o">.</span><span class="n">location_lock</span> <span class="ow">and</span> <span class="n">operation_context</span><span class="o">.</span><span class="n">host_location</span><span class="p">:</span>
+            <span class="c1"># If this is a location locked operation and the location is set, </span>
+            <span class="c1"># override the request location and host_location.</span>
+            <span class="n">request</span><span class="o">.</span><span class="n">host_locations</span> <span class="o">=</span> <span class="n">operation_context</span><span class="o">.</span><span class="n">host_location</span>
+            <span class="n">request</span><span class="o">.</span><span class="n">host</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">operation_context</span><span class="o">.</span><span class="n">host_location</span><span class="o">.</span><span class="n">values</span><span class="p">())[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">retry_context</span><span class="o">.</span><span class="n">location_mode</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">operation_context</span><span class="o">.</span><span class="n">host_location</span><span class="o">.</span><span class="n">keys</span><span class="p">())[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">host_locations</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="c1"># If only one location is allowed, use that location.</span>
+            <span class="n">request</span><span class="o">.</span><span class="n">host</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">host_locations</span><span class="o">.</span><span class="n">values</span><span class="p">())[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">retry_context</span><span class="o">.</span><span class="n">location_mode</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">host_locations</span><span class="o">.</span><span class="n">keys</span><span class="p">())[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># If multiple locations are possible, choose based on the location mode.</span>
+            <span class="n">request</span><span class="o">.</span><span class="n">host</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">host_locations</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">location_mode</span><span class="p">)</span>
+            <span class="n">retry_context</span><span class="o">.</span><span class="n">location_mode</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">location_mode</span>
+
+<div class="viewcode-block" id="StorageClient.extract_date_and_request_id"><a class="viewcode-back" href="../../../../azure.cosmosdb.common.storageclient.html#azure.cosmosdb.common.storageclient.StorageClient.extract_date_and_request_id">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">extract_date_and_request_id</span><span class="p">(</span><span class="n">retry_context</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">retry_context</span><span class="p">,</span> <span class="s1">&#39;response&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;&quot;</span>
+        <span class="n">resp</span> <span class="o">=</span> <span class="n">retry_context</span><span class="o">.</span><span class="n">response</span>
+
+        <span class="k">if</span> <span class="s1">&#39;date&#39;</span> <span class="ow">in</span> <span class="n">resp</span><span class="o">.</span><span class="n">headers</span> <span class="ow">and</span> <span class="s1">&#39;x-ms-request-id&#39;</span> <span class="ow">in</span> <span class="n">resp</span><span class="o">.</span><span class="n">headers</span><span class="p">:</span>
+            <span class="k">return</span> <span class="nb">str</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;Server-Timestamp=</span><span class="si">{0}</span><span class="s2">, Server-Request-ID=</span><span class="si">{1}</span><span class="s2">&quot;</span><span class="p">,</span>
+                              <span class="n">resp</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">],</span> <span class="n">resp</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s1">&#39;x-ms-request-id&#39;</span><span class="p">])</span>
+        <span class="k">elif</span> <span class="s1">&#39;date&#39;</span> <span class="ow">in</span> <span class="n">resp</span><span class="o">.</span><span class="n">headers</span><span class="p">:</span>
+            <span class="k">return</span> <span class="nb">str</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;Server-Timestamp=</span><span class="si">{0}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">resp</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">])</span>
+        <span class="k">elif</span> <span class="s1">&#39;x-ms-request-id&#39;</span> <span class="ow">in</span> <span class="n">resp</span><span class="o">.</span><span class="n">headers</span><span class="p">:</span>
+            <span class="k">return</span> <span class="nb">str</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;Server-Request-ID=</span><span class="si">{0}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">resp</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s1">&#39;x-ms-request-id&#39;</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;&quot;</span></div>
+
+    <span class="k">def</span> <span class="nf">_perform_request</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">parser</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">parser_args</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">operation_context</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Sends the request and return response. Catches HTTPError and hands it</span>
+<span class="sd">        to error handler</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">operation_context</span> <span class="o">=</span> <span class="n">operation_context</span> <span class="ow">or</span> <span class="n">_OperationContext</span><span class="p">()</span>
+        <span class="n">retry_context</span> <span class="o">=</span> <span class="n">RetryContext</span><span class="p">()</span>
+
+        <span class="c1"># Apply the appropriate host based on the location mode</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_apply_host</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">operation_context</span><span class="p">,</span> <span class="n">retry_context</span><span class="p">)</span>
+
+        <span class="c1"># Apply common settings to the request</span>
+        <span class="n">_update_request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+        <span class="n">client_request_id_prefix</span> <span class="o">=</span> <span class="nb">str</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;Client-Request-ID=</span><span class="si">{0}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">request</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s1">&#39;x-ms-client-request-id&#39;</span><span class="p">])</span>
+
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="c1"># Execute the request callback </span>
+                    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">request_callback</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">request_callback</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+
+                    <span class="c1"># Add date and auth after the callback so date doesn&#39;t get too old and </span>
+                    <span class="c1"># authentication is still correct if signed headers are added in the request </span>
+                    <span class="c1"># callback. This also ensures retry policies with long back offs </span>
+                    <span class="c1"># will work as it resets the time sensitive headers.</span>
+                    <span class="n">_add_date_header</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">authentication</span><span class="o">.</span><span class="n">sign_request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+
+                    <span class="c1"># Set the request context</span>
+                    <span class="n">retry_context</span><span class="o">.</span><span class="n">request</span> <span class="o">=</span> <span class="n">request</span>
+
+                    <span class="c1"># Log the request before it goes out</span>
+                    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2"> Outgoing request: Method=</span><span class="si">%s</span><span class="s2">, Path=</span><span class="si">%s</span><span class="s2">, Query=</span><span class="si">%s</span><span class="s2">, Headers=</span><span class="si">%s</span><span class="s2">.&quot;</span><span class="p">,</span>
+                                <span class="n">client_request_id_prefix</span><span class="p">,</span>
+                                <span class="n">request</span><span class="o">.</span><span class="n">method</span><span class="p">,</span>
+                                <span class="n">request</span><span class="o">.</span><span class="n">path</span><span class="p">,</span>
+                                <span class="n">request</span><span class="o">.</span><span class="n">query</span><span class="p">,</span>
+                                <span class="nb">str</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">headers</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">))</span>
+
+                    <span class="c1"># Perform the request</span>
+                    <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_httpclient</span><span class="o">.</span><span class="n">perform_request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+
+                    <span class="c1"># Execute the response callback</span>
+                    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">response_callback</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">response_callback</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+
+                    <span class="c1"># Set the response context</span>
+                    <span class="n">retry_context</span><span class="o">.</span><span class="n">response</span> <span class="o">=</span> <span class="n">response</span>
+
+                    <span class="c1"># Log the response when it comes back</span>
+                    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2"> Receiving Response: &quot;</span>
+                                <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">, HTTP Status Code=</span><span class="si">%s</span><span class="s2">, Message=</span><span class="si">%s</span><span class="s2">, Headers=</span><span class="si">%s</span><span class="s2">.&quot;</span><span class="p">,</span>
+                                <span class="n">client_request_id_prefix</span><span class="p">,</span>
+                                <span class="bp">self</span><span class="o">.</span><span class="n">extract_date_and_request_id</span><span class="p">(</span><span class="n">retry_context</span><span class="p">),</span>
+                                <span class="n">response</span><span class="o">.</span><span class="n">status</span><span class="p">,</span>
+                                <span class="n">response</span><span class="o">.</span><span class="n">message</span><span class="p">,</span>
+                                <span class="nb">str</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">headers</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">))</span>
+
+                    <span class="c1"># Parse and wrap HTTP errors in AzureHttpError which inherits from AzureException</span>
+                    <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status</span> <span class="o">&gt;=</span> <span class="mi">300</span><span class="p">:</span>
+                        <span class="c1"># This exception will be caught by the general error handler</span>
+                        <span class="c1"># and raised as an azure http exception</span>
+                        <span class="n">_http_error_handler</span><span class="p">(</span>
+                            <span class="n">HTTPError</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">message</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">headers</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">body</span><span class="p">))</span>
+
+                    <span class="c1"># Parse the response</span>
+                    <span class="k">if</span> <span class="n">parser</span><span class="p">:</span>
+                        <span class="k">if</span> <span class="n">parser_args</span><span class="p">:</span>
+                            <span class="n">args</span> <span class="o">=</span> <span class="p">[</span><span class="n">response</span><span class="p">]</span>
+                            <span class="n">args</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">parser_args</span><span class="p">)</span>
+                            <span class="k">return</span> <span class="n">parser</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>
+                        <span class="k">else</span><span class="p">:</span>
+                            <span class="k">return</span> <span class="n">parser</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="k">return</span>
+                <span class="k">except</span> <span class="n">AzureException</span> <span class="k">as</span> <span class="n">ex</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="n">ex</span>
+                <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">ex</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span> <span class="o">&gt;=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,):</span>
+                        <span class="c1"># Automatic chaining in Python 3 means we keep the trace</span>
+                        <span class="k">raise</span> <span class="n">AzureException</span><span class="p">(</span><span class="n">ex</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="c1"># There isn&#39;t a good solution in 2 for keeping the stack trace </span>
+                        <span class="c1"># in general, or that will not result in an error in 3</span>
+                        <span class="c1"># However, we can keep the previous error type and message</span>
+                        <span class="c1"># TODO: In the future we will log the trace</span>
+                        <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+                        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">ex</span><span class="o">.</span><span class="n">args</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                            <span class="n">msg</span> <span class="o">=</span> <span class="n">ex</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                        <span class="k">raise</span> <span class="n">AzureException</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ex</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="n">msg</span><span class="p">))</span>
+
+            <span class="k">except</span> <span class="n">AzureException</span> <span class="k">as</span> <span class="n">ex</span><span class="p">:</span>
+                <span class="c1"># only parse the strings used for logging if logging is at least enabled for CRITICAL</span>
+                <span class="k">if</span> <span class="n">logger</span><span class="o">.</span><span class="n">isEnabledFor</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">CRITICAL</span><span class="p">):</span>
+                    <span class="n">exception_str_in_one_line</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">ex</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+                    <span class="n">status_code</span> <span class="o">=</span> <span class="n">retry_context</span><span class="o">.</span><span class="n">response</span><span class="o">.</span><span class="n">status</span> <span class="k">if</span> <span class="n">retry_context</span><span class="o">.</span><span class="n">response</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="s1">&#39;Unknown&#39;</span>
+                    <span class="n">timestamp_and_request_id</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">extract_date_and_request_id</span><span class="p">(</span><span class="n">retry_context</span><span class="p">)</span>
+
+                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2"> Operation failed: checking if the operation should be retried. &quot;</span>
+                            <span class="s2">&quot;Current retry count=</span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, HTTP status code=</span><span class="si">%s</span><span class="s2">, Exception=</span><span class="si">%s</span><span class="s2">.&quot;</span><span class="p">,</span>
+                            <span class="n">client_request_id_prefix</span><span class="p">,</span>
+                            <span class="n">retry_context</span><span class="o">.</span><span class="n">count</span> <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">retry_context</span><span class="p">,</span> <span class="s1">&#39;count&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="mi">0</span><span class="p">,</span>
+                            <span class="n">timestamp_and_request_id</span><span class="p">,</span>
+                            <span class="n">status_code</span><span class="p">,</span>
+                            <span class="n">exception_str_in_one_line</span><span class="p">)</span>
+
+                <span class="c1"># Decryption failures (invalid objects, invalid algorithms, data unencrypted in strict mode, etc)</span>
+                <span class="c1"># will not be resolved with retries.</span>
+                <span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="n">ex</span><span class="p">)</span> <span class="o">==</span> <span class="n">_ERROR_DECRYPTION_FAILURE</span><span class="p">:</span>
+                    <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2"> Encountered decryption failure: this cannot be retried. &quot;</span>
+                                 <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">, HTTP status code=</span><span class="si">%s</span><span class="s2">, Exception=</span><span class="si">%s</span><span class="s2">.&quot;</span><span class="p">,</span>
+                                 <span class="n">client_request_id_prefix</span><span class="p">,</span>
+                                 <span class="n">timestamp_and_request_id</span><span class="p">,</span>
+                                 <span class="n">status_code</span><span class="p">,</span>
+                                 <span class="n">exception_str_in_one_line</span><span class="p">)</span>
+                    <span class="k">raise</span> <span class="n">ex</span>
+
+                <span class="c1"># Determine whether a retry should be performed and if so, how </span>
+                <span class="c1"># long to wait before performing retry.</span>
+                <span class="n">retry_interval</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">retry</span><span class="p">(</span><span class="n">retry_context</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">retry_interval</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="c1"># Execute the callback</span>
+                    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">retry_callback</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">retry_callback</span><span class="p">(</span><span class="n">retry_context</span><span class="p">)</span>
+
+                    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+                        <span class="s2">&quot;</span><span class="si">%s</span><span class="s2"> Retry policy is allowing a retry: Retry count=</span><span class="si">%s</span><span class="s2">, Interval=</span><span class="si">%s</span><span class="s2">.&quot;</span><span class="p">,</span>
+                        <span class="n">client_request_id_prefix</span><span class="p">,</span>
+                        <span class="n">retry_context</span><span class="o">.</span><span class="n">count</span><span class="p">,</span>
+                        <span class="n">retry_interval</span><span class="p">)</span>
+
+                    <span class="c1"># Sleep for the desired retry interval</span>
+                    <span class="n">sleep</span><span class="p">(</span><span class="n">retry_interval</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2"> Retry policy did not allow for a retry: &quot;</span>
+                                 <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">, HTTP status code=</span><span class="si">%s</span><span class="s2">, Exception=</span><span class="si">%s</span><span class="s2">.&quot;</span><span class="p">,</span>
+                                 <span class="n">client_request_id_prefix</span><span class="p">,</span>
+                                 <span class="n">timestamp_and_request_id</span><span class="p">,</span>
+                                 <span class="n">status_code</span><span class="p">,</span>
+                                 <span class="n">exception_str_in_one_line</span><span class="p">)</span>
+                    <span class="k">raise</span> <span class="n">ex</span>
+            <span class="k">finally</span><span class="p">:</span>
+                <span class="c1"># If this is a location locked operation and the location is not set, </span>
+                <span class="c1"># this is the first request of that operation. Set the location to </span>
+                <span class="c1"># be used for subsequent requests in the operation.</span>
+                <span class="k">if</span> <span class="n">operation_context</span><span class="o">.</span><span class="n">location_lock</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">operation_context</span><span class="o">.</span><span class="n">host_location</span><span class="p">:</span>
+                    <span class="n">operation_context</span><span class="o">.</span><span class="n">host_location</span> <span class="o">=</span> <span class="p">{</span><span class="n">retry_context</span><span class="o">.</span><span class="n">location_mode</span><span class="p">:</span> <span class="n">request</span><span class="o">.</span><span class="n">host</span><span class="p">}</span></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Microsoft.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>
