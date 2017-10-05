@@ -2,7 +2,7 @@
 
 > See the [Change Log](ChangeLog.md) for a summary of storage library changes.
 
-## Version 0.37.0:
+## Version 0.37.1:
 
 ### All:
 - The Tables SDK has been split from azure-storage namespace and moved to the azure-cosmosdb namespace
