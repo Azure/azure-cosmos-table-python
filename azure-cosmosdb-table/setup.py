@@ -68,7 +68,7 @@ setup(
     packages=find_packages(),
     install_requires=[
                          'azure-common>=1.1.5',
-                         'azure-storage-common',
+                         'azure-storage-common>=0.37.1,<0.38.0',
                          'cryptography',
                          'python-dateutil',
                          'requests',
