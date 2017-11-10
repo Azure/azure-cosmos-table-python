@@ -14,7 +14,7 @@
 # --------------------------------------------------------------------------
 import unittest
 
-from azure.cosmosdb.common import CloudStorageAccount
+from azure.storage.common import CloudStorageAccount
 from samples.advanced import (
     AuthenticationSamples,
     ClientSamples,

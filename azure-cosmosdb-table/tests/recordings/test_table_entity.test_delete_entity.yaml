@@ -15,9 +15,9 @@ interactions:
       DataServiceVersion: [3.0;NetFx]
       MaxDataServiceVersion: ['3.0']
       Prefer: [return-no-content]
-      User-Agent: [Azure-CosmosDB/0.37.0 (Python CPython 3.6.0; Windows 10)]
-      x-ms-client-request-id: [8fc9adca-a86c-11e7-8890-a08cfdf04b77]
-      x-ms-date: ['Tue, 03 Oct 2017 18:56:28 GMT']
+      User-Agent: [Azure-Storage/0.37.1-None (Python CPython 3.6.0; Windows 10)]
+      x-ms-client-request-id: [18f5ef76-c5c1-11e7-8ea3-a08cfdf04b77]
+      x-ms-date: ['Fri, 10 Nov 2017 02:44:39 GMT']
       x-ms-version: ['2017-04-17']
     method: POST
     uri: https://storagename.table.core.windows.net/uttable12440ee0
@@ -27,13 +27,13 @@ interactions:
       Cache-Control: [no-cache]
       Content-Length: ['0']
       DataServiceId: ['https://storagename.table.core.windows.net/uttable12440ee0(PartitionKey=''pk12440ee0'',RowKey=''rk12440ee0'')']
-      Date: ['Tue, 03 Oct 2017 18:56:27 GMT']
-      ETag: [W/"datetime'2017-10-03T18%3A56%3A28.5206225Z'"]
+      Date: ['Fri, 10 Nov 2017 02:44:39 GMT']
+      ETag: [W/"datetime'2017-11-10T02%3A44%3A39.7312841Z'"]
       Location: ['https://storagename.table.core.windows.net/uttable12440ee0(PartitionKey=''pk12440ee0'',RowKey=''rk12440ee0'')']
       Preference-Applied: [return-no-content]
       Server: [Windows-Azure-Table/1.0 Microsoft-HTTPAPI/2.0]
       X-Content-Type-Options: [nosniff]
-      x-ms-request-id: [4e9cb50a-0002-0125-4579-3c7d9c000000]
+      x-ms-request-id: [39ef290e-0002-0008-21cd-59b809000000]
       x-ms-version: ['2017-04-17']
     status: {code: 204, message: No Content}
 - request:
@@ -45,9 +45,9 @@ interactions:
       DataServiceVersion: [3.0;NetFx]
       If-Match: ['*']
       MaxDataServiceVersion: ['3.0']
-      User-Agent: [Azure-CosmosDB/0.37.0 (Python CPython 3.6.0; Windows 10)]
-      x-ms-client-request-id: [90018f76-a86c-11e7-8384-a08cfdf04b77]
-      x-ms-date: ['Tue, 03 Oct 2017 18:56:28 GMT']
+      User-Agent: [Azure-Storage/0.37.1-None (Python CPython 3.6.0; Windows 10)]
+      x-ms-client-request-id: [19301cd8-c5c1-11e7-afe6-a08cfdf04b77]
+      x-ms-date: ['Fri, 10 Nov 2017 02:44:40 GMT']
       x-ms-version: ['2017-04-17']
     method: DELETE
     uri: https://storagename.table.core.windows.net/uttable12440ee0(PartitionKey='pk12440ee0',RowKey='rk12440ee0')
@@ -56,10 +56,10 @@ interactions:
     headers:
       Cache-Control: [no-cache]
       Content-Length: ['0']
-      Date: ['Tue, 03 Oct 2017 18:56:27 GMT']
+      Date: ['Fri, 10 Nov 2017 02:44:39 GMT']
       Server: [Windows-Azure-Table/1.0 Microsoft-HTTPAPI/2.0]
       X-Content-Type-Options: [nosniff]
-      x-ms-request-id: [4e9cb513-0002-0125-4c79-3c7d9c000000]
+      x-ms-request-id: [39ef2920-0002-0008-31cd-59b809000000]
       x-ms-version: ['2017-04-17']
     status: {code: 204, message: No Content}
 - request:
@@ -69,23 +69,23 @@ interactions:
       Connection: [keep-alive]
       DataServiceVersion: [3.0;NetFx]
       MaxDataServiceVersion: ['3.0']
-      User-Agent: [Azure-CosmosDB/0.37.0 (Python CPython 3.6.0; Windows 10)]
-      x-ms-client-request-id: [9010edd2-a86c-11e7-964c-a08cfdf04b77]
-      x-ms-date: ['Tue, 03 Oct 2017 18:56:28 GMT']
+      User-Agent: [Azure-Storage/0.37.1-None (Python CPython 3.6.0; Windows 10)]
+      x-ms-client-request-id: [193fb01e-c5c1-11e7-99e5-a08cfdf04b77]
+      x-ms-date: ['Fri, 10 Nov 2017 02:44:40 GMT']
       x-ms-version: ['2017-04-17']
     method: GET
     uri: https://storagename.table.core.windows.net/uttable12440ee0(PartitionKey='pk12440ee0',RowKey='rk12440ee0')
   response:
     body: {string: '{"odata.error":{"code":"ResourceNotFound","message":{"lang":"en-US","value":"The
-        specified resource does not exist.\nRequestId:4e9cb520-0002-0125-5779-3c7d9c000000\nTime:2017-10-03T18:56:28.7428339Z"}}}'}
+        specified resource does not exist.\nRequestId:39ef292c-0002-0008-3dcd-59b809000000\nTime:2017-11-10T02:44:39.9404831Z"}}}'}
     headers:
       Cache-Control: [no-cache]
       Content-Type: [application/json;odata=minimalmetadata;streaming=true;charset=utf-8]
-      Date: ['Tue, 03 Oct 2017 18:56:28 GMT']
+      Date: ['Fri, 10 Nov 2017 02:44:39 GMT']
       Server: [Windows-Azure-Table/1.0 Microsoft-HTTPAPI/2.0]
       Transfer-Encoding: [chunked]
       X-Content-Type-Options: [nosniff]
-      x-ms-request-id: [4e9cb520-0002-0125-5779-3c7d9c000000]
+      x-ms-request-id: [39ef292c-0002-0008-3dcd-59b809000000]
       x-ms-version: ['2017-04-17']
     status: {code: 404, message: Not Found}
 version: 1

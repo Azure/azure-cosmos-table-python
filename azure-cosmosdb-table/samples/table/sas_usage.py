@@ -16,7 +16,7 @@ import time
 import uuid
 from datetime import datetime, timedelta
 
-from azure.cosmosdb.common import (
+from azure.storage.common import (
     AccessPolicy,
     ResourceTypes,
     AccountPermissions,

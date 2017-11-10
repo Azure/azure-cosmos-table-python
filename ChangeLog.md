@@ -2,6 +2,11 @@
 
 > See [BreakingChanges](BreakingChanges.md) for a detailed list of API breaks.
 
+## Version 0.37.2:
+
+### All:
+- The CosmosDB Tables SDK takes a dependency from 'azure-storage-common' package
+
 ## Version 0.37.1:
     
 ### All:

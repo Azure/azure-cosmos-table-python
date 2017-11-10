@@ -9,9 +9,9 @@ interactions:
       DataServiceVersion: [3.0;NetFx]
       MaxDataServiceVersion: ['3.0']
       Prefer: [return-no-content]
-      User-Agent: [Azure-CosmosDB/0.37.0 (Python CPython 3.6.0; Windows 10)]
-      x-ms-client-request-id: [fb090d24-a86c-11e7-b65a-a08cfdf04b77]
-      x-ms-date: ['Tue, 03 Oct 2017 18:59:27 GMT']
+      User-Agent: [Azure-Storage/0.37.1-None (Python CPython 3.6.0; Windows 10)]
+      x-ms-client-request-id: [85fc8f82-c5c1-11e7-9acb-a08cfdf04b77]
+      x-ms-date: ['Fri, 10 Nov 2017 02:47:42 GMT']
       x-ms-version: ['2017-04-17']
     method: POST
     uri: https://storagename.table.core.windows.net/Tables
@@ -21,48 +21,48 @@ interactions:
       Cache-Control: [no-cache]
       Content-Length: ['0']
       DataServiceId: ['https://storagename.table.core.windows.net/Tables(''querytable7732118a'')']
-      Date: ['Tue, 03 Oct 2017 18:59:27 GMT']
+      Date: ['Fri, 10 Nov 2017 02:47:42 GMT']
       Location: ['https://storagename.table.core.windows.net/Tables(''querytable7732118a'')']
       Preference-Applied: [return-no-content]
       Server: [Windows-Azure-Table/1.0 Microsoft-HTTPAPI/2.0]
       X-Content-Type-Options: [nosniff]
-      x-ms-request-id: [64a6a4ef-0002-0028-3279-3cd4c5000000]
+      x-ms-request-id: [1b23fbef-0002-00b8-03ce-594189000000]
       x-ms-version: ['2017-04-17']
     status: {code: 204, message: No Content}
 - request:
-    body: '--batch_fb425006-a86c-11e7-b951-a08cfdf04b77
+    body: '--batch_8636bce8-c5c1-11e7-b255-a08cfdf04b77
 
-      Content-Type: multipart/mixed; boundary=changeset_fb425007-a86c-11e7-bba1-a08cfdf04b77
+      Content-Type: multipart/mixed; boundary=changeset_8636bce9-c5c1-11e7-af4b-a08cfdf04b77
 
 
-      --changeset_fb425007-a86c-11e7-bba1-a08cfdf04b77--
+      --changeset_8636bce9-c5c1-11e7-af4b-a08cfdf04b77--
 
-      --batch_fb425006-a86c-11e7-b951-a08cfdf04b77--'
+      --batch_8636bce8-c5c1-11e7-b255-a08cfdf04b77--'
     headers:
       Connection: [keep-alive]
       Content-Length: ['230']
-      Content-Type: [multipart/mixed; boundary=batch_fb425006-a86c-11e7-b951-a08cfdf04b77]
+      Content-Type: [multipart/mixed; boundary=batch_8636bce8-c5c1-11e7-b255-a08cfdf04b77]
       DataServiceVersion: [3.0;NetFx]
       MaxDataServiceVersion: ['3.0']
-      User-Agent: [Azure-CosmosDB/0.37.0 (Python CPython 3.6.0; Windows 10)]
-      x-ms-client-request-id: [fb425008-a86c-11e7-aba7-a08cfdf04b77]
-      x-ms-date: ['Tue, 03 Oct 2017 18:59:28 GMT']
+      User-Agent: [Azure-Storage/0.37.1-None (Python CPython 3.6.0; Windows 10)]
+      x-ms-client-request-id: [8636bcea-c5c1-11e7-b077-a08cfdf04b77]
+      x-ms-date: ['Fri, 10 Nov 2017 02:47:42 GMT']
       x-ms-version: ['2017-04-17']
     method: POST
     uri: https://storagename.table.core.windows.net/$batch
   response:
-    body: {string: "--batchresponse_d093e858-d514-4a7e-b674-53630b469b5f\r\nContent-Type:\
-        \ multipart/mixed; boundary=changesetresponse_26854994-4109-402f-b666-4874f1fb0eff\r\
-        \n\r\n--changesetresponse_26854994-4109-402f-b666-4874f1fb0eff--\r\n--batchresponse_d093e858-d514-4a7e-b674-53630b469b5f--\r\
+    body: {string: "--batchresponse_b339b635-548d-4696-8323-e6914e588e37\r\nContent-Type:\
+        \ multipart/mixed; boundary=changesetresponse_d7036860-5ae9-4d47-856e-3c7f5012b4dc\r\
+        \n\r\n--changesetresponse_d7036860-5ae9-4d47-856e-3c7f5012b4dc--\r\n--batchresponse_b339b635-548d-4696-8323-e6914e588e37--\r\
         \n"}
     headers:
       Cache-Control: [no-cache]
-      Content-Type: [multipart/mixed; boundary=batchresponse_d093e858-d514-4a7e-b674-53630b469b5f]
-      Date: ['Tue, 03 Oct 2017 18:59:27 GMT']
+      Content-Type: [multipart/mixed; boundary=batchresponse_b339b635-548d-4696-8323-e6914e588e37]
+      Date: ['Fri, 10 Nov 2017 02:47:42 GMT']
       Server: [Windows-Azure-Table/1.0 Microsoft-HTTPAPI/2.0]
       Transfer-Encoding: [chunked]
       X-Content-Type-Options: [nosniff]
-      x-ms-request-id: [64a6a4fc-0002-0028-3c79-3cd4c5000000]
+      x-ms-request-id: [1b23fbf4-0002-00b8-06ce-594189000000]
       x-ms-version: ['2017-04-17']
     status: {code: 202, message: Accepted}
 - request:
@@ -72,9 +72,9 @@ interactions:
       Connection: [keep-alive]
       DataServiceVersion: [3.0;NetFx]
       MaxDataServiceVersion: ['3.0']
-      User-Agent: [Azure-CosmosDB/0.37.0 (Python CPython 3.6.0; Windows 10)]
-      x-ms-client-request-id: [fb508474-a86c-11e7-9007-a08cfdf04b77]
-      x-ms-date: ['Tue, 03 Oct 2017 18:59:28 GMT']
+      User-Agent: [Azure-Storage/0.37.1-None (Python CPython 3.6.0; Windows 10)]
+      x-ms-client-request-id: [8646c55c-c5c1-11e7-a6ba-a08cfdf04b77]
+      x-ms-date: ['Fri, 10 Nov 2017 02:47:43 GMT']
       x-ms-version: ['2017-04-17']
     method: GET
     uri: https://storagename.table.core.windows.net/querytable7732118a()
@@ -83,11 +83,11 @@ interactions:
     headers:
       Cache-Control: [no-cache]
       Content-Type: [application/json;odata=minimalmetadata;streaming=true;charset=utf-8]
-      Date: ['Tue, 03 Oct 2017 18:59:28 GMT']
+      Date: ['Fri, 10 Nov 2017 02:47:42 GMT']
       Server: [Windows-Azure-Table/1.0 Microsoft-HTTPAPI/2.0]
       Transfer-Encoding: [chunked]
       X-Content-Type-Options: [nosniff]
-      x-ms-request-id: [64a6a509-0002-0028-4579-3cd4c5000000]
+      x-ms-request-id: [1b23fbfb-0002-00b8-0dce-594189000000]
       x-ms-version: ['2017-04-17']
     status: {code: 200, message: OK}
 version: 1

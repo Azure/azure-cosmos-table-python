@@ -15,9 +15,9 @@ interactions:
       DataServiceVersion: [3.0;NetFx]
       MaxDataServiceVersion: ['3.0']
       Prefer: [return-no-content]
-      User-Agent: [Azure-CosmosDB/0.37.0 (Python CPython 3.6.0; Windows 10)]
-      x-ms-client-request-id: [91498166-a86c-11e7-8be7-a08cfdf04b77]
-      x-ms-date: ['Tue, 03 Oct 2017 18:56:30 GMT']
+      User-Agent: [Azure-Storage/0.37.1-None (Python CPython 3.6.0; Windows 10)]
+      x-ms-client-request-id: [1a7a8c2e-c5c1-11e7-aceb-a08cfdf04b77]
+      x-ms-date: ['Fri, 10 Nov 2017 02:44:42 GMT']
       x-ms-version: ['2017-04-17']
     method: POST
     uri: https://storagename.table.core.windows.net/uttablea99a1781
@@ -27,13 +27,13 @@ interactions:
       Cache-Control: [no-cache]
       Content-Length: ['0']
       DataServiceId: ['https://storagename.table.core.windows.net/uttablea99a1781(PartitionKey=''pka99a1781'',RowKey=''rka99a1781'')']
-      Date: ['Tue, 03 Oct 2017 18:56:30 GMT']
-      ETag: [W/"datetime'2017-10-03T18%3A56%3A30.9302688Z'"]
+      Date: ['Fri, 10 Nov 2017 02:44:42 GMT']
+      ETag: [W/"datetime'2017-11-10T02%3A44%3A42.3937522Z'"]
       Location: ['https://storagename.table.core.windows.net/uttablea99a1781(PartitionKey=''pka99a1781'',RowKey=''rka99a1781'')']
       Preference-Applied: [return-no-content]
       Server: [Windows-Azure-Table/1.0 Microsoft-HTTPAPI/2.0]
       X-Content-Type-Options: [nosniff]
-      x-ms-request-id: [fca9610b-0002-0117-0a79-3c254c000000]
+      x-ms-request-id: [c979f4c4-0002-00d3-2dcd-591cdf000000]
       x-ms-version: ['2017-04-17']
     status: {code: 204, message: No Content}
 - request:
@@ -45,23 +45,23 @@ interactions:
       DataServiceVersion: [3.0;NetFx]
       If-Match: [W/"datetime'2012-06-15T22%3A51%3A44.9662825Z'"]
       MaxDataServiceVersion: ['3.0']
-      User-Agent: [Azure-CosmosDB/0.37.0 (Python CPython 3.6.0; Windows 10)]
-      x-ms-client-request-id: [91834658-a86c-11e7-92b8-a08cfdf04b77]
-      x-ms-date: ['Tue, 03 Oct 2017 18:56:30 GMT']
+      User-Agent: [Azure-Storage/0.37.1-None (Python CPython 3.6.0; Windows 10)]
+      x-ms-client-request-id: [1aba10b4-c5c1-11e7-856d-a08cfdf04b77]
+      x-ms-date: ['Fri, 10 Nov 2017 02:44:42 GMT']
       x-ms-version: ['2017-04-17']
     method: DELETE
     uri: https://storagename.table.core.windows.net/uttablea99a1781(PartitionKey='pka99a1781',RowKey='rka99a1781')
   response:
     body: {string: '{"odata.error":{"code":"UpdateConditionNotSatisfied","message":{"lang":"en-US","value":"The
-        update condition specified in the request was not satisfied.\nRequestId:fca96117-0002-0117-1179-3c254c000000\nTime:2017-10-03T18:56:31.0323648Z"}}}'}
+        update condition specified in the request was not satisfied.\nRequestId:c979f4d4-0002-00d3-39cd-591cdf000000\nTime:2017-11-10T02:44:42.4948486Z"}}}'}
     headers:
       Cache-Control: [no-cache]
       Content-Type: [application/json;odata=minimalmetadata;streaming=true;charset=utf-8]
-      Date: ['Tue, 03 Oct 2017 18:56:30 GMT']
+      Date: ['Fri, 10 Nov 2017 02:44:42 GMT']
       Server: [Windows-Azure-Table/1.0 Microsoft-HTTPAPI/2.0]
       Transfer-Encoding: [chunked]
       X-Content-Type-Options: [nosniff]
-      x-ms-request-id: [fca96117-0002-0117-1179-3c254c000000]
+      x-ms-request-id: [c979f4d4-0002-00d3-39cd-591cdf000000]
       x-ms-version: ['2017-04-17']
     status: {code: 412, message: Precondition Failed}
 version: 1
