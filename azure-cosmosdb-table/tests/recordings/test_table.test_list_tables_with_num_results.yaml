@@ -1,6 +1,6 @@
 interactions:
 - request:
-    body: !!python/unicode '{"TableName": "table967e1246"}'
+    body: '{"TableName": "table967e1246"}'
     headers:
       Accept: [application/json;odata=minimalmetadata]
       Connection: [keep-alive]
@@ -9,28 +9,28 @@ interactions:
       DataServiceVersion: [3.0;NetFx]
       MaxDataServiceVersion: ['3.0']
       Prefer: [return-no-content]
-      User-Agent: [Azure-CosmosDB/0.37.0 (Python CPython 3.6.0; Windows 10)]
-      x-ms-client-request-id: [6467c166-a86c-11e7-9081-a08cfdf04b77]
-      x-ms-date: ['Tue, 03 Oct 2017 18:55:15 GMT']
+      User-Agent: [Azure-Storage/0.37.1-None (Python CPython 3.6.0; Windows 10)]
+      x-ms-client-request-id: [ecc868b8-c5c0-11e7-9b1f-a08cfdf04b77]
+      x-ms-date: ['Fri, 10 Nov 2017 02:43:25 GMT']
       x-ms-version: ['2017-04-17']
     method: POST
     uri: https://storagename.table.core.windows.net/Tables
   response:
-    body: {string: !!python/unicode ''}
+    body: {string: ''}
     headers:
       Cache-Control: [no-cache]
       Content-Length: ['0']
       DataServiceId: ['https://storagename.table.core.windows.net/Tables(''table967e1246'')']
-      Date: ['Tue, 03 Oct 2017 18:55:15 GMT']
+      Date: ['Fri, 10 Nov 2017 02:43:24 GMT']
       Location: ['https://storagename.table.core.windows.net/Tables(''table967e1246'')']
       Preference-Applied: [return-no-content]
       Server: [Windows-Azure-Table/1.0 Microsoft-HTTPAPI/2.0]
       X-Content-Type-Options: [nosniff]
-      x-ms-request-id: [3fc14d13-0002-0083-0379-3c03d7000000]
+      x-ms-request-id: [82953a0b-0002-0026-69cd-5938ce000000]
       x-ms-version: ['2017-04-17']
     status: {code: 204, message: No Content}
 - request:
-    body: !!python/unicode '{"TableName": "table967e1246"}'
+    body: '{"TableName": "table967e1246"}'
     headers:
       Accept: [application/json;odata=minimalmetadata]
       Connection: [keep-alive]
@@ -39,28 +39,28 @@ interactions:
       DataServiceVersion: [3.0;NetFx]
       MaxDataServiceVersion: ['3.0']
       Prefer: [return-no-content]
-      User-Agent: [Azure-CosmosDB/0.37.0 (Python CPython 3.6.0; Windows 10)]
-      x-ms-client-request-id: [64ad47a4-a86c-11e7-8ceb-a08cfdf04b77]
-      x-ms-date: ['Tue, 03 Oct 2017 18:55:15 GMT']
+      User-Agent: [Azure-Storage/0.37.1-None (Python CPython 3.6.0; Windows 10)]
+      x-ms-client-request-id: [ed078e58-c5c0-11e7-8e15-a08cfdf04b77]
+      x-ms-date: ['Fri, 10 Nov 2017 02:43:25 GMT']
       x-ms-version: ['2017-04-17']
     method: POST
     uri: https://storagename.table.core.windows.net/Tables
   response:
-    body: {string: !!python/unicode '{"odata.error":{"code":"TableAlreadyExists","message":{"lang":"en-US","value":"The
-        table specified already exists.\nRequestId:3fc14d21-0002-0083-0f79-3c03d7000000\nTime:2017-10-03T18:55:16.0174789Z"}}}'}
+    body: {string: '{"odata.error":{"code":"TableAlreadyExists","message":{"lang":"en-US","value":"The
+        table specified already exists.\nRequestId:82953a26-0002-0026-7fcd-5938ce000000\nTime:2017-11-10T02:43:25.7538132Z"}}}'}
     headers:
       Cache-Control: [no-cache]
       Content-Type: [application/json;odata=minimalmetadata;streaming=true;charset=utf-8]
-      Date: ['Tue, 03 Oct 2017 18:55:15 GMT']
+      Date: ['Fri, 10 Nov 2017 02:43:25 GMT']
       Preference-Applied: [return-no-content]
       Server: [Windows-Azure-Table/1.0 Microsoft-HTTPAPI/2.0]
       Transfer-Encoding: [chunked]
       X-Content-Type-Options: [nosniff]
-      x-ms-request-id: [3fc14d21-0002-0083-0f79-3c03d7000000]
+      x-ms-request-id: [82953a26-0002-0026-7fcd-5938ce000000]
       x-ms-version: ['2017-04-17']
     status: {code: 409, message: Conflict}
 - request:
-    body: !!python/unicode '{"TableName": "table967e1246"}'
+    body: '{"TableName": "table967e1246"}'
     headers:
       Accept: [application/json;odata=minimalmetadata]
       Connection: [keep-alive]
@@ -69,28 +69,28 @@ interactions:
       DataServiceVersion: [3.0;NetFx]
       MaxDataServiceVersion: ['3.0']
       Prefer: [return-no-content]
-      User-Agent: [Azure-CosmosDB/0.37.0 (Python CPython 3.6.0; Windows 10)]
-      x-ms-client-request-id: [64bd9d6e-a86c-11e7-b19e-a08cfdf04b77]
-      x-ms-date: ['Tue, 03 Oct 2017 18:55:15 GMT']
+      User-Agent: [Azure-Storage/0.37.1-None (Python CPython 3.6.0; Windows 10)]
+      x-ms-client-request-id: [ed17a99c-c5c0-11e7-8af5-a08cfdf04b77]
+      x-ms-date: ['Fri, 10 Nov 2017 02:43:26 GMT']
       x-ms-version: ['2017-04-17']
     method: POST
     uri: https://storagename.table.core.windows.net/Tables
   response:
-    body: {string: !!python/unicode '{"odata.error":{"code":"TableAlreadyExists","message":{"lang":"en-US","value":"The
-        table specified already exists.\nRequestId:3fc14d24-0002-0083-1179-3c03d7000000\nTime:2017-10-03T18:55:16.1115683Z"}}}'}
+    body: {string: '{"odata.error":{"code":"TableAlreadyExists","message":{"lang":"en-US","value":"The
+        table specified already exists.\nRequestId:82953a30-0002-0026-09cd-5938ce000000\nTime:2017-11-10T02:43:25.8529100Z"}}}'}
     headers:
       Cache-Control: [no-cache]
       Content-Type: [application/json;odata=minimalmetadata;streaming=true;charset=utf-8]
-      Date: ['Tue, 03 Oct 2017 18:55:15 GMT']
+      Date: ['Fri, 10 Nov 2017 02:43:25 GMT']
       Preference-Applied: [return-no-content]
       Server: [Windows-Azure-Table/1.0 Microsoft-HTTPAPI/2.0]
       Transfer-Encoding: [chunked]
       X-Content-Type-Options: [nosniff]
-      x-ms-request-id: [3fc14d24-0002-0083-1179-3c03d7000000]
+      x-ms-request-id: [82953a30-0002-0026-09cd-5938ce000000]
       x-ms-version: ['2017-04-17']
     status: {code: 409, message: Conflict}
 - request:
-    body: !!python/unicode '{"TableName": "table967e1246"}'
+    body: '{"TableName": "table967e1246"}'
     headers:
       Accept: [application/json;odata=minimalmetadata]
       Connection: [keep-alive]
@@ -99,24 +99,24 @@ interactions:
       DataServiceVersion: [3.0;NetFx]
       MaxDataServiceVersion: ['3.0']
       Prefer: [return-no-content]
-      User-Agent: [Azure-CosmosDB/0.37.0 (Python CPython 3.6.0; Windows 10)]
-      x-ms-client-request-id: [64cc2292-a86c-11e7-972e-a08cfdf04b77]
-      x-ms-date: ['Tue, 03 Oct 2017 18:55:15 GMT']
+      User-Agent: [Azure-Storage/0.37.1-None (Python CPython 3.6.0; Windows 10)]
+      x-ms-client-request-id: [ed26c7c8-c5c0-11e7-a0c0-a08cfdf04b77]
+      x-ms-date: ['Fri, 10 Nov 2017 02:43:26 GMT']
       x-ms-version: ['2017-04-17']
     method: POST
     uri: https://storagename.table.core.windows.net/Tables
   response:
-    body: {string: !!python/unicode '{"odata.error":{"code":"TableAlreadyExists","message":{"lang":"en-US","value":"The
-        table specified already exists.\nRequestId:3fc14d2a-0002-0083-1679-3c03d7000000\nTime:2017-10-03T18:55:16.2086610Z"}}}'}
+    body: {string: '{"odata.error":{"code":"TableAlreadyExists","message":{"lang":"en-US","value":"The
+        table specified already exists.\nRequestId:82953a3b-0002-0026-14cd-5938ce000000\nTime:2017-11-10T02:43:25.9580127Z"}}}'}
     headers:
       Cache-Control: [no-cache]
       Content-Type: [application/json;odata=minimalmetadata;streaming=true;charset=utf-8]
-      Date: ['Tue, 03 Oct 2017 18:55:15 GMT']
+      Date: ['Fri, 10 Nov 2017 02:43:25 GMT']
       Preference-Applied: [return-no-content]
       Server: [Windows-Azure-Table/1.0 Microsoft-HTTPAPI/2.0]
       Transfer-Encoding: [chunked]
       X-Content-Type-Options: [nosniff]
-      x-ms-request-id: [3fc14d2a-0002-0083-1679-3c03d7000000]
+      x-ms-request-id: [82953a3b-0002-0026-14cd-5938ce000000]
       x-ms-version: ['2017-04-17']
     status: {code: 409, message: Conflict}
 - request:
@@ -126,312 +126,23 @@ interactions:
       Connection: [keep-alive]
       DataServiceVersion: [3.0;NetFx]
       MaxDataServiceVersion: ['3.0']
-      User-Agent: [Azure-CosmosDB/0.37.0 (Python CPython 3.6.0; Windows 10)]
-      x-ms-client-request-id: [64dad202-a86c-11e7-b00e-a08cfdf04b77]
-      x-ms-date: ['Tue, 03 Oct 2017 18:55:16 GMT']
+      User-Agent: [Azure-Storage/0.37.1-None (Python CPython 3.6.0; Windows 10)]
+      x-ms-client-request-id: [ed36e978-c5c0-11e7-a947-a08cfdf04b77]
+      x-ms-date: ['Fri, 10 Nov 2017 02:43:26 GMT']
       x-ms-version: ['2017-04-17']
     method: GET
     uri: https://storagename.table.core.windows.net/Tables?%24top=3
   response:
-    body: {string: !!python/unicode '{"value":[{"TableName":"table967e1246"}]}'}
+    body: {string: '{"value":[{"TableName":"table01195b113b204be595f426a2aec78bf6"},{"TableName":"table967e1246"},{"TableName":"tablede242129942d48a9a6c8fb95a1e0b702"}]}'}
     headers:
       Cache-Control: [no-cache]
       Content-Type: [application/json;odata=nometadata;streaming=true;charset=utf-8]
-      Date: ['Tue, 03 Oct 2017 18:55:16 GMT']
+      Date: ['Fri, 10 Nov 2017 02:43:25 GMT']
       Server: [Windows-Azure-Table/1.0 Microsoft-HTTPAPI/2.0]
       Transfer-Encoding: [chunked]
       X-Content-Type-Options: [nosniff]
-      x-ms-request-id: [3fc14d2f-0002-0083-1979-3c03d7000000]
-      x-ms-version: ['2017-04-17']
-    status: {code: 200, message: OK}
-- request:
-    body: !!python/unicode '{"TableName": "table967e1246"}'
-    headers:
-      Accept: [application/json;odata=minimalmetadata]
-      Connection: [keep-alive]
-      Content-Length: ['30']
-      Content-Type: [application/json]
-      DataServiceVersion: [3.0;NetFx]
-      MaxDataServiceVersion: ['3.0']
-      Prefer: [return-no-content]
-      User-Agent: [Azure-CosmosDB/0.37.0 (Python CPython 3.6.0; Windows 10)]
-      x-ms-client-request-id: [2a4738da-a86d-11e7-8368-a08cfdf04b77]
-      x-ms-date: ['Tue, 03 Oct 2017 19:00:47 GMT']
-      x-ms-version: ['2017-04-17']
-    method: POST
-    uri: https://storagename.table.core.windows.net/Tables
-  response:
-    body: {string: !!python/unicode ''}
-    headers:
-      Cache-Control: [no-cache]
-      Content-Length: ['0']
-      DataServiceId: ['https://storagename.table.core.windows.net/Tables(''table967e1246'')']
-      Date: ['Tue, 03 Oct 2017 19:00:47 GMT']
-      Location: ['https://storagename.table.core.windows.net/Tables(''table967e1246'')']
-      Preference-Applied: [return-no-content]
-      Server: [Windows-Azure-Table/1.0 Microsoft-HTTPAPI/2.0]
-      X-Content-Type-Options: [nosniff]
-      x-ms-request-id: [20ed057c-0002-002f-5f79-3c2240000000]
-      x-ms-version: ['2017-04-17']
-    status: {code: 204, message: No Content}
-- request:
-    body: !!python/unicode '{"TableName": "table967e1246"}'
-    headers:
-      Accept: [application/json;odata=minimalmetadata]
-      Connection: [keep-alive]
-      Content-Length: ['30']
-      Content-Type: [application/json]
-      DataServiceVersion: [3.0;NetFx]
-      MaxDataServiceVersion: ['3.0']
-      Prefer: [return-no-content]
-      User-Agent: [Azure-CosmosDB/0.37.0 (Python CPython 3.6.0; Windows 10)]
-      x-ms-client-request-id: [2a805b08-a86d-11e7-8ce2-a08cfdf04b77]
-      x-ms-date: ['Tue, 03 Oct 2017 19:00:47 GMT']
-      x-ms-version: ['2017-04-17']
-    method: POST
-    uri: https://storagename.table.core.windows.net/Tables
-  response:
-    body: {string: !!python/unicode '{"odata.error":{"code":"TableAlreadyExists","message":{"lang":"en-US","value":"The
-        table specified already exists.\nRequestId:20ed0583-0002-002f-6479-3c2240000000\nTime:2017-10-03T19:00:47.9275003Z"}}}'}
-    headers:
-      Cache-Control: [no-cache]
-      Content-Type: [application/json;odata=minimalmetadata;streaming=true;charset=utf-8]
-      Date: ['Tue, 03 Oct 2017 19:00:47 GMT']
-      Preference-Applied: [return-no-content]
-      Server: [Windows-Azure-Table/1.0 Microsoft-HTTPAPI/2.0]
-      Transfer-Encoding: [chunked]
-      X-Content-Type-Options: [nosniff]
-      x-ms-request-id: [20ed0583-0002-002f-6479-3c2240000000]
-      x-ms-version: ['2017-04-17']
-    status: {code: 409, message: Conflict}
-- request:
-    body: !!python/unicode '{"TableName": "table967e1246"}'
-    headers:
-      Accept: [application/json;odata=minimalmetadata]
-      Connection: [keep-alive]
-      Content-Length: ['30']
-      Content-Type: [application/json]
-      DataServiceVersion: [3.0;NetFx]
-      MaxDataServiceVersion: ['3.0']
-      Prefer: [return-no-content]
-      User-Agent: [Azure-CosmosDB/0.37.0 (Python CPython 3.6.0; Windows 10)]
-      x-ms-client-request-id: [2a8f5ad2-a86d-11e7-848c-a08cfdf04b77]
-      x-ms-date: ['Tue, 03 Oct 2017 19:00:47 GMT']
-      x-ms-version: ['2017-04-17']
-    method: POST
-    uri: https://storagename.table.core.windows.net/Tables
-  response:
-    body: {string: !!python/unicode '{"odata.error":{"code":"TableAlreadyExists","message":{"lang":"en-US","value":"The
-        table specified already exists.\nRequestId:20ed0587-0002-002f-6879-3c2240000000\nTime:2017-10-03T19:00:48.0355942Z"}}}'}
-    headers:
-      Cache-Control: [no-cache]
-      Content-Type: [application/json;odata=minimalmetadata;streaming=true;charset=utf-8]
-      Date: ['Tue, 03 Oct 2017 19:00:47 GMT']
-      Preference-Applied: [return-no-content]
-      Server: [Windows-Azure-Table/1.0 Microsoft-HTTPAPI/2.0]
-      Transfer-Encoding: [chunked]
-      X-Content-Type-Options: [nosniff]
-      x-ms-request-id: [20ed0587-0002-002f-6879-3c2240000000]
-      x-ms-version: ['2017-04-17']
-    status: {code: 409, message: Conflict}
-- request:
-    body: !!python/unicode '{"TableName": "table967e1246"}'
-    headers:
-      Accept: [application/json;odata=minimalmetadata]
-      Connection: [keep-alive]
-      Content-Length: ['30']
-      Content-Type: [application/json]
-      DataServiceVersion: [3.0;NetFx]
-      MaxDataServiceVersion: ['3.0']
-      Prefer: [return-no-content]
-      User-Agent: [Azure-CosmosDB/0.37.0 (Python CPython 3.6.0; Windows 10)]
-      x-ms-client-request-id: [2a9fb192-a86d-11e7-84f6-a08cfdf04b77]
-      x-ms-date: ['Tue, 03 Oct 2017 19:00:47 GMT']
-      x-ms-version: ['2017-04-17']
-    method: POST
-    uri: https://storagename.table.core.windows.net/Tables
-  response:
-    body: {string: !!python/unicode '{"odata.error":{"code":"TableAlreadyExists","message":{"lang":"en-US","value":"The
-        table specified already exists.\nRequestId:20ed0589-0002-002f-6a79-3c2240000000\nTime:2017-10-03T19:00:48.1346807Z"}}}'}
-    headers:
-      Cache-Control: [no-cache]
-      Content-Type: [application/json;odata=minimalmetadata;streaming=true;charset=utf-8]
-      Date: ['Tue, 03 Oct 2017 19:00:47 GMT']
-      Preference-Applied: [return-no-content]
-      Server: [Windows-Azure-Table/1.0 Microsoft-HTTPAPI/2.0]
-      Transfer-Encoding: [chunked]
-      X-Content-Type-Options: [nosniff]
-      x-ms-request-id: [20ed0589-0002-002f-6a79-3c2240000000]
-      x-ms-version: ['2017-04-17']
-    status: {code: 409, message: Conflict}
-- request:
-    body: null
-    headers:
-      Accept: [application/json;odata=nometadata]
-      Connection: [keep-alive]
-      DataServiceVersion: [3.0;NetFx]
-      MaxDataServiceVersion: ['3.0']
-      User-Agent: [Azure-CosmosDB/0.37.0 (Python CPython 3.6.0; Windows 10)]
-      x-ms-client-request-id: [2aaefbc0-a86d-11e7-97b0-a08cfdf04b77]
-      x-ms-date: ['Tue, 03 Oct 2017 19:00:47 GMT']
-      x-ms-version: ['2017-04-17']
-    method: GET
-    uri: https://storagename.table.core.windows.net/Tables?%24top=3
-  response:
-    body: {string: !!python/unicode '{"value":[{"TableName":"table967e1246"}]}'}
-    headers:
-      Cache-Control: [no-cache]
-      Content-Type: [application/json;odata=nometadata;streaming=true;charset=utf-8]
-      Date: ['Tue, 03 Oct 2017 19:00:47 GMT']
-      Server: [Windows-Azure-Table/1.0 Microsoft-HTTPAPI/2.0]
-      Transfer-Encoding: [chunked]
-      X-Content-Type-Options: [nosniff]
-      x-ms-request-id: [20ed0591-0002-002f-7279-3c2240000000]
-      x-ms-version: ['2017-04-17']
-    status: {code: 200, message: OK}
-- request:
-    body: !!python/unicode '{"TableName": "table967e1246"}'
-    headers:
-      Accept: [application/json;odata=minimalmetadata]
-      Connection: [keep-alive]
-      Content-Length: ['30']
-      Content-Type: [application/json]
-      DataServiceVersion: [3.0;NetFx]
-      MaxDataServiceVersion: ['3.0']
-      Prefer: [return-no-content]
-      User-Agent: [Azure-CosmosDB/0.37.0 (Python CPython 2.7.0; Windows post2008Server)]
-      x-ms-client-request-id: [493744f0-a86d-11e7-b0c0-a08cfdf04b77]
-      x-ms-date: ['Tue, 03 Oct 2017 19:01:39 GMT']
-      x-ms-version: ['2017-04-17']
-    method: POST
-    uri: https://storagename.table.core.windows.net/Tables
-  response:
-    body: {string: !!python/unicode ''}
-    headers:
-      cache-control: [no-cache]
-      content-length: ['0']
-      dataserviceid: ['https://storagename.table.core.windows.net/Tables(''table967e1246'')']
-      date: ['Tue, 03 Oct 2017 19:01:38 GMT']
-      location: ['https://storagename.table.core.windows.net/Tables(''table967e1246'')']
-      preference-applied: [return-no-content]
-      server: [Windows-Azure-Table/1.0 Microsoft-HTTPAPI/2.0]
-      x-content-type-options: [nosniff]
-      x-ms-request-id: [57c49878-0002-0054-1d7a-3c49f0000000]
-      x-ms-version: ['2017-04-17']
-    status: {code: 204, message: No Content}
-- request:
-    body: !!python/unicode '{"TableName": "table967e1246"}'
-    headers:
-      Accept: [application/json;odata=minimalmetadata]
-      Connection: [keep-alive]
-      Content-Length: ['30']
-      Content-Type: [application/json]
-      DataServiceVersion: [3.0;NetFx]
-      MaxDataServiceVersion: ['3.0']
-      Prefer: [return-no-content]
-      User-Agent: [Azure-CosmosDB/0.37.0 (Python CPython 2.7.0; Windows post2008Server)]
-      x-ms-client-request-id: [4970a46e-a86d-11e7-8b46-a08cfdf04b77]
-      x-ms-date: ['Tue, 03 Oct 2017 19:01:39 GMT']
-      x-ms-version: ['2017-04-17']
-    method: POST
-    uri: https://storagename.table.core.windows.net/Tables
-  response:
-    body: {string: !!python/unicode '{"odata.error":{"code":"TableAlreadyExists","message":{"lang":"en-US","value":"The
-        table specified already exists.\nRequestId:57c4987d-0002-0054-207a-3c49f0000000\nTime:2017-10-03T19:01:39.7275933Z"}}}'}
-    headers:
-      cache-control: [no-cache]
-      content-type: [application/json;odata=minimalmetadata;streaming=true;charset=utf-8]
-      date: ['Tue, 03 Oct 2017 19:01:38 GMT']
-      preference-applied: [return-no-content]
-      server: [Windows-Azure-Table/1.0 Microsoft-HTTPAPI/2.0]
-      transfer-encoding: [chunked]
-      x-content-type-options: [nosniff]
-      x-ms-request-id: [57c4987d-0002-0054-207a-3c49f0000000]
-      x-ms-version: ['2017-04-17']
-    status: {code: 409, message: Conflict}
-- request:
-    body: !!python/unicode '{"TableName": "table967e1246"}'
-    headers:
-      Accept: [application/json;odata=minimalmetadata]
-      Connection: [keep-alive]
-      Content-Length: ['30']
-      Content-Type: [application/json]
-      DataServiceVersion: [3.0;NetFx]
-      MaxDataServiceVersion: ['3.0']
-      Prefer: [return-no-content]
-      User-Agent: [Azure-CosmosDB/0.37.0 (Python CPython 2.7.0; Windows post2008Server)]
-      x-ms-client-request-id: [49805be1-a86d-11e7-8eed-a08cfdf04b77]
-      x-ms-date: ['Tue, 03 Oct 2017 19:01:39 GMT']
-      x-ms-version: ['2017-04-17']
-    method: POST
-    uri: https://storagename.table.core.windows.net/Tables
-  response:
-    body: {string: !!python/unicode '{"odata.error":{"code":"TableAlreadyExists","message":{"lang":"en-US","value":"The
-        table specified already exists.\nRequestId:57c4987f-0002-0054-227a-3c49f0000000\nTime:2017-10-03T19:01:39.8346935Z"}}}'}
-    headers:
-      cache-control: [no-cache]
-      content-type: [application/json;odata=minimalmetadata;streaming=true;charset=utf-8]
-      date: ['Tue, 03 Oct 2017 19:01:38 GMT']
-      preference-applied: [return-no-content]
-      server: [Windows-Azure-Table/1.0 Microsoft-HTTPAPI/2.0]
-      transfer-encoding: [chunked]
-      x-content-type-options: [nosniff]
-      x-ms-request-id: [57c4987f-0002-0054-227a-3c49f0000000]
-      x-ms-version: ['2017-04-17']
-    status: {code: 409, message: Conflict}
-- request:
-    body: !!python/unicode '{"TableName": "table967e1246"}'
-    headers:
-      Accept: [application/json;odata=minimalmetadata]
-      Connection: [keep-alive]
-      Content-Length: ['30']
-      Content-Type: [application/json]
-      DataServiceVersion: [3.0;NetFx]
-      MaxDataServiceVersion: ['3.0']
-      Prefer: [return-no-content]
-      User-Agent: [Azure-CosmosDB/0.37.0 (Python CPython 2.7.0; Windows post2008Server)]
-      x-ms-client-request-id: [4990af8f-a86d-11e7-8e4f-a08cfdf04b77]
-      x-ms-date: ['Tue, 03 Oct 2017 19:01:39 GMT']
-      x-ms-version: ['2017-04-17']
-    method: POST
-    uri: https://storagename.table.core.windows.net/Tables
-  response:
-    body: {string: !!python/unicode '{"odata.error":{"code":"TableAlreadyExists","message":{"lang":"en-US","value":"The
-        table specified already exists.\nRequestId:57c49881-0002-0054-237a-3c49f0000000\nTime:2017-10-03T19:01:39.9437954Z"}}}'}
-    headers:
-      cache-control: [no-cache]
-      content-type: [application/json;odata=minimalmetadata;streaming=true;charset=utf-8]
-      date: ['Tue, 03 Oct 2017 19:01:39 GMT']
-      preference-applied: [return-no-content]
-      server: [Windows-Azure-Table/1.0 Microsoft-HTTPAPI/2.0]
-      transfer-encoding: [chunked]
-      x-content-type-options: [nosniff]
-      x-ms-request-id: [57c49881-0002-0054-237a-3c49f0000000]
-      x-ms-version: ['2017-04-17']
-    status: {code: 409, message: Conflict}
-- request:
-    body: null
-    headers:
-      Accept: [application/json;odata=nometadata]
-      Connection: [keep-alive]
-      DataServiceVersion: [3.0;NetFx]
-      MaxDataServiceVersion: ['3.0']
-      User-Agent: [Azure-CosmosDB/0.37.0 (Python CPython 2.7.0; Windows post2008Server)]
-      x-ms-client-request-id: [49a1515e-a86d-11e7-a8f7-a08cfdf04b77]
-      x-ms-date: ['Tue, 03 Oct 2017 19:01:39 GMT']
-      x-ms-version: ['2017-04-17']
-    method: GET
-    uri: https://storagename.table.core.windows.net/Tables?%24top=3
-  response:
-    body: {string: !!python/unicode '{"value":[{"TableName":"table194014d4"},{"TableName":"table967e1246"}]}'}
-    headers:
-      cache-control: [no-cache]
-      content-type: [application/json;odata=nometadata;streaming=true;charset=utf-8]
-      date: ['Tue, 03 Oct 2017 19:01:39 GMT']
-      server: [Windows-Azure-Table/1.0 Microsoft-HTTPAPI/2.0]
-      transfer-encoding: [chunked]
-      x-content-type-options: [nosniff]
-      x-ms-request-id: [57c49884-0002-0054-267a-3c49f0000000]
+      x-ms-continuation-NextTableName: [1!40!dGFibGVkZWQxMTM5YgEwMWQzNTljZGFhN2M3YTVh]
+      x-ms-request-id: [82953a4b-0002-0026-24cd-5938ce000000]
       x-ms-version: ['2017-04-17']
     status: {code: 200, message: OK}
 version: 1

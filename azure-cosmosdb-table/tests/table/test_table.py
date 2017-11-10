@@ -27,7 +27,7 @@ from azure.common import (
     AzureException,
 )
 
-from azure.cosmosdb.common import (
+from azure.storage.common import (
     AccessPolicy,
     ResourceTypes,
     AccountPermissions,

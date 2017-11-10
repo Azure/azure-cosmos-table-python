@@ -18,48 +18,52 @@ from azure.common import (
     AzureHttpError,
 )
 
-from azure.cosmosdb.common._auth import (
+from azure.storage.common._auth import (
     _StorageSASAuthentication,
+)
+from azure.cosmosdb.table._auth import (
     _StorageTableSharedKeyAuthentication,
 )
-from azure.cosmosdb.common._common_conversion import (
+from azure.storage.common._common_conversion import (
     _int_to_str,
     _to_str,
 )
-from azure.cosmosdb.common._connection import _ServiceParameters
-from azure.cosmosdb.common._constants import (
+from azure.storage.common._connection import _ServiceParameters
+from azure.storage.common._constants import (
     SERVICE_HOST_BASE,
     DEFAULT_PROTOCOL,
     DEV_ACCOUNT_NAME,
 )
-from azure.cosmosdb.common._deserialization import (
+from azure.storage.common._deserialization import (
     _convert_xml_to_service_properties,
     _convert_xml_to_signed_identifiers,
     _convert_xml_to_service_stats,
 )
-from azure.cosmosdb.common._error import (
+from azure.storage.common._error import (
     _dont_fail_not_exist,
     _dont_fail_on_exist,
     _validate_not_none,
     _ERROR_STORAGE_MISSING_INFO,
     _validate_access_policies,
 )
-from azure.cosmosdb.common._http import HTTPRequest
-from azure.cosmosdb.common._serialization import (
+from azure.storage.common._http import HTTPRequest
+from azure.storage.common._serialization import (
     _get_request_body,
     _update_request,
     _convert_signed_identifiers_to_xml,
     _convert_service_properties_to_xml,
 )
-from azure.cosmosdb.common.models import (
-    Services,
+from azure.storage.common.models import (
     ListGenerator,
     _OperationContext,
 )
-from azure.cosmosdb.common.sharedaccesssignature import (
-    SharedAccessSignature,
+from azure.cosmosdb.table.models import (
+    TableServices,
 )
-from azure.cosmosdb.common.storageclient import StorageClient
+from azure.cosmosdb.table.sharedaccesssignature import (
+    TableSharedAccessSignature,
+)
+from azure.storage.common.storageclient import StorageClient
 from azure.cosmosdb.table._deserialization import (
     _convert_json_response_to_entity,
     _convert_json_response_to_tables,
@@ -84,6 +88,10 @@ from azure.cosmosdb.table._serialization import (
     _DEFAULT_ACCEPT_HEADER,
     _DEFAULT_CONTENT_TYPE_HEADER,
     _DEFAULT_PREFER_HEADER,
+)
+from azure.cosmosdb.table._constants import (
+    X_MS_VERSION,
+    USER_AGENT_STRING,
 )
 from azure.cosmosdb.table.models import TablePayloadFormat
 from azure.cosmosdb.table.tablebatch import TableBatch
@@ -235,8 +243,8 @@ class TableService(StorageClient):
         _validate_not_none('self.account_name', self.account_name)
         _validate_not_none('self.account_key', self.account_key)
 
-        sas = SharedAccessSignature(self.account_name, self.account_key)
-        return sas.generate_account(Services.TABLE, resource_types, permission,
+        sas = TableSharedAccessSignature(self.account_name, self.account_key)
+        return sas.generate_account(TableServices(), resource_types, permission,
                                     expiry, start=start, ip=ip, protocol=protocol)
 
     def generate_table_shared_access_signature(self, table_name, permission=None,
@@ -309,7 +317,7 @@ class TableService(StorageClient):
         _validate_not_none('self.account_name', self.account_name)
         _validate_not_none('self.account_key', self.account_key)
 
-        sas = SharedAccessSignature(self.account_name, self.account_key)
+        sas = TableSharedAccessSignature(self.account_name, self.account_key)
         return sas.generate_table(
             table_name,
             permission=permission,
@@ -827,7 +835,7 @@ class TableService(StorageClient):
                 batch_request.path = _get_entity_path(table_name, batch._partition_key, row_key)
             if self.is_emulated:
                 batch_request.path = '/' + DEV_ACCOUNT_NAME + batch_request.path
-            _update_request(batch_request)
+            _update_request(batch_request, X_MS_VERSION, USER_AGENT_STRING)
 
         # Construct the batch body
         request.body, boundary = _convert_batch_to_json(batch._requests)

@@ -23,11 +23,11 @@ from math import (
     isnan,
 )
 
-from azure.cosmosdb.common._common_conversion import (
+from azure.storage.common._common_conversion import (
     _encode_base64,
     _to_str,
 )
-from azure.cosmosdb.common._serialization import (
+from azure.storage.common._serialization import (
     _to_utc_datetime,
 )
 from azure.cosmosdb.table._error import (

@@ -12,16 +12,16 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 # --------------------------------------------------------------------------
-from azure.cosmosdb.common._common_conversion import (
+from azure.storage.common._common_conversion import (
     _to_str,
 )
-from azure.cosmosdb.common._error import (
+from azure.storage.common._error import (
     _validate_not_none,
     _validate_encryption_required,
     _validate_encryption_unsupported,
 )
-from azure.cosmosdb.common._http import HTTPRequest
-from azure.cosmosdb.common._serialization import (
+from azure.storage.common._http import HTTPRequest
+from azure.storage.common._serialization import (
     _get_request_body,
 )
 from azure.cosmosdb.table._encryption import (
@@ -65,7 +65,7 @@ def _insert_entity(entity, encryption_required=False,
         get_key_wrap_algorithm()--returns the algorithm used to wrap the specified symmetric key.
         get_kid()--returns a string key id for this key-encryption-key.
     :param function(partition_key, row_key, property_name) encryption_resolver:
-        A function that takes in an entities partition key, row key, and property name and returns 
+        A function that takes in an entities partition key, row key, and property name and returns
         a boolean that indicates whether that property should be encrypted.
     '''
     _validate_entity(entity, key_encryption_key is not None)
@@ -97,7 +97,7 @@ def _update_entity(entity, if_match, encryption_required=False,
         get_key_wrap_algorithm()--returns the algorithm used to wrap the specified symmetric key.
         get_kid()--returns a string key id for this key-encryption-key.
     :param function(partition_key, row_key, property_name) encryption_resolver:
-        A function that takes in an entities partition key, row key, and property name and returns 
+        A function that takes in an entities partition key, row key, and property name and returns
         a boolean that indicates whether that property should be encrypted.
     '''
     _validate_not_none('if_match', if_match)

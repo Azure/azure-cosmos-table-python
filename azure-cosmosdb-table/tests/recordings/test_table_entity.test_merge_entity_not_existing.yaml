@@ -11,23 +11,23 @@ interactions:
       DataServiceVersion: [3.0;NetFx]
       If-Match: ['*']
       MaxDataServiceVersion: ['3.0']
-      User-Agent: [Azure-CosmosDB/0.37.0 (Python CPython 3.6.0; Windows 10)]
-      x-ms-client-request-id: [e829b008-a86c-11e7-aeca-a08cfdf04b77]
-      x-ms-date: ['Tue, 03 Oct 2017 18:58:56 GMT']
+      User-Agent: [Azure-Storage/0.37.1-None (Python CPython 3.6.0; Windows 10)]
+      x-ms-client-request-id: [72a3bda4-c5c1-11e7-b87b-a08cfdf04b77]
+      x-ms-date: ['Fri, 10 Nov 2017 02:47:10 GMT']
       x-ms-version: ['2017-04-17']
     method: MERGE
     uri: https://storagename.table.core.windows.net/uttablee64a13f7(PartitionKey='pke64a13f7',RowKey='rke64a13f7')
   response:
     body: {string: '{"odata.error":{"code":"ResourceNotFound","message":{"lang":"en-US","value":"The
-        specified resource does not exist.\nRequestId:cd49cea0-0002-0059-4a79-3ca6fc000000\nTime:2017-10-03T18:58:56.7364402Z"}}}'}
+        specified resource does not exist.\nRequestId:5ddb951b-0002-0128-58ce-599290000000\nTime:2017-11-10T02:47:10.1715676Z"}}}'}
     headers:
       Cache-Control: [no-cache]
       Content-Type: [application/json;odata=minimalmetadata;streaming=true;charset=utf-8]
-      Date: ['Tue, 03 Oct 2017 18:58:56 GMT']
+      Date: ['Fri, 10 Nov 2017 02:47:09 GMT']
       Server: [Windows-Azure-Table/1.0 Microsoft-HTTPAPI/2.0]
       Transfer-Encoding: [chunked]
       X-Content-Type-Options: [nosniff]
-      x-ms-request-id: [cd49cea0-0002-0059-4a79-3ca6fc000000]
+      x-ms-request-id: [5ddb951b-0002-0128-58ce-599290000000]
       x-ms-version: ['2017-04-17']
     status: {code: 404, message: Not Found}
 version: 1
