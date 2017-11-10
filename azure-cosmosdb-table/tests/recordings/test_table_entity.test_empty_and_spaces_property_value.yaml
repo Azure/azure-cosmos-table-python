@@ -13,9 +13,9 @@ interactions:
       DataServiceVersion: [3.0;NetFx]
       MaxDataServiceVersion: ['3.0']
       Prefer: [return-no-content]
-      User-Agent: [Azure-CosmosDB/0.37.0 (Python CPython 3.6.0; Windows 10)]
-      x-ms-client-request-id: [92cbfcca-a86c-11e7-a10a-a08cfdf04b77]
-      x-ms-date: ['Tue, 03 Oct 2017 18:56:33 GMT']
+      User-Agent: [Azure-Storage/0.37.1-None (Python CPython 3.6.0; Windows 10)]
+      x-ms-client-request-id: [dc2b0418-c5b0-11e7-8f95-a08cfdf04b77]
+      x-ms-date: ['Fri, 10 Nov 2017 00:48:25 GMT']
       x-ms-version: ['2017-04-17']
     method: POST
     uri: https://storagename.table.core.windows.net/uttable66111670
@@ -25,13 +25,13 @@ interactions:
       Cache-Control: [no-cache]
       Content-Length: ['0']
       DataServiceId: ['https://storagename.table.core.windows.net/uttable66111670(PartitionKey=''pk66111670'',RowKey=''rk66111670'')']
-      Date: ['Tue, 03 Oct 2017 18:56:32 GMT']
-      ETag: [W/"datetime'2017-10-03T18%3A56%3A33.6114791Z'"]
+      Date: ['Fri, 10 Nov 2017 00:48:24 GMT']
+      ETag: [W/"datetime'2017-11-10T00%3A48%3A25.805516Z'"]
       Location: ['https://storagename.table.core.windows.net/uttable66111670(PartitionKey=''pk66111670'',RowKey=''rk66111670'')']
       Preference-Applied: [return-no-content]
       Server: [Windows-Azure-Table/1.0 Microsoft-HTTPAPI/2.0]
       X-Content-Type-Options: [nosniff]
-      x-ms-request-id: [3688ebb4-0002-0079-0579-3cca30000000]
+      x-ms-request-id: [d29857a4-0002-0109-74bd-59ffa1000000]
       x-ms-version: ['2017-04-17']
     status: {code: 204, message: No Content}
 - request:
@@ -41,23 +41,23 @@ interactions:
       Connection: [keep-alive]
       DataServiceVersion: [3.0;NetFx]
       MaxDataServiceVersion: ['3.0']
-      User-Agent: [Azure-CosmosDB/0.37.0 (Python CPython 3.6.0; Windows 10)]
-      x-ms-client-request-id: [930444ca-a86c-11e7-923d-a08cfdf04b77]
-      x-ms-date: ['Tue, 03 Oct 2017 18:56:33 GMT']
+      User-Agent: [Azure-Storage/0.37.1-None (Python CPython 3.6.0; Windows 10)]
+      x-ms-client-request-id: [dc65ba74-c5b0-11e7-b48f-a08cfdf04b77]
+      x-ms-date: ['Fri, 10 Nov 2017 00:48:26 GMT']
       x-ms-version: ['2017-04-17']
     method: GET
     uri: https://storagename.table.core.windows.net/uttable66111670(PartitionKey='pk66111670',RowKey='rk66111670')
   response:
-    body: {string: '{"odata.metadata":"https://storagename.table.core.windows.net/$metadata#uttable66111670/@Element","odata.etag":"W/\"datetime''2017-10-03T18%3A56%3A33.6114791Z''\"","PartitionKey":"pk66111670","RowKey":"rk66111670","Timestamp":"2017-10-03T18:56:33.6114791Z","EmptyByte":"","EmptyUnicode":"","SpacesOnlyByte":"   ","SpacesOnlyUnicode":"   ","SpacesBeforeByte":"   Text","SpacesBeforeUnicode":"   Text","SpacesAfterByte":"Text   ","SpacesAfterUnicode":"Text   ","SpacesBeforeAndAfterByte":"   Text   ","SpacesBeforeAndAfterUnicode":"   Text   "}'}
+    body: {string: '{"odata.metadata":"https://storagename.table.core.windows.net/$metadata#uttable66111670/@Element","odata.etag":"W/\"datetime''2017-11-10T00%3A48%3A25.805516Z''\"","PartitionKey":"pk66111670","RowKey":"rk66111670","Timestamp":"2017-11-10T00:48:25.805516Z","EmptyByte":"","EmptyUnicode":"","SpacesOnlyByte":"   ","SpacesOnlyUnicode":"   ","SpacesBeforeByte":"   Text","SpacesBeforeUnicode":"   Text","SpacesAfterByte":"Text   ","SpacesAfterUnicode":"Text   ","SpacesBeforeAndAfterByte":"   Text   ","SpacesBeforeAndAfterUnicode":"   Text   "}'}
     headers:
       Cache-Control: [no-cache]
       Content-Type: [application/json;odata=minimalmetadata;streaming=true;charset=utf-8]
-      Date: ['Tue, 03 Oct 2017 18:56:32 GMT']
-      ETag: [W/"datetime'2017-10-03T18%3A56%3A33.6114791Z'"]
+      Date: ['Fri, 10 Nov 2017 00:48:24 GMT']
+      ETag: [W/"datetime'2017-11-10T00%3A48%3A25.805516Z'"]
       Server: [Windows-Azure-Table/1.0 Microsoft-HTTPAPI/2.0]
       Transfer-Encoding: [chunked]
       X-Content-Type-Options: [nosniff]
-      x-ms-request-id: [3688ebbb-0002-0079-0a79-3cca30000000]
+      x-ms-request-id: [d29857b9-0002-0109-06bd-59ffa1000000]
       x-ms-version: ['2017-04-17']
     status: {code: 200, message: OK}
 version: 1

@@ -53,7 +53,7 @@ To install via the Python Package Index (PyPI), type:
 
 ::
 
-    pip install azure-storage-table
+    pip install azure-cosmosdb-table
 
 Option 2: Source Via Git
 ~~~~~~~~~~~~~~~~~~~~~~~~

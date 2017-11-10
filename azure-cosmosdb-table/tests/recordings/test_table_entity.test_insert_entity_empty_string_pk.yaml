@@ -9,9 +9,9 @@ interactions:
       DataServiceVersion: [3.0;NetFx]
       MaxDataServiceVersion: ['3.0']
       Prefer: [return-no-content]
-      User-Agent: [Azure-CosmosDB/0.37.0 (Python CPython 3.6.0; Windows 10)]
-      x-ms-client-request-id: [e15d91ae-a86c-11e7-baf5-a08cfdf04b77]
-      x-ms-date: ['Tue, 03 Oct 2017 18:58:44 GMT']
+      User-Agent: [Azure-Storage/0.37.1-None (Python CPython 3.6.0; Windows 10)]
+      x-ms-client-request-id: [2973c84c-c5b1-11e7-883f-a08cfdf04b77]
+      x-ms-date: ['Fri, 10 Nov 2017 00:50:35 GMT']
       x-ms-version: ['2017-04-17']
     method: POST
     uri: https://storagename.table.core.windows.net/uttable3d1615c0
@@ -21,13 +21,13 @@ interactions:
       Cache-Control: [no-cache]
       Content-Length: ['0']
       DataServiceId: ['https://storagename.table.core.windows.net/uttable3d1615c0(PartitionKey='''',RowKey=''rk'')']
-      Date: ['Tue, 03 Oct 2017 18:58:44 GMT']
-      ETag: [W/"datetime'2017-10-03T18%3A58%3A45.3231616Z'"]
+      Date: ['Fri, 10 Nov 2017 00:50:35 GMT']
+      ETag: [W/"datetime'2017-11-10T00%3A50%3A35.6023827Z'"]
       Location: ['https://storagename.table.core.windows.net/uttable3d1615c0(PartitionKey='''',RowKey=''rk'')']
       Preference-Applied: [return-no-content]
       Server: [Windows-Azure-Table/1.0 Microsoft-HTTPAPI/2.0]
       X-Content-Type-Options: [nosniff]
-      x-ms-request-id: [300ee875-0002-00b8-1479-3c4189000000]
+      x-ms-request-id: [4e3d82ef-0002-0025-79bd-593bc9000000]
       x-ms-version: ['2017-04-17']
     status: {code: 204, message: No Content}
 version: 1

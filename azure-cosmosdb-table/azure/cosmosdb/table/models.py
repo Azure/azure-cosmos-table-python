@@ -21,6 +21,10 @@ from azure.cosmosdb.table._error import (
     _ERROR_ATTRIBUTE_MISSING,
 )
 
+from azure.storage.common.models import (
+    Services,
+)
+
 
 class AzureBatchValidationError(AzureException):
     '''
@@ -208,3 +212,20 @@ TablePermissions.QUERY = TablePermissions(query=True)
 TablePermissions.ADD = TablePermissions(add=True)
 TablePermissions.UPDATE = TablePermissions(update=True)
 TablePermissions.DELETE = TablePermissions(delete=True)
+
+
+class TableServices(Services):
+    def __init__(self):
+
+        '''
+        :param bool table:
+            Access to the `.TableService`
+        :param str _str:
+            A string representing the services.
+        '''
+
+        self.table = True
+
+    def __str__(self):
+        return 't'
+

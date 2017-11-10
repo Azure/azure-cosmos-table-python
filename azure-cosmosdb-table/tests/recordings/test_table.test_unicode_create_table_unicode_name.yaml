@@ -1,6 +1,6 @@
 interactions:
 - request:
-    body: !!python/unicode '{"TableName": "\u554a\u9f44\u4e02\u72db\u72dc"}'
+    body: '{"TableName": "\u554a\u9f44\u4e02\u72db\u72dc"}'
     headers:
       Accept: [application/json;odata=minimalmetadata]
       Connection: [keep-alive]
@@ -9,84 +9,24 @@ interactions:
       DataServiceVersion: [3.0;NetFx]
       MaxDataServiceVersion: ['3.0']
       Prefer: [return-no-content]
-      User-Agent: [Azure-CosmosDB/0.37.0 (Python CPython 3.6.0; Windows 10)]
-      x-ms-client-request-id: [6965ba10-a86c-11e7-95b9-a08cfdf04b77]
-      x-ms-date: ['Tue, 03 Oct 2017 18:55:23 GMT']
+      User-Agent: [Azure-Storage/0.37.1-None (Python CPython 3.6.0; Windows 10)]
+      x-ms-client-request-id: [b12baaec-c5b0-11e7-91b6-a08cfdf04b77]
+      x-ms-date: ['Fri, 10 Nov 2017 00:47:13 GMT']
       x-ms-version: ['2017-04-17']
     method: POST
     uri: https://storagename.table.core.windows.net/Tables
   response:
-    body: {string: !!python/unicode '{"odata.error":{"code":"InvalidResourceName","message":{"lang":"en-US","value":"The
-        specifed resource name contains invalid characters.\nRequestId:567ab8df-0002-00e1-6379-3c440f000000\nTime:2017-10-03T18:55:23.9738705Z"}}}'}
+    body: {string: '{"odata.error":{"code":"InvalidResourceName","message":{"lang":"en-US","value":"The
+        specifed resource name contains invalid characters.\nRequestId:1a32038c-0002-003e-0dbd-59155b000000\nTime:2017-11-10T00:47:13.8351246Z"}}}'}
     headers:
       Cache-Control: [no-cache]
       Content-Type: [application/json;odata=minimalmetadata;streaming=true;charset=utf-8]
-      Date: ['Tue, 03 Oct 2017 18:55:23 GMT']
+      Date: ['Fri, 10 Nov 2017 00:47:13 GMT']
       Preference-Applied: [return-no-content]
       Server: [Windows-Azure-Table/1.0 Microsoft-HTTPAPI/2.0]
       Transfer-Encoding: [chunked]
       X-Content-Type-Options: [nosniff]
-      x-ms-request-id: [567ab8df-0002-00e1-6379-3c440f000000]
-      x-ms-version: ['2017-04-17']
-    status: {code: 400, message: Bad Request}
-- request:
-    body: !!python/unicode '{"TableName": "\u554a\u9f44\u4e02\u72db\u72dc"}'
-    headers:
-      Accept: [application/json;odata=minimalmetadata]
-      Connection: [keep-alive]
-      Content-Length: ['47']
-      Content-Type: [application/json]
-      DataServiceVersion: [3.0;NetFx]
-      MaxDataServiceVersion: ['3.0']
-      Prefer: [return-no-content]
-      User-Agent: [Azure-CosmosDB/0.37.0 (Python CPython 3.6.0; Windows 10)]
-      x-ms-client-request-id: [2fb08bfe-a86d-11e7-92ac-a08cfdf04b77]
-      x-ms-date: ['Tue, 03 Oct 2017 19:00:56 GMT']
-      x-ms-version: ['2017-04-17']
-    method: POST
-    uri: https://storagename.table.core.windows.net/Tables
-  response:
-    body: {string: !!python/unicode '{"odata.error":{"code":"InvalidResourceName","message":{"lang":"en-US","value":"The
-        specifed resource name contains invalid characters.\nRequestId:c9118d2c-0002-006f-2579-3c0bae000000\nTime:2017-10-03T19:00:56.9123595Z"}}}'}
-    headers:
-      Cache-Control: [no-cache]
-      Content-Type: [application/json;odata=minimalmetadata;streaming=true;charset=utf-8]
-      Date: ['Tue, 03 Oct 2017 19:00:55 GMT']
-      Preference-Applied: [return-no-content]
-      Server: [Windows-Azure-Table/1.0 Microsoft-HTTPAPI/2.0]
-      Transfer-Encoding: [chunked]
-      X-Content-Type-Options: [nosniff]
-      x-ms-request-id: [c9118d2c-0002-006f-2579-3c0bae000000]
-      x-ms-version: ['2017-04-17']
-    status: {code: 400, message: Bad Request}
-- request:
-    body: !!python/unicode '{"TableName": "\u554a\u9f44\u4e02\u72db\u72dc"}'
-    headers:
-      Accept: [application/json;odata=minimalmetadata]
-      Connection: [keep-alive]
-      Content-Length: ['47']
-      Content-Type: [application/json]
-      DataServiceVersion: [3.0;NetFx]
-      MaxDataServiceVersion: ['3.0']
-      Prefer: [return-no-content]
-      User-Agent: [Azure-CosmosDB/0.37.0 (Python CPython 2.7.0; Windows post2008Server)]
-      x-ms-client-request-id: [4e66efc0-a86d-11e7-a978-a08cfdf04b77]
-      x-ms-date: ['Tue, 03 Oct 2017 19:01:47 GMT']
-      x-ms-version: ['2017-04-17']
-    method: POST
-    uri: https://storagename.table.core.windows.net/Tables
-  response:
-    body: {string: !!python/unicode '{"odata.error":{"code":"InvalidResourceName","message":{"lang":"en-US","value":"The
-        specifed resource name contains invalid characters.\nRequestId:40ba4384-0002-0005-747a-3c5705000000\nTime:2017-10-03T19:01:48.4261420Z"}}}'}
-    headers:
-      cache-control: [no-cache]
-      content-type: [application/json;odata=minimalmetadata;streaming=true;charset=utf-8]
-      date: ['Tue, 03 Oct 2017 19:01:48 GMT']
-      preference-applied: [return-no-content]
-      server: [Windows-Azure-Table/1.0 Microsoft-HTTPAPI/2.0]
-      transfer-encoding: [chunked]
-      x-content-type-options: [nosniff]
-      x-ms-request-id: [40ba4384-0002-0005-747a-3c5705000000]
+      x-ms-request-id: [1a32038c-0002-003e-0dbd-59155b000000]
       x-ms-version: ['2017-04-17']
     status: {code: 400, message: Bad Request}
 version: 1
