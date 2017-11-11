@@ -5,28 +5,28 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>azure.cosmosdb.table.tableservice module &#8212; Azure CosmosDB SDK for Python 0.37.1 documentation</title>
-    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <title>azure.cosmosdb.table.tableservice module &#8212; Azure CosmosDB SDK for Python 0.37.2 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '0.37.1',
+        URL_ROOT:    '../',
+        VERSION:     '0.37.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
         SOURCELINK_SUFFIX: '.txt'
       };
     </script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="azure" href="modules.html" />
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="azure.cosmosdb.table.sharedaccesssignature module" href="azure.cosmosdb.table.sharedaccesssignature.html" />
     <link rel="prev" title="azure.cosmosdb.table.tablebatch module" href="azure.cosmosdb.table.tablebatch.html" />
    
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
   
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
@@ -44,8 +44,8 @@
 <span id="azure-cosmosdb-table-tableservice-module"></span><h1>azure.cosmosdb.table.tableservice module<a class="headerlink" href="#module-azure.cosmosdb.table.tableservice" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="azure.cosmosdb.table.tableservice.TableService">
-<em class="property">class </em><code class="descclassname">azure.cosmosdb.table.tableservice.</code><code class="descname">TableService</code><span class="sig-paren">(</span><em>account_name=None</em>, <em>account_key=None</em>, <em>sas_token=None</em>, <em>is_emulated=False</em>, <em>protocol='https'</em>, <em>endpoint_suffix='core.windows.net'</em>, <em>request_session=None</em>, <em>connection_string=None</em>, <em>socket_timeout=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/azure/cosmosdb/table/tableservice.html#TableService"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#azure.cosmosdb.table.tableservice.TableService" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="azure.cosmosdb.common.storageclient.html#azure.cosmosdb.common.storageclient.StorageClient" title="azure.cosmosdb.common.storageclient.StorageClient"><code class="xref py py-class docutils literal"><span class="pre">azure.cosmosdb.common.storageclient.StorageClient</span></code></a></p>
+<em class="property">class </em><code class="descclassname">azure.cosmosdb.table.tableservice.</code><code class="descname">TableService</code><span class="sig-paren">(</span><em>account_name=None</em>, <em>account_key=None</em>, <em>sas_token=None</em>, <em>is_emulated=False</em>, <em>protocol='https'</em>, <em>endpoint_suffix='core.windows.net'</em>, <em>request_session=None</em>, <em>connection_string=None</em>, <em>socket_timeout=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/azure/cosmosdb/table/tableservice.html#TableService"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#azure.cosmosdb.table.tableservice.TableService" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">azure.storage.common.storageclient.StorageClient</span></code></p>
 <p>This is the main class managing Azure Table resources.</p>
 <p>The Azure Table service offers structured storage in the form of tables. Tables 
 store data as collections of entities. Entities are similar to rows. An entity 
@@ -111,7 +111,7 @@ See DEFAULT_SOCKET_TIMEOUT in _constants.py for the default value.</li>
 </table>
 <dl class="method">
 <dt id="azure.cosmosdb.table.tableservice.TableService.batch">
-<code class="descname">batch</code><span class="sig-paren">(</span><em>table_name</em>, <em>timeout=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/azure/cosmosdb/table/tableservice.html#TableService.batch"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#azure.cosmosdb.table.tableservice.TableService.batch" title="Permalink to this definition">¶</a></dt>
+<code class="descname">batch</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwds</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/azure/cosmosdb/table/tableservice.html#TableService.batch"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#azure.cosmosdb.table.tableservice.TableService.batch" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates a batch object which can be used as a context manager. Commits the batch on exit.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -129,7 +129,7 @@ See DEFAULT_SOCKET_TIMEOUT in _constants.py for the default value.</li>
 
 <dl class="method">
 <dt id="azure.cosmosdb.table.tableservice.TableService.commit_batch">
-<code class="descname">commit_batch</code><span class="sig-paren">(</span><em>table_name</em>, <em>batch</em>, <em>timeout=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/azure/cosmosdb/table/tableservice.html#TableService.commit_batch"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#azure.cosmosdb.table.tableservice.TableService.commit_batch" title="Permalink to this definition">¶</a></dt>
+<code class="descname">commit_batch</code><span class="sig-paren">(</span><em>table_name</em>, <em>batch</em>, <em>timeout=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/azure/cosmosdb/table/tableservice.html#TableService.commit_batch"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#azure.cosmosdb.table.tableservice.TableService.commit_batch" title="Permalink to this definition">¶</a></dt>
 <dd><p>Commits a <code class="xref py py-class docutils literal"><span class="pre">TableBatch</span></code> request.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -155,7 +155,7 @@ The items could either be an etag, in case of success, or an error object in cas
 
 <dl class="method">
 <dt id="azure.cosmosdb.table.tableservice.TableService.create_table">
-<code class="descname">create_table</code><span class="sig-paren">(</span><em>table_name</em>, <em>fail_on_exist=False</em>, <em>timeout=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/azure/cosmosdb/table/tableservice.html#TableService.create_table"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#azure.cosmosdb.table.tableservice.TableService.create_table" title="Permalink to this definition">¶</a></dt>
+<code class="descname">create_table</code><span class="sig-paren">(</span><em>table_name</em>, <em>fail_on_exist=False</em>, <em>timeout=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/azure/cosmosdb/table/tableservice.html#TableService.create_table"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#azure.cosmosdb.table.tableservice.TableService.create_table" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates a new table in the storage account.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -183,7 +183,7 @@ was set to True, this will throw instead of returning false.</p>
 
 <dl class="method">
 <dt id="azure.cosmosdb.table.tableservice.TableService.delete_entity">
-<code class="descname">delete_entity</code><span class="sig-paren">(</span><em>table_name</em>, <em>partition_key</em>, <em>row_key</em>, <em>if_match='*'</em>, <em>timeout=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/azure/cosmosdb/table/tableservice.html#TableService.delete_entity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#azure.cosmosdb.table.tableservice.TableService.delete_entity" title="Permalink to this definition">¶</a></dt>
+<code class="descname">delete_entity</code><span class="sig-paren">(</span><em>table_name</em>, <em>partition_key</em>, <em>row_key</em>, <em>if_match='*'</em>, <em>timeout=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/azure/cosmosdb/table/tableservice.html#TableService.delete_entity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#azure.cosmosdb.table.tableservice.TableService.delete_entity" title="Permalink to this definition">¶</a></dt>
 <dd><p>Deletes an existing entity in a table. Throws if the entity does not exist.</p>
 <p>When an entity is successfully deleted, the entity is immediately marked 
 for deletion and is no longer accessible to clients. The entity is later 
@@ -213,7 +213,7 @@ an unconditional delete, set If-Match to the wildcard character (*).</li>
 
 <dl class="method">
 <dt id="azure.cosmosdb.table.tableservice.TableService.delete_table">
-<code class="descname">delete_table</code><span class="sig-paren">(</span><em>table_name</em>, <em>fail_not_exist=False</em>, <em>timeout=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/azure/cosmosdb/table/tableservice.html#TableService.delete_table"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#azure.cosmosdb.table.tableservice.TableService.delete_table" title="Permalink to this definition">¶</a></dt>
+<code class="descname">delete_table</code><span class="sig-paren">(</span><em>table_name</em>, <em>fail_not_exist=False</em>, <em>timeout=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/azure/cosmosdb/table/tableservice.html#TableService.delete_table"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#azure.cosmosdb.table.tableservice.TableService.delete_table" title="Permalink to this definition">¶</a></dt>
 <dd><p>Deletes the specified table and any data it contains.</p>
 <p>When a table is successfully deleted, it is immediately marked for deletion 
 and is no longer accessible to clients. The table is later removed from 
@@ -245,7 +245,7 @@ was set to True, this will throw instead of returning false.</p>
 
 <dl class="method">
 <dt id="azure.cosmosdb.table.tableservice.TableService.exists">
-<code class="descname">exists</code><span class="sig-paren">(</span><em>table_name</em>, <em>timeout=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/azure/cosmosdb/table/tableservice.html#TableService.exists"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#azure.cosmosdb.table.tableservice.TableService.exists" title="Permalink to this definition">¶</a></dt>
+<code class="descname">exists</code><span class="sig-paren">(</span><em>table_name</em>, <em>timeout=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/azure/cosmosdb/table/tableservice.html#TableService.exists"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#azure.cosmosdb.table.tableservice.TableService.exists" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a boolean indicating whether the table exists.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -269,7 +269,7 @@ was set to True, this will throw instead of returning false.</p>
 
 <dl class="method">
 <dt id="azure.cosmosdb.table.tableservice.TableService.generate_account_shared_access_signature">
-<code class="descname">generate_account_shared_access_signature</code><span class="sig-paren">(</span><em>resource_types</em>, <em>permission</em>, <em>expiry</em>, <em>start=None</em>, <em>ip=None</em>, <em>protocol=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/azure/cosmosdb/table/tableservice.html#TableService.generate_account_shared_access_signature"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#azure.cosmosdb.table.tableservice.TableService.generate_account_shared_access_signature" title="Permalink to this definition">¶</a></dt>
+<code class="descname">generate_account_shared_access_signature</code><span class="sig-paren">(</span><em>resource_types</em>, <em>permission</em>, <em>expiry</em>, <em>start=None</em>, <em>ip=None</em>, <em>protocol=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/azure/cosmosdb/table/tableservice.html#TableService.generate_account_shared_access_signature"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#azure.cosmosdb.table.tableservice.TableService.generate_account_shared_access_signature" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generates a shared access signature for the table service.
 Use the returned signature with the sas_token parameter of TableService.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -277,8 +277,8 @@ Use the returned signature with the sas_token parameter of TableService.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>resource_types</strong> (<a class="reference internal" href="azure.cosmosdb.common.models.html#azure.cosmosdb.common.models.ResourceTypes" title="azure.cosmosdb.common.models.ResourceTypes"><em>ResourceTypes</em></a>) – Specifies the resource types that are accessible with the account SAS.</li>
-<li><strong>permission</strong> (<a class="reference internal" href="azure.cosmosdb.common.models.html#azure.cosmosdb.common.models.AccountPermissions" title="azure.cosmosdb.common.models.AccountPermissions"><em>AccountPermissions</em></a>) – The permissions associated with the shared access signature. The 
+<li><strong>resource_types</strong> (<em>ResourceTypes</em>) – Specifies the resource types that are accessible with the account SAS.</li>
+<li><strong>permission</strong> (<em>AccountPermissions</em>) – The permissions associated with the shared access signature. The 
 user is restricted to operations allowed by the permissions. 
 Required unless an id is given referencing a stored access policy 
 which contains this field. This field must be omitted if it has been 
@@ -316,7 +316,7 @@ is https,http. See <code class="xref py py-class docutils literal"><span class="
 
 <dl class="method">
 <dt id="azure.cosmosdb.table.tableservice.TableService.generate_table_shared_access_signature">
-<code class="descname">generate_table_shared_access_signature</code><span class="sig-paren">(</span><em>table_name</em>, <em>permission=None</em>, <em>expiry=None</em>, <em>start=None</em>, <em>id=None</em>, <em>ip=None</em>, <em>protocol=None</em>, <em>start_pk=None</em>, <em>start_rk=None</em>, <em>end_pk=None</em>, <em>end_rk=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/azure/cosmosdb/table/tableservice.html#TableService.generate_table_shared_access_signature"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#azure.cosmosdb.table.tableservice.TableService.generate_table_shared_access_signature" title="Permalink to this definition">¶</a></dt>
+<code class="descname">generate_table_shared_access_signature</code><span class="sig-paren">(</span><em>table_name</em>, <em>permission=None</em>, <em>expiry=None</em>, <em>start=None</em>, <em>id=None</em>, <em>ip=None</em>, <em>protocol=None</em>, <em>start_pk=None</em>, <em>start_rk=None</em>, <em>end_pk=None</em>, <em>end_rk=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/azure/cosmosdb/table/tableservice.html#TableService.generate_table_shared_access_signature"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#azure.cosmosdb.table.tableservice.TableService.generate_table_shared_access_signature" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generates a shared access signature for the table.
 Use the returned signature with the sas_token parameter of TableService.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -380,7 +380,7 @@ there is no upper bound on the table entities that can be accessed.</li>
 
 <dl class="method">
 <dt id="azure.cosmosdb.table.tableservice.TableService.get_entity">
-<code class="descname">get_entity</code><span class="sig-paren">(</span><em>table_name</em>, <em>partition_key</em>, <em>row_key</em>, <em>select=None</em>, <em>accept='application/json;odata=minimalmetadata'</em>, <em>property_resolver=None</em>, <em>timeout=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/azure/cosmosdb/table/tableservice.html#TableService.get_entity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#azure.cosmosdb.table.tableservice.TableService.get_entity" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_entity</code><span class="sig-paren">(</span><em>table_name</em>, <em>partition_key</em>, <em>row_key</em>, <em>select=None</em>, <em>accept='application/json;odata=minimalmetadata'</em>, <em>property_resolver=None</em>, <em>timeout=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/azure/cosmosdb/table/tableservice.html#TableService.get_entity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#azure.cosmosdb.table.tableservice.TableService.get_entity" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get an entity from the specified table. Throws if the entity does not exist.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -414,7 +414,7 @@ to JSON_NO_METADATA.</li>
 
 <dl class="method">
 <dt id="azure.cosmosdb.table.tableservice.TableService.get_table_acl">
-<code class="descname">get_table_acl</code><span class="sig-paren">(</span><em>table_name</em>, <em>timeout=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/azure/cosmosdb/table/tableservice.html#TableService.get_table_acl"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#azure.cosmosdb.table.tableservice.TableService.get_table_acl" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_table_acl</code><span class="sig-paren">(</span><em>table_name</em>, <em>timeout=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/azure/cosmosdb/table/tableservice.html#TableService.get_table_acl"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#azure.cosmosdb.table.tableservice.TableService.get_table_acl" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns details about any stored access policies specified on the
 table that may be used with Shared Access Signatures.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -439,7 +439,7 @@ table that may be used with Shared Access Signatures.</p>
 
 <dl class="method">
 <dt id="azure.cosmosdb.table.tableservice.TableService.get_table_service_properties">
-<code class="descname">get_table_service_properties</code><span class="sig-paren">(</span><em>timeout=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/azure/cosmosdb/table/tableservice.html#TableService.get_table_service_properties"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#azure.cosmosdb.table.tableservice.TableService.get_table_service_properties" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_table_service_properties</code><span class="sig-paren">(</span><em>timeout=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/azure/cosmosdb/table/tableservice.html#TableService.get_table_service_properties"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#azure.cosmosdb.table.tableservice.TableService.get_table_service_properties" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets the properties of a storage account’s Table service, including
 logging, analytics and CORS rules.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -458,7 +458,7 @@ logging, analytics and CORS rules.</p>
 
 <dl class="method">
 <dt id="azure.cosmosdb.table.tableservice.TableService.get_table_service_stats">
-<code class="descname">get_table_service_stats</code><span class="sig-paren">(</span><em>timeout=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/azure/cosmosdb/table/tableservice.html#TableService.get_table_service_stats"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#azure.cosmosdb.table.tableservice.TableService.get_table_service_stats" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_table_service_stats</code><span class="sig-paren">(</span><em>timeout=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/azure/cosmosdb/table/tableservice.html#TableService.get_table_service_stats"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#azure.cosmosdb.table.tableservice.TableService.get_table_service_stats" title="Permalink to this definition">¶</a></dt>
 <dd><p>Retrieves statistics related to replication for the Table service. It is 
 only available when read-access geo-redundant replication is enabled for 
 the storage account.</p>
@@ -490,7 +490,7 @@ replication is enabled for your storage account.</p>
 
 <dl class="method">
 <dt id="azure.cosmosdb.table.tableservice.TableService.insert_entity">
-<code class="descname">insert_entity</code><span class="sig-paren">(</span><em>table_name</em>, <em>entity</em>, <em>timeout=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/azure/cosmosdb/table/tableservice.html#TableService.insert_entity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#azure.cosmosdb.table.tableservice.TableService.insert_entity" title="Permalink to this definition">¶</a></dt>
+<code class="descname">insert_entity</code><span class="sig-paren">(</span><em>table_name</em>, <em>entity</em>, <em>timeout=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/azure/cosmosdb/table/tableservice.html#TableService.insert_entity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#azure.cosmosdb.table.tableservice.TableService.insert_entity" title="Permalink to this definition">¶</a></dt>
 <dd><p>Inserts a new entity into the table. Throws if an entity with the same 
 PartitionKey and RowKey already exists.</p>
 <p>When inserting an entity into a table, you must specify values for the 
@@ -525,7 +525,7 @@ Must contain a PartitionKey and a RowKey.</li>
 
 <dl class="method">
 <dt id="azure.cosmosdb.table.tableservice.TableService.insert_or_merge_entity">
-<code class="descname">insert_or_merge_entity</code><span class="sig-paren">(</span><em>table_name</em>, <em>entity</em>, <em>timeout=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/azure/cosmosdb/table/tableservice.html#TableService.insert_or_merge_entity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#azure.cosmosdb.table.tableservice.TableService.insert_or_merge_entity" title="Permalink to this definition">¶</a></dt>
+<code class="descname">insert_or_merge_entity</code><span class="sig-paren">(</span><em>table_name</em>, <em>entity</em>, <em>timeout=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/azure/cosmosdb/table/tableservice.html#TableService.insert_or_merge_entity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#azure.cosmosdb.table.tableservice.TableService.insert_or_merge_entity" title="Permalink to this definition">¶</a></dt>
 <dd><p>Merges an existing entity or inserts a new entity if it does not exist
 in the table.</p>
 <p>If insert_or_merge_entity is used to merge an entity, any properties from 
@@ -555,7 +555,7 @@ Must contain a PartitionKey and a RowKey.</li>
 
 <dl class="method">
 <dt id="azure.cosmosdb.table.tableservice.TableService.insert_or_replace_entity">
-<code class="descname">insert_or_replace_entity</code><span class="sig-paren">(</span><em>table_name</em>, <em>entity</em>, <em>timeout=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/azure/cosmosdb/table/tableservice.html#TableService.insert_or_replace_entity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#azure.cosmosdb.table.tableservice.TableService.insert_or_replace_entity" title="Permalink to this definition">¶</a></dt>
+<code class="descname">insert_or_replace_entity</code><span class="sig-paren">(</span><em>table_name</em>, <em>entity</em>, <em>timeout=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/azure/cosmosdb/table/tableservice.html#TableService.insert_or_replace_entity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#azure.cosmosdb.table.tableservice.TableService.insert_or_replace_entity" title="Permalink to this definition">¶</a></dt>
 <dd><p>Replaces an existing entity or inserts a new entity if it does not
 exist in the table. Because this operation can insert or update an
 entity, it is also known as an “upsert” operation.</p>
@@ -586,7 +586,7 @@ Must contain a PartitionKey and a RowKey.</li>
 
 <dl class="method">
 <dt id="azure.cosmosdb.table.tableservice.TableService.list_tables">
-<code class="descname">list_tables</code><span class="sig-paren">(</span><em>num_results=None</em>, <em>marker=None</em>, <em>timeout=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/azure/cosmosdb/table/tableservice.html#TableService.list_tables"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#azure.cosmosdb.table.tableservice.TableService.list_tables" title="Permalink to this definition">¶</a></dt>
+<code class="descname">list_tables</code><span class="sig-paren">(</span><em>num_results=None</em>, <em>marker=None</em>, <em>timeout=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/azure/cosmosdb/table/tableservice.html#TableService.list_tables"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#azure.cosmosdb.table.tableservice.TableService.list_tables" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a generator to list the tables. The generator will lazily follow 
 the continuation tokens returned by the service and stop when all tables 
 have been returned or num_results is reached.</p>
@@ -623,7 +623,7 @@ applied to each individual call.</li>
 
 <dl class="method">
 <dt id="azure.cosmosdb.table.tableservice.TableService.merge_entity">
-<code class="descname">merge_entity</code><span class="sig-paren">(</span><em>table_name</em>, <em>entity</em>, <em>if_match='*'</em>, <em>timeout=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/azure/cosmosdb/table/tableservice.html#TableService.merge_entity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#azure.cosmosdb.table.tableservice.TableService.merge_entity" title="Permalink to this definition">¶</a></dt>
+<code class="descname">merge_entity</code><span class="sig-paren">(</span><em>table_name</em>, <em>entity</em>, <em>if_match='*'</em>, <em>timeout=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/azure/cosmosdb/table/tableservice.html#TableService.merge_entity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#azure.cosmosdb.table.tableservice.TableService.merge_entity" title="Permalink to this definition">¶</a></dt>
 <dd><p>Updates an existing entity by merging the entity’s properties. Throws 
 if the entity does not exist.</p>
 <p>This operation does not replace the existing entity as the update_entity
@@ -661,7 +661,7 @@ an unconditional merge, set If-Match to the wildcard character (*).</li>
 
 <dl class="method">
 <dt id="azure.cosmosdb.table.tableservice.TableService.query_entities">
-<code class="descname">query_entities</code><span class="sig-paren">(</span><em>table_name</em>, <em>filter=None</em>, <em>select=None</em>, <em>num_results=None</em>, <em>marker=None</em>, <em>accept='application/json;odata=minimalmetadata'</em>, <em>property_resolver=None</em>, <em>timeout=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/azure/cosmosdb/table/tableservice.html#TableService.query_entities"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#azure.cosmosdb.table.tableservice.TableService.query_entities" title="Permalink to this definition">¶</a></dt>
+<code class="descname">query_entities</code><span class="sig-paren">(</span><em>table_name</em>, <em>filter=None</em>, <em>select=None</em>, <em>num_results=None</em>, <em>marker=None</em>, <em>accept='application/json;odata=minimalmetadata'</em>, <em>property_resolver=None</em>, <em>timeout=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/azure/cosmosdb/table/tableservice.html#TableService.query_entities"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#azure.cosmosdb.table.tableservice.TableService.query_entities" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a generator to list the entities in the table specified. The 
 generator will lazily follow the continuation tokens returned by the 
 service and stop when all entities have been returned or num_results is
@@ -712,7 +712,7 @@ applied to each individual call.</li>
 
 <dl class="method">
 <dt id="azure.cosmosdb.table.tableservice.TableService.set_table_acl">
-<code class="descname">set_table_acl</code><span class="sig-paren">(</span><em>table_name</em>, <em>signed_identifiers=None</em>, <em>timeout=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/azure/cosmosdb/table/tableservice.html#TableService.set_table_acl"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#azure.cosmosdb.table.tableservice.TableService.set_table_acl" title="Permalink to this definition">¶</a></dt>
+<code class="descname">set_table_acl</code><span class="sig-paren">(</span><em>table_name</em>, <em>signed_identifiers=None</em>, <em>timeout=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/azure/cosmosdb/table/tableservice.html#TableService.set_table_acl"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#azure.cosmosdb.table.tableservice.TableService.set_table_acl" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets stored access policies for the table that may be used with Shared 
 Access Signatures.</p>
 <p>When you set permissions for a table, the existing permissions are replaced. 
@@ -743,7 +743,7 @@ will clear the access policies set on the service.</li>
 
 <dl class="method">
 <dt id="azure.cosmosdb.table.tableservice.TableService.set_table_service_properties">
-<code class="descname">set_table_service_properties</code><span class="sig-paren">(</span><em>logging=None</em>, <em>hour_metrics=None</em>, <em>minute_metrics=None</em>, <em>cors=None</em>, <em>timeout=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/azure/cosmosdb/table/tableservice.html#TableService.set_table_service_properties"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#azure.cosmosdb.table.tableservice.TableService.set_table_service_properties" title="Permalink to this definition">¶</a></dt>
+<code class="descname">set_table_service_properties</code><span class="sig-paren">(</span><em>logging=None</em>, <em>hour_metrics=None</em>, <em>minute_metrics=None</em>, <em>cors=None</em>, <em>timeout=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/azure/cosmosdb/table/tableservice.html#TableService.set_table_service_properties"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#azure.cosmosdb.table.tableservice.TableService.set_table_service_properties" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets the properties of a storage account’s Table service, including
 Azure Storage Analytics. If an element (ex Logging) is left as None, the 
 existing settings on the service for that functionality are preserved. 
@@ -754,10 +754,10 @@ For more information on Azure Storage Analytics, see
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>logging</strong> (<a class="reference internal" href="azure.cosmosdb.common.models.html#azure.cosmosdb.common.models.Logging" title="azure.cosmosdb.common.models.Logging"><em>Logging</em></a>) – The logging settings provide request logs.</li>
-<li><strong>hour_metrics</strong> (<a class="reference internal" href="azure.cosmosdb.common.models.html#azure.cosmosdb.common.models.Metrics" title="azure.cosmosdb.common.models.Metrics"><em>Metrics</em></a>) – The hour metrics settings provide a summary of request 
+<li><strong>logging</strong> (<em>Logging</em>) – The logging settings provide request logs.</li>
+<li><strong>hour_metrics</strong> (<em>Metrics</em>) – The hour metrics settings provide a summary of request 
 statistics grouped by API in hourly aggregates for tables.</li>
-<li><strong>minute_metrics</strong> (<a class="reference internal" href="azure.cosmosdb.common.models.html#azure.cosmosdb.common.models.Metrics" title="azure.cosmosdb.common.models.Metrics"><em>Metrics</em></a>) – The minute metrics settings provide request statistics 
+<li><strong>minute_metrics</strong> (<em>Metrics</em>) – The minute metrics settings provide request statistics 
 for each minute for tables.</li>
 <li><strong>cors</strong> (list(<code class="xref py py-class docutils literal"><span class="pre">CorsRule</span></code>)) – You can include up to five CorsRule elements in the 
 list. If an empty list is specified, all CORS rules will be deleted, 
@@ -774,7 +774,7 @@ about CORS rules and evaluation logic, see
 
 <dl class="method">
 <dt id="azure.cosmosdb.table.tableservice.TableService.update_entity">
-<code class="descname">update_entity</code><span class="sig-paren">(</span><em>table_name</em>, <em>entity</em>, <em>if_match='*'</em>, <em>timeout=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/azure/cosmosdb/table/tableservice.html#TableService.update_entity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#azure.cosmosdb.table.tableservice.TableService.update_entity" title="Permalink to this definition">¶</a></dt>
+<code class="descname">update_entity</code><span class="sig-paren">(</span><em>table_name</em>, <em>entity</em>, <em>if_match='*'</em>, <em>timeout=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/azure/cosmosdb/table/tableservice.html#TableService.update_entity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#azure.cosmosdb.table.tableservice.TableService.update_entity" title="Permalink to this definition">¶</a></dt>
 <dd><p>Updates an existing entity in a table. Throws if the entity does not exist. 
 The update_entity operation replaces the entire entity and can be used to 
 remove properties.</p>
@@ -819,12 +819,12 @@ an unconditional update, set If-Match to the wildcard character (*).</li>
         <div class="sphinxsidebarwrapper"><div class="relations">
 <h3>Related Topics</h3>
 <ul>
-  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
   <li><a href="azure.html">azure package</a><ul>
   <li><a href="azure.cosmosdb.html">azure.cosmosdb package</a><ul>
   <li><a href="azure.cosmosdb.table.html">azure.cosmosdb.table package</a><ul>
       <li>Previous: <a href="azure.cosmosdb.table.tablebatch.html" title="previous chapter">azure.cosmosdb.table.tablebatch module</a></li>
-      <li>Next: <a href="modules.html" title="next chapter">azure</a></li>
+      <li>Next: <a href="azure.cosmosdb.table.sharedaccesssignature.html" title="next chapter">azure.cosmosdb.table.sharedaccesssignature module</a></li>
   </ul></li>
   </ul></li>
   </ul></li>
@@ -834,13 +834,13 @@ an unconditional update, set If-Match to the wildcard character (*).</li>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/azure.cosmosdb.table.tableservice.rst.txt"
+      <li><a href="../_sources/ref/azure.cosmosdb.table.tableservice.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
-    <form class="search" action="search.html" method="get">
+    <form class="search" action="../search.html" method="get">
       <div><input type="text" name="q" /></div>
       <div><input type="submit" value="Go" /></div>
       <input type="hidden" name="check_keywords" value="yes" />
@@ -860,7 +860,7 @@ an unconditional update, set If-Match to the wildcard character (*).</li>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
       
       |
-      <a href="_sources/azure.cosmosdb.table.tableservice.rst.txt"
+      <a href="../_sources/ref/azure.cosmosdb.table.tableservice.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 

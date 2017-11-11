@@ -5,28 +5,28 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>azure.cosmosdb.table.tablebatch module &#8212; Azure CosmosDB SDK for Python 0.37.1 documentation</title>
-    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <title>azure.cosmosdb.table.tablebatch module &#8212; Azure CosmosDB SDK for Python 0.37.2 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '0.37.1',
+        URL_ROOT:    '../',
+        VERSION:     '0.37.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
         SOURCELINK_SUFFIX: '.txt'
       };
     </script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="azure.cosmosdb.table.tableservice module" href="azure.cosmosdb.table.tableservice.html" />
     <link rel="prev" title="azure.cosmosdb.table.models module" href="azure.cosmosdb.table.models.html" />
    
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
   
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
@@ -44,7 +44,7 @@
 <span id="azure-cosmosdb-table-tablebatch-module"></span><h1>azure.cosmosdb.table.tablebatch module<a class="headerlink" href="#module-azure.cosmosdb.table.tablebatch" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="azure.cosmosdb.table.tablebatch.TableBatch">
-<em class="property">class </em><code class="descclassname">azure.cosmosdb.table.tablebatch.</code><code class="descname">TableBatch</code><span class="sig-paren">(</span><em>require_encryption=False</em>, <em>key_encryption_key=None</em>, <em>encryption_resolver=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/azure/cosmosdb/table/tablebatch.html#TableBatch"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#azure.cosmosdb.table.tablebatch.TableBatch" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">azure.cosmosdb.table.tablebatch.</code><code class="descname">TableBatch</code><span class="sig-paren">(</span><em>require_encryption=False</em>, <em>key_encryption_key=None</em>, <em>encryption_resolver=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/azure/cosmosdb/table/tablebatch.html#TableBatch"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#azure.cosmosdb.table.tablebatch.TableBatch" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
 <p>This is the class that is used for batch operation for storage table service.</p>
 <p>The Table service supports batch transactions on entities that are in the 
@@ -53,7 +53,7 @@ supported within a single transaction. The batch can include at most 100
 entities, and its total payload may be no more than 4 MB in size.</p>
 <dl class="method">
 <dt id="azure.cosmosdb.table.tablebatch.TableBatch.delete_entity">
-<code class="descname">delete_entity</code><span class="sig-paren">(</span><em>partition_key</em>, <em>row_key</em>, <em>if_match='*'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/azure/cosmosdb/table/tablebatch.html#TableBatch.delete_entity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#azure.cosmosdb.table.tablebatch.TableBatch.delete_entity" title="Permalink to this definition">¶</a></dt>
+<code class="descname">delete_entity</code><span class="sig-paren">(</span><em>partition_key</em>, <em>row_key</em>, <em>if_match='*'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/azure/cosmosdb/table/tablebatch.html#TableBatch.delete_entity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#azure.cosmosdb.table.tablebatch.TableBatch.delete_entity" title="Permalink to this definition">¶</a></dt>
 <dd><p>Adds a delete entity operation to the batch. See 
 <code class="xref py py-func docutils literal"><span class="pre">delete_entity()</span></code> for more 
 information on deletes.</p>
@@ -81,7 +81,7 @@ an unconditional delete, set If-Match to the wildcard character (*).</li>
 
 <dl class="method">
 <dt id="azure.cosmosdb.table.tablebatch.TableBatch.insert_entity">
-<code class="descname">insert_entity</code><span class="sig-paren">(</span><em>entity</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/azure/cosmosdb/table/tablebatch.html#TableBatch.insert_entity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#azure.cosmosdb.table.tablebatch.TableBatch.insert_entity" title="Permalink to this definition">¶</a></dt>
+<code class="descname">insert_entity</code><span class="sig-paren">(</span><em>entity</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/azure/cosmosdb/table/tablebatch.html#TableBatch.insert_entity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#azure.cosmosdb.table.tablebatch.TableBatch.insert_entity" title="Permalink to this definition">¶</a></dt>
 <dd><p>Adds an insert entity operation to the batch. See 
 <code class="xref py py-func docutils literal"><span class="pre">insert_entity()</span></code> for more 
 information on inserts.</p>
@@ -99,7 +99,7 @@ Must contain a PartitionKey and a RowKey.</td>
 
 <dl class="method">
 <dt id="azure.cosmosdb.table.tablebatch.TableBatch.insert_or_merge_entity">
-<code class="descname">insert_or_merge_entity</code><span class="sig-paren">(</span><em>entity</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/azure/cosmosdb/table/tablebatch.html#TableBatch.insert_or_merge_entity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#azure.cosmosdb.table.tablebatch.TableBatch.insert_or_merge_entity" title="Permalink to this definition">¶</a></dt>
+<code class="descname">insert_or_merge_entity</code><span class="sig-paren">(</span><em>entity</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/azure/cosmosdb/table/tablebatch.html#TableBatch.insert_or_merge_entity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#azure.cosmosdb.table.tablebatch.TableBatch.insert_or_merge_entity" title="Permalink to this definition">¶</a></dt>
 <dd><p>Adds an insert or merge entity operation to the batch. See 
 <code class="xref py py-func docutils literal"><span class="pre">insert_or_merge_entity()</span></code> for more 
 information on insert or merge operations.</p>
@@ -117,7 +117,7 @@ Must contain a PartitionKey and a RowKey.</td>
 
 <dl class="method">
 <dt id="azure.cosmosdb.table.tablebatch.TableBatch.insert_or_replace_entity">
-<code class="descname">insert_or_replace_entity</code><span class="sig-paren">(</span><em>entity</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/azure/cosmosdb/table/tablebatch.html#TableBatch.insert_or_replace_entity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#azure.cosmosdb.table.tablebatch.TableBatch.insert_or_replace_entity" title="Permalink to this definition">¶</a></dt>
+<code class="descname">insert_or_replace_entity</code><span class="sig-paren">(</span><em>entity</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/azure/cosmosdb/table/tablebatch.html#TableBatch.insert_or_replace_entity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#azure.cosmosdb.table.tablebatch.TableBatch.insert_or_replace_entity" title="Permalink to this definition">¶</a></dt>
 <dd><p>Adds an insert or replace entity operation to the batch. See 
 <code class="xref py py-func docutils literal"><span class="pre">insert_or_replace_entity()</span></code> for more 
 information on insert or replace operations.</p>
@@ -135,7 +135,7 @@ Must contain a PartitionKey and a RowKey.</td>
 
 <dl class="method">
 <dt id="azure.cosmosdb.table.tablebatch.TableBatch.merge_entity">
-<code class="descname">merge_entity</code><span class="sig-paren">(</span><em>entity</em>, <em>if_match='*'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/azure/cosmosdb/table/tablebatch.html#TableBatch.merge_entity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#azure.cosmosdb.table.tablebatch.TableBatch.merge_entity" title="Permalink to this definition">¶</a></dt>
+<code class="descname">merge_entity</code><span class="sig-paren">(</span><em>entity</em>, <em>if_match='*'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/azure/cosmosdb/table/tablebatch.html#TableBatch.merge_entity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#azure.cosmosdb.table.tablebatch.TableBatch.merge_entity" title="Permalink to this definition">¶</a></dt>
 <dd><p>Adds a merge entity operation to the batch. See 
 <code class="xref py py-func docutils literal"><span class="pre">merge_entity()</span></code> for more 
 information on merges.</p>
@@ -163,7 +163,7 @@ an unconditional merge, set If-Match to the wildcard character (*).</li>
 
 <dl class="method">
 <dt id="azure.cosmosdb.table.tablebatch.TableBatch.update_entity">
-<code class="descname">update_entity</code><span class="sig-paren">(</span><em>entity</em>, <em>if_match='*'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/azure/cosmosdb/table/tablebatch.html#TableBatch.update_entity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#azure.cosmosdb.table.tablebatch.TableBatch.update_entity" title="Permalink to this definition">¶</a></dt>
+<code class="descname">update_entity</code><span class="sig-paren">(</span><em>entity</em>, <em>if_match='*'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/azure/cosmosdb/table/tablebatch.html#TableBatch.update_entity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#azure.cosmosdb.table.tablebatch.TableBatch.update_entity" title="Permalink to this definition">¶</a></dt>
 <dd><p>Adds an update entity operation to the batch. See 
 <code class="xref py py-func docutils literal"><span class="pre">update_entity()</span></code> for more 
 information on updates.</p>
@@ -201,7 +201,7 @@ an unconditional update, set If-Match to the wildcard character (*).</li>
         <div class="sphinxsidebarwrapper"><div class="relations">
 <h3>Related Topics</h3>
 <ul>
-  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
   <li><a href="azure.html">azure package</a><ul>
   <li><a href="azure.cosmosdb.html">azure.cosmosdb package</a><ul>
   <li><a href="azure.cosmosdb.table.html">azure.cosmosdb.table package</a><ul>
@@ -216,13 +216,13 @@ an unconditional update, set If-Match to the wildcard character (*).</li>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/azure.cosmosdb.table.tablebatch.rst.txt"
+      <li><a href="../_sources/ref/azure.cosmosdb.table.tablebatch.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
-    <form class="search" action="search.html" method="get">
+    <form class="search" action="../search.html" method="get">
       <div><input type="text" name="q" /></div>
       <div><input type="submit" value="Go" /></div>
       <input type="hidden" name="check_keywords" value="yes" />
@@ -242,7 +242,7 @@ an unconditional update, set If-Match to the wildcard character (*).</li>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
       
       |
-      <a href="_sources/azure.cosmosdb.table.tablebatch.rst.txt"
+      <a href="../_sources/ref/azure.cosmosdb.table.tablebatch.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 

@@ -10,7 +10,7 @@ please visit https://github.com/Azure/azure-sdk-for-python
    
 Documentation:
 --------------
-* `Table Getting Started Doc <https://azure.microsoft.com/en-us/documentation/articles/storage-python-how-to-use-table-storage/>`__ -- (:doc:`API <./azure.cosmosdb.table>`)
+* `Table Getting Started Doc <https://azure.microsoft.com/en-us/documentation/articles/storage-python-how-to-use-table-storage/>`__ -- (:doc:`API <ref/azure.cosmosdb.table>`)
 * :ref:`Reference Documentation - All Services<modindex>`
 
 
@@ -53,7 +53,7 @@ Contribution
 Guidelines <http://windowsazure.github.com/guidelines.html>`__.
 
 If you encounter any bugs with the library, please file an issue in the
-`Issues <https://github.com/Azure/azure-storage-python/issues>`__
+`Issues <https://github.com/Azure/azure-cosmosdb-python/issues>`__
 section of the project.
 
 Learn More
@@ -78,4 +78,4 @@ Indices and tables
   :glob:
 
   upgrade
-  ./*
+  ref/*
