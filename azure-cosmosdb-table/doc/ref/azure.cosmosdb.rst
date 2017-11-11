@@ -6,7 +6,6 @@ Subpackages
 
 .. toctree::
 
-    azure.cosmosdb.common
     azure.cosmosdb.table
 
 Module contents
