@@ -2,6 +2,11 @@
 
 > See [BreakingChanges](BreakingChanges.md) for a detailed list of API breaks.
 
+## Version 1.0.0:
+
+### All:
+- General availability release
+
 ## Version 0.37.2:
 
 ### All:
