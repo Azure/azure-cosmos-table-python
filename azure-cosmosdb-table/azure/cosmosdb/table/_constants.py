@@ -15,7 +15,7 @@
 import platform
 
 __author__ = 'Microsoft Corp. <ptvshelp@microsoft.com>'
-__version__ = '1.0.0'
+__version__ = '1.0.1'
 
 # x-ms-version for storage service.
 X_MS_VERSION = '2017-04-17'
@@ -24,3 +24,4 @@ X_MS_VERSION = '2017-04-17'
 USER_AGENT_STRING = 'Azure-CosmosDB/{} (Python {} {}; {} {})'.format(__version__, platform.python_implementation(),
                                                                     platform.python_version(), platform.system(),
                                                                     platform.release())
+DEV_TABLE_HOST = '127.0.0.1:10002'
