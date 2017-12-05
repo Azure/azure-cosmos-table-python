@@ -28,7 +28,7 @@ from azure.storage.common._common_conversion import (
     _int_to_str,
     _to_str,
 )
-from azure.storage.common._connection import _ServiceParameters
+from azure.cosmosdb.table._connection import _TableServiceParameters
 from azure.storage.common._constants import (
     SERVICE_HOST_BASE,
     DEFAULT_PROTOCOL,
@@ -170,7 +170,7 @@ class TableService(StorageClient):
             If specified, this will override the default socket timeout. The timeout specified is in seconds.
             See DEFAULT_SOCKET_TIMEOUT in _constants.py for the default value.
         '''
-        service_params = _ServiceParameters.get_service_parameters(
+        service_params = _TableServiceParameters.get_service_parameters(
             'table',
             account_name=account_name,
             account_key=account_key,
