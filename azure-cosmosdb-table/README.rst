@@ -92,7 +92,7 @@ first `create an account`_.
 Code Sample
 -----------
 
-See the samples directory for blob, queue, table, and file usage samples.
+See the samples directory for table usage samples.
 
 Need Help?
 ==========
@@ -120,12 +120,12 @@ Learn More
 -  `API Reference`_
 
 .. _Python Developer Center: http://azure.microsoft.com/en-us/develop/python/
-.. _API Reference: https://azure-storage.readthedocs.io/en/latest/
+.. _API Reference: https://azure.github.io/azure-cosmosdb-python/
 .. _create an account: https://account.windowsazure.com/signup
 .. _Developer Forums on MSDN: http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=windowsazuredata
 .. _Developer Forums on Stack Overflow: http://stackoverflow.com/questions/tagged/azure+windows-azure-storage
 .. _Azure Projects Contribution Guidelines: http://azure.github.io/guidelines.html
-.. _Issues: https://github.com/Azure/azure-storage-python/issues
+.. _Issues: https://github.com/Azure/azure-cosmosdb-python/issues
 .. _Azure Storage Service: http://azure.microsoft.com/en-us/documentation/services/storage/
 .. _Azure Storage Team Blog: http://blogs.msdn.com/b/windowsazurestorage/
 .. _CONTRIBUTING.md doc: CONTRIBUTING.md
