@@ -9,6 +9,7 @@ Submodules
    azure.cosmosdb.table.models
    azure.cosmosdb.table.tablebatch
    azure.cosmosdb.table.tableservice
+   azure.cosmosdb.table.sharedaccesssignature
 
 Module contents
 ---------------
