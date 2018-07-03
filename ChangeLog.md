@@ -2,7 +2,10 @@
 
 > See [BreakingChanges](BreakingChanges.md) for a detailed list of API breaks.
 
-## Versino 1.0.3
+## Version 1.0.4
+- Updated azure-storage-common dependency to >= 1.1.0, < 2.0.0
+
+## Version 1.0.3
 - Require futures package only for python versions <= 2.7
 
 ## Version 1.0.2
