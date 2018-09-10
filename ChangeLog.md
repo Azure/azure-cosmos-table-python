@@ -2,6 +2,9 @@
 
 > See [BreakingChanges](BreakingChanges.md) for a detailed list of API breaks.
 
+## Version 1.0.5
+- Packaging change to ensure futures is not installed in Python 3 environments
+
 ## Version 1.0.4
 - Updated azure-storage-common dependency to >= 1.1.0, < 2.0.0
 
