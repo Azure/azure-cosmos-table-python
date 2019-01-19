@@ -198,8 +198,9 @@ def _convert_entity_to_json(source):
 
         # form the property node
         properties[name] = value
-        if mtype:
-            properties[name + '@odata.type'] = mtype
+        odataTypePropertyName = name + '@odata.type'
+        if mtype and odataTypePropertyName not in properties:
+            properties[odataTypePropertyName] = mtype
 
     # generate the entity_body
     return dumps(properties)
