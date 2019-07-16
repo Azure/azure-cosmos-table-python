@@ -57,8 +57,8 @@ _SUB_HEADERS = ['If-Match', 'Prefer', 'Accept', 'Content-Type', 'DataServiceVers
 def _get_entity_path(table_name, partition_key, row_key):
     return '/{0}(PartitionKey=\'{1}\',RowKey=\'{2}\')'.format(
         _to_str(table_name),
-        _to_str(partition_key),
-        _to_str(row_key))
+        _to_str(partition_key.replace('\'', '\'\'')),
+        _to_str(row_key.replace('\'', '\'\'')))
 
 
 def _update_storage_table_header(request):

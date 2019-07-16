@@ -786,6 +786,39 @@ class StorageTableEntityTest(StorageTestCase):
             # Assert
 
     @record
+    def test_operations_on_entity_with_partition_key_having_single_quote(self):
+        partition_key_with_single_quote = "a''''b"
+        row_key_with_single_quote = "a''''b"
+
+        # Arrange
+        entity = self._insert_random_entity(pk=partition_key_with_single_quote, rk=row_key_with_single_quote)
+
+        # Act
+        sent_entity = self._create_updated_entity_dict(entity.PartitionKey, entity.RowKey)
+        resp = self.ts.insert_or_replace_entity(self.table_name, sent_entity)
+
+        # Assert
+        self.assertIsNotNone(resp)
+        received_entity = self.ts.get_entity(self.table_name, entity.PartitionKey, entity.RowKey)
+        self._assert_updated_entity(received_entity)
+
+        # Act
+        sent_entity['newField'] = 'newFieldValue'
+        resp = self.ts.update_entity(self.table_name, sent_entity)
+
+        # Assert
+        self.assertIsNotNone(resp)
+        received_entity = self.ts.get_entity(self.table_name, entity.PartitionKey, entity.RowKey)
+        self._assert_updated_entity(received_entity)
+        self.assertEqual(received_entity['newField'], 'newFieldValue')
+
+        # Act
+        resp = self.ts.delete_entity(self.table_name, received_entity.PartitionKey, received_entity.RowKey)
+
+        # Assert
+        self.assertIsNone(resp)
+
+    @record
     def test_unicode_property_value(self):
         ''' regression test for github issue #57'''
         # Arrange
