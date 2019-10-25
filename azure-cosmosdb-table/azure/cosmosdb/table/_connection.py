@@ -13,12 +13,12 @@
 # limitations under the License.
 # --------------------------------------------------------------------------
 
-from azure.storage.common._constants import (
+from azure.cosmosdb.common._constants import (
     SERVICE_HOST_BASE,
     DEFAULT_PROTOCOL,
 )
 
-from azure.storage.common._connection import (
+from azure.cosmosdb.common._connection import (
     _ServiceParameters,
     _EMULATOR_ENDPOINTS,
     _CONNECTION_ENDPOINTS,

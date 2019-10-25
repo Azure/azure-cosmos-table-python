@@ -23,14 +23,14 @@ else:
 from json import (
     loads,
 )
-from azure.storage.common._http import HTTPResponse
+from azure.cosmosdb.common._http import HTTPResponse
 from azure.common import (
     AzureException,
 )
-from azure.storage.common._common_conversion import (
+from azure.cosmosdb.common._common_conversion import (
     _decode_base64_to_bytes,
 )
-from azure.storage.common._error import (
+from azure.cosmosdb.common._error import (
     _ERROR_DECRYPTION_FAILURE,
     _validate_decryption_required,
 )
@@ -45,7 +45,7 @@ from azure.cosmosdb.table.models import (
     EdmType,
     AzureBatchOperationError,
 )
-from azure.storage.common.models import (
+from azure.cosmosdb.common.models import (
     _list,
 )
 from azure.cosmosdb.table._encryption import (

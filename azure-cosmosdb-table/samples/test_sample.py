@@ -14,7 +14,7 @@
 # --------------------------------------------------------------------------
 import unittest
 
-from azure.storage.common import CloudStorageAccount
+from azure.cosmosdb.common import CloudStorageAccount
 from samples.advanced import (
     AuthenticationSamples,
     ClientSamples,
@@ -31,7 +31,7 @@ class SampleTest(unittest.TestCase):
     def setUp(self):
         super(SampleTest, self).setUp()
         try:
-            from samples.config import config
+            import samples.config as config
         except:
             raise ValueError('Please specify configuration settings in config.py.')
 

@@ -13,10 +13,10 @@
 # limitations under the License.
 # --------------------------------------------------------------------------
 
-from azure.storage.common._common_conversion import (
+from azure.cosmosdb.common._common_conversion import (
     _sign_string,
 )
-from azure.storage.common.sharedaccesssignature import (
+from azure.cosmosdb.common.sharedaccesssignature import (
     SharedAccessSignature,
     _SharedAccessHelper,
     _QueryStringConstants,
@@ -85,7 +85,7 @@ class TableSharedAccessSignature(SharedAccessSignature):
             restricts the request to those IP addresses.
         :param str protocol:
             Specifies the protocol permitted for a request made. The default value
-            is https,http. See :class:`~azure.storage.common.models.Protocol` for possible values.
+            is https,http. See :class:`~azure.cosmosdb.common.models.Protocol` for possible values.
         :param str start_pk:
             The minimum partition key accessible with this shared access
             signature. startpk must accompany startrk. Key values are inclusive.

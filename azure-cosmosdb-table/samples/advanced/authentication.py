@@ -15,7 +15,7 @@ from azure.cosmosdb.table import TableService
 # See the License for the specific language governing permissions and
 # limitations under the License.
 # --------------------------------------------------------------------------
-from azure.storage.common import CloudStorageAccount
+from azure.cosmosdb.common import CloudStorageAccount
 
 
 class AuthenticationSamples():

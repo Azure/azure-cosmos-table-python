@@ -1,6 +1,8 @@
 # Change Log
 
 > See [BreakingChanges](BreakingChanges.md) for a detailed list of API breaks.
+## Version 1.0.6
+- Removed dependency on azure-storage-python
 
 ## Version 1.0.5
 - Packaging change to ensure futures is not installed in Python 3 environments
