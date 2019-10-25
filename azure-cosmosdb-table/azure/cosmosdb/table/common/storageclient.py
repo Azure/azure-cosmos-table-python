@@ -90,10 +90,10 @@ class StorageClient(object):
         reading from secondary.
     :ivar function(context) retry:
         A function which determines whether to retry. Takes as a parameter a 
-        :class:`~azure.cosmosdb.common.models.RetryContext` object. Returns the number
+        :class:`~azure.cosmosdb.table.common.models.RetryContext` object. Returns the number
         of seconds to wait before retrying the request, or None to indicate not 
         to retry.
-    :ivar ~azure.cosmosdb.common.models.LocationMode location_mode:
+    :ivar ~azure.cosmosdb.table.common.models.LocationMode location_mode:
         The host location to use to make requests. Defaults to LocationMode.PRIMARY.
         Note that this setting only applies to RA-GRS accounts as other account 
         types do not allow reading from secondary. If the location_mode is set to 

@@ -81,7 +81,7 @@ class SharedAccessSignature(object):
             restricts the request to those IP addresses.
         :param str protocol:
             Specifies the protocol permitted for a request made. The default value
-            is https,http. See :class:`~azure.cosmosdb.common.models.Protocol` for possible values.
+            is https,http. See :class:`~azure.cosmosdb.table.common.models.Protocol` for possible values.
         '''
         sas = _SharedAccessHelper()
         sas.add_base(permission, expiry, start, ip, protocol, self.x_ms_version)

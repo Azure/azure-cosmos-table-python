@@ -236,7 +236,7 @@ class TableService(StorageClient):
             restricts the request to those IP addresses.
         :param str protocol:
             Specifies the protocol permitted for a request made. The default value
-            is https,http. See :class:`~azure.cosmosdb.common.models.Protocol` for possible values.
+            is https,http. See :class:`~azure.cosmosdb.table.common.models.Protocol` for possible values.
         :return: A Shared Access Signature (sas) token.
         :rtype: str
         '''
@@ -290,7 +290,7 @@ class TableService(StorageClient):
             restricts the request to those IP addresses.
         :param str protocol:
             Specifies the protocol permitted for a request made. The default value
-            is https,http. See :class:`~azure.cosmosdb.common.models.Protocol` for possible values.
+            is https,http. See :class:`~azure.cosmosdb.table.common.models.Protocol` for possible values.
         :param str start_pk:
             The minimum partition key accessible with this shared access 
             signature. startpk must accompany startrk. Key values are inclusive. 
@@ -354,7 +354,7 @@ class TableService(StorageClient):
         :param int timeout:
             The timeout parameter is expressed in seconds.
         :return: The table service stats.
-        :rtype: :class:`~azure.cosmosdb.common.models.ServiceStats`
+        :rtype: :class:`~azure.cosmosdb.table.common.models.ServiceStats`
         '''
         request = HTTPRequest()
         request.method = 'GET'
@@ -376,7 +376,7 @@ class TableService(StorageClient):
         :param int timeout:
             The server timeout, expressed in seconds.
         :return: The table service properties.
-        :rtype: :class:`~azure.cosmosdb.common.models.ServiceProperties`
+        :rtype: :class:`~azure.cosmosdb.table.common.models.ServiceProperties`
         '''
         request = HTTPRequest()
         request.method = 'GET'
@@ -413,7 +413,7 @@ class TableService(StorageClient):
             and CORS will be disabled for the service. For detailed information 
             about CORS rules and evaluation logic, see 
             https://msdn.microsoft.com/en-us/library/azure/dn535601.aspx.
-        :type cors: list(:class:`~azure.cosmosdb.common.models.CorsRule`)
+        :type cors: list(:class:`~azure.cosmosdb.table.common.models.CorsRule`)
         :param int timeout:
             The server timeout, expressed in seconds.
         '''
@@ -455,8 +455,8 @@ class TableService(StorageClient):
             The server timeout, expressed in seconds. This function may make multiple 
             calls to the service in which case the timeout value specified will be 
             applied to each individual call.
-        :return: A generator which produces :class:`~azure.cosmosdb.common.models.table.Table` objects.
-        :rtype: :class:`~azure.cosmosdb.common.models.ListGenerator`:
+        :return: A generator which produces :class:`~azure.cosmosdb.table.common.models.table.Table` objects.
+        :rtype: :class:`~azure.cosmosdb.table.common.models.ListGenerator`:
         '''
         operation_context = _OperationContext(location_lock=True)
         kwargs = {'max_results': num_results, 'marker': marker, 'timeout': timeout,
@@ -485,7 +485,7 @@ class TableService(StorageClient):
         :param int timeout:
             The server timeout, expressed in seconds.
         :return: A list of tables, potentially with a next_marker property.
-        :rtype: list(:class:`~azure.cosmosdb.common.models.table.Table`)
+        :rtype: list(:class:`~azure.cosmosdb.table.common.models.table.Table`)
         '''
         request = HTTPRequest()
         request.method = 'GET'
@@ -620,7 +620,7 @@ class TableService(StorageClient):
         :param int timeout:
             The server timeout, expressed in seconds.
         :return: A dictionary of access policies associated with the table.
-        :rtype: dict(str, :class:`~azure.cosmosdb.common.models.AccessPolicy`)
+        :rtype: dict(str, :class:`~azure.cosmosdb.table.common.models.AccessPolicy`)
         '''
         _validate_not_none('table_name', table_name)
         request = HTTPRequest()
@@ -656,7 +656,7 @@ class TableService(StorageClient):
             A dictionary of access policies to associate with the table. The 
             dictionary may contain up to 5 elements. An empty dictionary 
             will clear the access policies set on the service. 
-        :type signed_identifiers: dict(str, :class:`~azure.cosmosdb.common.models.AccessPolicy`)
+        :type signed_identifiers: dict(str, :class:`~azure.cosmosdb.table.common.models.AccessPolicy`)
         :param int timeout:
             The server timeout, expressed in seconds.
         '''
@@ -722,7 +722,7 @@ class TableService(StorageClient):
             calls to the service in which case the timeout value specified will be 
             applied to each individual call.
         :return: A generator which produces :class:`~azure.storage.table.models.Entity` objects.
-        :rtype: :class:`~azure.cosmosdb.common.models.ListGenerator`
+        :rtype: :class:`~azure.cosmosdb.table.common.models.ListGenerator`
         '''
 
         operation_context = _OperationContext(location_lock=True)
