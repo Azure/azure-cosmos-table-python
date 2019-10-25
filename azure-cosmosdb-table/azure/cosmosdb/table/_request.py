@@ -12,16 +12,16 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 # --------------------------------------------------------------------------
-from azure.storage.common._common_conversion import (
+from azure.cosmosdb.table.common._common_conversion import (
     _to_str,
 )
-from azure.storage.common._error import (
+from azure.cosmosdb.table.common._error import (
     _validate_not_none,
     _validate_encryption_required,
     _validate_encryption_unsupported,
 )
-from azure.storage.common._http import HTTPRequest
-from azure.storage.common._serialization import (
+from azure.cosmosdb.table.common._http import HTTPRequest
+from azure.cosmosdb.table.common._serialization import (
     _get_request_body,
 )
 from azure.cosmosdb.table._encryption import (

@@ -13,7 +13,7 @@
 # limitations under the License.
 # --------------------------------------------------------------------------
 
-from azure.storage.common._auth import (
+from azure.cosmosdb.table.common._auth import (
     _StorageSharedKeyAuthentication,
 )
 

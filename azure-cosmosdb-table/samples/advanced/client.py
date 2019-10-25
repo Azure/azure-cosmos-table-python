@@ -17,8 +17,8 @@
 import requests
 
 from azure.cosmosdb.table import TableService
-from azure.storage.common.models import LocationMode
-from azure.storage.common.retry import (
+from azure.cosmosdb.table.common.models import LocationMode
+from azure.cosmosdb.table.common.retry import (
     ExponentialRetry,
     LinearRetry,
     no_retry,

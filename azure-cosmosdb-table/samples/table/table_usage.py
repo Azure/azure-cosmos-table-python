@@ -22,7 +22,7 @@ from azure.common import (
     AzureMissingResourceHttpError,
 )
 
-from azure.storage.common import (
+from azure.cosmosdb.table.common import (
     Logging,
     Metrics,
     CorsRule,

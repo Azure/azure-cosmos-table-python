@@ -28,20 +28,20 @@ from cryptography.hazmat.primitives.hashes import (
 )
 from cryptography.hazmat.primitives.padding import PKCS7
 
-from azure.storage.common._common_conversion import (
+from azure.cosmosdb.table.common._common_conversion import (
     _decode_base64_to_bytes,
 )
-from azure.storage.common._constants import (
+from azure.cosmosdb.table.common._constants import (
     _ENCRYPTION_PROTOCOL_V1,
 )
-from azure.storage.common._encryption import (
+from azure.cosmosdb.table.common._encryption import (
     _generate_encryption_data_dict,
     _dict_to_encryption_data,
     _generate_AES_CBC_cipher,
     _validate_and_unwrap_cek,
     _EncryptionAlgorithm
 )
-from azure.storage.common._error import (
+from azure.cosmosdb.table.common._error import (
     _ERROR_DECRYPTION_FAILURE,
     _ERROR_UNSUPPORTED_ENCRYPTION_ALGORITHM,
     _validate_not_none,

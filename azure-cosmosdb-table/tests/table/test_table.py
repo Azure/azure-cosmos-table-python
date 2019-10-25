@@ -27,11 +27,12 @@ from azure.common import (
     AzureException,
 )
 
-from azure.storage.common import (
+from azure.cosmosdb.table.common import (
     AccessPolicy,
     ResourceTypes,
     AccountPermissions,
 )
+
 from azure.cosmosdb.table import (
     TableService,
     TablePermissions,

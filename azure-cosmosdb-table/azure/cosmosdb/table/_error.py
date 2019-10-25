@@ -13,7 +13,7 @@
 # limitations under the License.
 # --------------------------------------------------------------------------
 
-from azure.storage.common._error import (
+from azure.cosmosdb.table.common._error import (
     _validate_not_none,
     _ERROR_VALUE_NONE_OR_EMPTY,
 )

@@ -27,19 +27,19 @@ from cryptography.hazmat.primitives.hashes import (
 from cryptography.hazmat.primitives.padding import PKCS7
 from dateutil.tz import tzutc
 
-from azure.storage.common._common_conversion import (
+from azure.cosmosdb.table.common._common_conversion import (
     _encode_base64,
 )
-from azure.storage.common._encryption import (
+from azure.cosmosdb.table.common._encryption import (
     _dict_to_encryption_data,
     _generate_AES_CBC_cipher,
 )
-from azure.storage.common._error import (
+from azure.cosmosdb.table.common._error import (
     _ERROR_OBJECT_INVALID,
     _ERROR_DECRYPTION_FAILURE,
     AzureException,
 )
-from azure.storage.common.models import (
+from azure.cosmosdb.table.common.models import (
     AccessPolicy,
 )
 from azure.cosmosdb.table import (

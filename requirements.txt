@@ -1,5 +1,4 @@
 futures;python_version<="2.7"
-azure-storage-common
 python-dateutil
 requests>=2.9.2
 vcrpy

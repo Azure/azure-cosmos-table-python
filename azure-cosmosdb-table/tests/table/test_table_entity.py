@@ -26,10 +26,10 @@ from azure.common import (
 )
 from dateutil.tz import tzutc, tzoffset
 
-from azure.storage.common import (
+from azure.cosmosdb.table.common import (
     AccessPolicy,
 )
-from azure.storage.common._common_conversion import (
+from azure.cosmosdb.table.common._common_conversion import (
     _encode_base64,
 )
 from azure.cosmosdb.table import (
