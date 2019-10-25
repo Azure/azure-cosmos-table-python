@@ -13,10 +13,10 @@
 # limitations under the License.
 # --------------------------------------------------------------------------
 
-from azure.cosmosdb.common._common_conversion import (
+from azure.cosmosdb.table.common._common_conversion import (
     _sign_string,
 )
-from azure.cosmosdb.common.sharedaccesssignature import (
+from azure.cosmosdb.table.common.sharedaccesssignature import (
     SharedAccessSignature,
     _SharedAccessHelper,
     _QueryStringConstants,

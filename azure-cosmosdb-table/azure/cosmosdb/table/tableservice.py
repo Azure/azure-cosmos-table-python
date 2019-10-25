@@ -18,42 +18,42 @@ from azure.common import (
     AzureHttpError,
 )
 
-from azure.cosmosdb.common._auth import (
+from azure.cosmosdb.table.common._auth import (
     _StorageSASAuthentication,
 )
 from azure.cosmosdb.table._auth import (
     _StorageTableSharedKeyAuthentication,
 )
-from azure.cosmosdb.common._common_conversion import (
+from azure.cosmosdb.table.common._common_conversion import (
     _int_to_str,
     _to_str,
 )
 from azure.cosmosdb.table._connection import _TableServiceParameters
-from azure.cosmosdb.common._constants import (
+from azure.cosmosdb.table.common._constants import (
     SERVICE_HOST_BASE,
     DEFAULT_PROTOCOL,
     DEV_ACCOUNT_NAME,
 )
-from azure.cosmosdb.common._deserialization import (
+from azure.cosmosdb.table.common._deserialization import (
     _convert_xml_to_service_properties,
     _convert_xml_to_signed_identifiers,
     _convert_xml_to_service_stats,
 )
-from azure.cosmosdb.common._error import (
+from azure.cosmosdb.table.common._error import (
     _dont_fail_not_exist,
     _dont_fail_on_exist,
     _validate_not_none,
     _ERROR_STORAGE_MISSING_INFO,
     _validate_access_policies,
 )
-from azure.cosmosdb.common._http import HTTPRequest
-from azure.cosmosdb.common._serialization import (
+from azure.cosmosdb.table.common._http import HTTPRequest
+from azure.cosmosdb.table.common._serialization import (
     _get_request_body,
     _update_request,
     _convert_signed_identifiers_to_xml,
     _convert_service_properties_to_xml,
 )
-from azure.cosmosdb.common.models import (
+from azure.cosmosdb.table.common.models import (
     ListGenerator,
     _OperationContext,
 )
@@ -63,7 +63,7 @@ from azure.cosmosdb.table.models import (
 from azure.cosmosdb.table.sharedaccesssignature import (
     TableSharedAccessSignature,
 )
-from azure.cosmosdb.common.storageclient import StorageClient
+from azure.cosmosdb.table.common.storageclient import StorageClient
 from azure.cosmosdb.table._deserialization import (
     _convert_json_response_to_entity,
     _convert_json_response_to_tables,

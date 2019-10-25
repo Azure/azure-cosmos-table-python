@@ -3,13 +3,13 @@
 # Licensed under the MIT License. See License.txt in the project root for
 # license information.
 # --------------------------------------------------------------------------
-from azure.cosmosdb.common._constants import (
+from azure.cosmosdb.table.common._constants import (
     __author__,
     __version__,
     DEFAULT_X_MS_VERSION,
 )
-from azure.cosmosdb.common.cloudstorageaccount import CloudStorageAccount
-from azure.cosmosdb.common.models import (
+from azure.cosmosdb.table.common.cloudstorageaccount import CloudStorageAccount
+from azure.cosmosdb.table.common.models import (
     RetentionPolicy,
     Logging,
     Metrics,
@@ -27,13 +27,13 @@ from azure.cosmosdb.common.models import (
     LocationMode,
     RetryContext,
 )
-from azure.cosmosdb.common.retry import (
+from azure.cosmosdb.table.common.retry import (
     ExponentialRetry,
     LinearRetry,
     no_retry,
 )
-from azure.cosmosdb.common.sharedaccesssignature import (
+from azure.cosmosdb.table.common.sharedaccesssignature import (
     SharedAccessSignature,
 )
-from azure.cosmosdb.common.tokencredential import TokenCredential
-from azure.cosmosdb.common._error import AzureSigningError
+from azure.cosmosdb.table.common.tokencredential import TokenCredential
+from azure.cosmosdb.table.common._error import AzureSigningError

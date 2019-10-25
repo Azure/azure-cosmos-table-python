@@ -17,7 +17,7 @@ from datetime import datetime
 
 from dateutil.tz import tzutc
 
-from azure.cosmosdb.common.retry import (
+from azure.cosmosdb.table.common.retry import (
     LinearRetry,
 )
 from azure.cosmosdb.table import (

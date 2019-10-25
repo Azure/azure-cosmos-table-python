@@ -21,7 +21,7 @@ from azure.cosmosdb.table._error import (
     _ERROR_ATTRIBUTE_MISSING,
 )
 
-from azure.cosmosdb.common.models import (
+from azure.cosmosdb.table.common.models import (
     Services,
 )
 
