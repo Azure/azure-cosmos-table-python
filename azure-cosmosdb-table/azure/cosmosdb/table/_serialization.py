@@ -131,6 +131,7 @@ _PYTHON_TO_ENTITY_CONVERSIONS = {
     datetime: _to_entity_datetime,
     float: _to_entity_float,
     str: _to_entity_str,
+    byte: _to_entity_binary,
 }
 
 # Conversion from Edm type to a function which returns a tuple of the
