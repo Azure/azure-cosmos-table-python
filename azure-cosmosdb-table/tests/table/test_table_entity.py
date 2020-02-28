@@ -79,6 +79,14 @@ class StorageTableEntityTest(StorageTestCase):
 
         return super(StorageTableEntityTest, self).tearDown()
 
+    # --Backward compatibility shims--------------------------------------------
+
+    def assertRaisesRegex(self, exception, message):
+        # assertRaisesRegexp deprecated and renamed to assertRaisesRegex in 3.1
+        if hasattr(unittest.TestCase, 'assertRaisesRegex'):
+            return super(StorageTestCase, self).assertRaisesRegex(exception, message)
+        return super(StorageTestCase, self).assertRaisesRegexp(exception, message)
+
     # --Helpers-----------------------------------------------------------------
 
     def _create_query_table(self, entity_count):
@@ -347,12 +355,12 @@ class StorageTableEntityTest(StorageTestCase):
         dict32['large'] = EntityProperty(EdmType.INT32, 2 ** 31)
 
         # Assert
-        with self.assertRaisesRegexp(TypeError,
+        with self.assertRaisesRegex(TypeError,
                                      '{0} is too large to be cast to type Edm.Int32.'.format(2 ** 31)):
             self.ts.insert_entity(self.table_name, dict32)
 
         dict32['large'] = EntityProperty(EdmType.INT32, -(2 ** 31 + 1))
-        with self.assertRaisesRegexp(TypeError,
+        with self.assertRaisesRegex(TypeError,
                                      '{0} is too large to be cast to type Edm.Int32.'.format(-(2 ** 31 + 1))):
             self.ts.insert_entity(self.table_name, dict32)
 
@@ -365,12 +373,12 @@ class StorageTableEntityTest(StorageTestCase):
         dict64['large'] = EntityProperty(EdmType.INT64, 2 ** 63)
 
         # Assert
-        with self.assertRaisesRegexp(TypeError,
+        with self.assertRaisesRegex(TypeError,
                                      '{0} is too large to be cast to type Edm.Int64.'.format(2 ** 63)):
             self.ts.insert_entity(self.table_name, dict64)
 
         dict64['large'] = EntityProperty(EdmType.INT64, -(2 ** 63 + 1))
-        with self.assertRaisesRegexp(TypeError,
+        with self.assertRaisesRegex(TypeError,
                                      '{0} is too large to be cast to type Edm.Int64.'.format(-(2 ** 63 + 1))):
             self.ts.insert_entity(self.table_name, dict64)
 
@@ -520,7 +528,7 @@ class StorageTableEntityTest(StorageTestCase):
         entity = self._insert_random_entity()
 
         # Act
-        with self.assertRaisesRegexp(AzureException,
+        with self.assertRaisesRegex(AzureException,
                                      'Type not supported when sending data to the service:'):
             self.ts.get_entity(self.table_name, entity.PartitionKey, entity.RowKey,
                                property_resolver=lambda pk, rk, name, val, type: 'badType')
@@ -533,7 +541,7 @@ class StorageTableEntityTest(StorageTestCase):
         entity = self._insert_random_entity()
 
         # Act
-        with self.assertRaisesRegexp(AzureException,
+        with self.assertRaisesRegex(AzureException,
                                      'The specified property resolver returned an invalid type.'):
             self.ts.get_entity(self.table_name, entity.PartitionKey, entity.RowKey,
                                property_resolver=lambda pk, rk, name, val, type: EdmType.INT64)
