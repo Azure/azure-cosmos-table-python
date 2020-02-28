@@ -21,7 +21,7 @@ parameter values are divided by '_' between words as is idiomatic.
 Listing returns a generator rather than a result segment. This generator automatically 
 follows continuation tokens as more results are requested.
 
-SAS methods take several individual parameters rather than a single paramter 
+SAS methods take several individual parameters rather than a single parameter
 object. Similarly, ACL getters and setters take dictionaries mapping id to 
 AccessPolicy rather than a list of SignedIdentifiers each holding an id and an 
 AccessPolicy. 
@@ -66,7 +66,7 @@ Table
 Rather than having a boolean switch for turning batching on and off, batches are 
 an object which can be populated and then committed. Entities can be sent as dictionaries 
 or as Entity objects, and returned entities are accessible as either objects or 
-dictionaries. Methods which access and modify entites have been simplified so that 
+dictionaries. Methods which access and modify entities have been simplified so that
 if they take an entity object they extract the partition key and row key from that 
 object rather than requiring these be sent separately.
 
