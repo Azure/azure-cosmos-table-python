@@ -9,6 +9,8 @@ the Microsoft Azure `Python Developer Center`_ and our `API Reference`_ Page.
     libraries, please visit
     https://github.com/Azure/azure-sdk-for-python.
 
+Please note, a newer package is available [azure-data-tables](https://pypi.org/project/azure-data-tables/)
+as of 06/19. we strongly encourage you to upgrade. See the [Migration Guide](https://aka.ms) for more details.
 
 Compatibility
 =============
