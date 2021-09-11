@@ -1,8 +1,9 @@
 Microsoft Azure CosmosDB Tables SDK for Python
 ==============================================
 
-Please note, a newer package is available `azure-data-tables`_ as of June 2021.
-We strongly encourage you to upgrade. See `Migration Guide`_ for more details.
+**Please note, a newer package is available `azure-data-tables`_ as of June 2021.**
+
+**We strongly encourage you to upgrade. See `Migration Guide`_ for more details.**
 
 This project provides a client library in Python that makes it easy to
 consume Microsoft Azure CosmosDB Table services.

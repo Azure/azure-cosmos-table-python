@@ -2,7 +2,9 @@ Azure CosmosDB Table SDK Samples
 ================================
 
 Samples in this repository use older `azure-cosmosdb-table`_ package.
+
 We recommend that you get started using the new package here instead: `azure-data-tables`_.
+
 Samples using the new package can be found here: `azure-sdk-for-python/sdk/tables/azure-data-tables/samples`_
 
 .. _azure-cosmosdb-table: https://pypi.org/project/azure-cosmosdb-table/
