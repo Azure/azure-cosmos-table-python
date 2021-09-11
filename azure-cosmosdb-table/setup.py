@@ -45,7 +45,7 @@ except ImportError:
 
 setup(
     name='azure-cosmosdb-table',
-    version='1.0.6',
+    version='1.0.7',
     description='Microsoft Azure CosmosDB Table Client Library for Python',
     long_description=open('README.rst', 'r').read(),
     license='Apache License 2.0',
