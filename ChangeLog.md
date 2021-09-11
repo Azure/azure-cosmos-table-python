@@ -1,6 +1,10 @@
 # Change Log
 
 > See [BreakingChanges](BreakingChanges.md) for a detailed list of API breaks.
+
+## Version 1.0.7
+- Updated readme with deprecation message
+
 ## Version 1.0.6
 - Removed dependency on azure-storage-python
 
