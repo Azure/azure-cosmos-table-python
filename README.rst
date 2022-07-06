@@ -1,8 +1,8 @@
-Microsoft Azure CosmosDB SDK for Python
+Microsoft Azure Cosmos DB SDK for Python
 =======================================
 
 This project provides a client library in Python that makes it easy to
-consume Microsoft Azure CosmosDB services. For documentation please see
+consume Microsoft Azure Cosmos DB services. For documentation please see
 the Microsoft Azure `Python Developer Center`_
 
     If you are looking for the Service Bus or Azure Management
